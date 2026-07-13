@@ -138,14 +138,18 @@ def broadcast_join(
 
 
 def cache_df(df: DataFrame, storage_level: str = "MEMORY_AND_DISK") -> DataFrame:
-    from pyspark import StorageLevel
+    """Persist DataFrame when supported; no-op on Serverless if persist fails."""
+    try:
+        from pyspark import StorageLevel
 
-    levels = {
-        "MEMORY_ONLY": StorageLevel.MEMORY_ONLY,
-        "MEMORY_AND_DISK": StorageLevel.MEMORY_AND_DISK,
-        "DISK_ONLY": StorageLevel.DISK_ONLY,
-    }
-    return df.persist(levels.get(storage_level, StorageLevel.MEMORY_AND_DISK))
+        levels = {
+            "MEMORY_ONLY": StorageLevel.MEMORY_ONLY,
+            "MEMORY_AND_DISK": StorageLevel.MEMORY_AND_DISK,
+            "DISK_ONLY": StorageLevel.DISK_ONLY,
+        }
+        return df.persist(levels.get(storage_level, StorageLevel.MEMORY_AND_DISK))
+    except Exception:
+        return df
 
 
 DLQ_SCHEMA = StructType(
@@ -186,12 +190,9 @@ def write_to_dlq(
         "CreatedAt": datetime.now(timezone.utc).replace(tzinfo=None),
     }
     df = spark.createDataFrame([row], schema=DLQ_SCHEMA)
-    (
-        df.write.format("delta")
-        .mode("append")
-        .option("mergeSchema", "true")
-        .save(PATHS.dlq_path(entity))
-    )
+    from src.utilities.delta_helpers import write_delta
+
+    write_delta(df, PATHS.dlq_path(entity), mode="append", merge_schema=True)
 
 
 def dataframe_to_json_column(df: DataFrame) -> DataFrame:

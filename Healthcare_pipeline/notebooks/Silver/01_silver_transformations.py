@@ -82,7 +82,7 @@ from src.utilities.data_quality import (
 )
 from src.utilities.dataframe_utils import generate_run_id
 from src.utilities.databricks_runtime import prepare_databricks_runtime
-from src.utilities.delta_helpers import write_delta
+from src.utilities.delta_helpers import table_exists, write_delta
 
 # COMMAND ----------
 
@@ -106,6 +106,12 @@ logger.info("Silver pipeline started", module="silver", details=cfg.to_dict())
 status_map = {}
 
 try:
+    missing_bronze = [e for e in ALL_ENTITIES if not table_exists(spark, cfg.paths.bronze_path(e))]
+    if missing_bronze:
+        raise FileNotFoundError(
+            f"Missing Bronze tables {missing_bronze}. Run Bronze ingestion first."
+        )
+
     bronze = {
         e: spark.read.format("delta").load(cfg.paths.bronze_path(e))
         for e in ALL_ENTITIES

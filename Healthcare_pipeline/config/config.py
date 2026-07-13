@@ -116,11 +116,14 @@ class AutoLoaderConfig:
 class DeltaMaintenanceConfig:
     """OPTIMIZE / VACUUM / ZORDER / Liquid Clustering settings."""
 
-    optimize_enabled: bool = True
-    vacuum_enabled: bool = True
+    # Defaults tuned for Databricks Free Edition / Serverless (safe, non-blocking)
+    optimize_enabled: bool = field(default_factory=lambda: _env_bool("HC_OPTIMIZE_ENABLED", False))
+    vacuum_enabled: bool = field(default_factory=lambda: _env_bool("HC_VACUUM_ENABLED", False))
     vacuum_retention_hours: int = 168  # 7 days
-    zorder_enabled: bool = True
-    liquid_clustering_enabled: bool = True
+    zorder_enabled: bool = field(default_factory=lambda: _env_bool("HC_ZORDER_ENABLED", False))
+    liquid_clustering_enabled: bool = field(
+        default_factory=lambda: _env_bool("HC_LIQUID_CLUSTERING_ENABLED", False)
+    )
     time_travel_enabled: bool = True
 
 

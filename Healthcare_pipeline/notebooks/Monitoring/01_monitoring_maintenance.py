@@ -74,6 +74,7 @@ from src.utilities.delta_helpers import (
     enable_liquid_clustering,
     history,
     maintain_entity,
+    table_exists,
     time_travel,
 )
 
@@ -150,7 +151,7 @@ except Exception as exc:
 
 # COMMAND ----------
 
-if cfg.delta_maintenance.optimize_enabled:
+if cfg.delta_maintenance.optimize_enabled or cfg.delta_maintenance.vacuum_enabled:
     with auditor.track("monitoring_delta_maintenance") as ctx:
         maintained = 0
         for entity in ALL_ENTITIES:
@@ -161,6 +162,8 @@ if cfg.delta_maintenance.optimize_enabled:
                     entity,
                     path,
                     vacuum_hours=cfg.delta_maintenance.vacuum_retention_hours,
+                    vacuum_enabled=cfg.delta_maintenance.vacuum_enabled,
+                    optimize_enabled=cfg.delta_maintenance.optimize_enabled,
                     logger=logger,
                 )
                 maintained += 1
@@ -171,6 +174,11 @@ if cfg.delta_maintenance.optimize_enabled:
                 )
         ctx["rows_updated"] = maintained
         status_map["entities_maintained"] = maintained
+else:
+    logger.info(
+        "Delta OPTIMIZE/VACUUM disabled for Free Edition profile",
+        module="monitoring",
+    )
 
 # COMMAND ----------
 
@@ -182,6 +190,8 @@ if cfg.delta_maintenance.optimize_enabled:
 patients_path = cfg.paths.silver_path("patients")
 try:
     with auditor.track("monitoring_time_travel") as ctx:
+        if not table_exists(spark, patients_path):
+            raise FileNotFoundError(f"Silver patients missing: {patients_path}")
         hist = history(spark, patients_path, limit=20)
         display(hist)  # noqa: F821
 

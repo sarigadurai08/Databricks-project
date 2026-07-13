@@ -19,7 +19,7 @@ from config.constants import (
     SCD2_VERSION,
 )
 from src.logging.logger import HealthcareLogger
-from src.utilities.delta_helpers import merge_delta, table_exists, write_delta
+from src.utilities.delta_helpers import ensure_delta_parent, merge_delta, table_exists, write_delta
 from src.utilities.exceptions import TransformationError
 
 
@@ -29,6 +29,26 @@ def _dataframe_is_empty(df: DataFrame) -> bool:
         return df.isEmpty()
     except Exception:
         return df.limit(1).count() == 0
+
+
+def _is_path_not_found(exc: BaseException) -> bool:
+    msg = str(exc).upper()
+    return "PATH_NOT_FOUND" in msg or "DOES NOT EXIST" in msg or "FILENOTFOUND" in msg.replace(" ", "")
+
+
+def _bootstrap_delta_table(
+    spark: SparkSession,
+    source_df: DataFrame,
+    target_path: str,
+    logger: Optional[HealthcareLogger],
+    module: str,
+) -> DataFrame:
+    """Create a new Delta table at target_path (first load / missing path)."""
+    ensure_delta_parent(spark, target_path)
+    write_delta(source_df, target_path, mode="overwrite", merge_schema=True)
+    if logger:
+        logger.info(f"{module} created target {target_path}", module=module)
+    return spark.read.format("delta").load(target_path)
 
 
 def apply_scd_type1(
@@ -46,40 +66,42 @@ def apply_scd_type1(
     merge_condition = " AND ".join([f"t.`{k}` = s.`{k}`" for k in keys])
 
     if not table_exists(spark, target_path):
-        write_delta(source_df, target_path, mode="overwrite")
-        if logger:
-            logger.info(f"SCD1 created target {target_path}", module="scd1")
-        return spark.read.format("delta").load(target_path)
+        return _bootstrap_delta_table(spark, source_df, target_path, logger, "scd1")
 
     # Optionally only update when tracked columns change
-    if compare_columns:
-        change_pred = " OR ".join(
-            [
-                f"NOT (t.`{c}` <=> s.`{c}`)"
-                for c in compare_columns
-                if c in source_df.columns
-            ]
-        )
-        from delta.tables import DeltaTable
+    try:
+        if compare_columns:
+            change_pred = " OR ".join(
+                [
+                    f"NOT (t.`{c}` <=> s.`{c}`)"
+                    for c in compare_columns
+                    if c in source_df.columns
+                ]
+            )
+            from delta.tables import DeltaTable
 
-        delta_table = DeltaTable.forPath(spark, target_path)
-        (
-            delta_table.alias("t")
-            .merge(source_df.alias("s"), merge_condition)
-            .whenMatchedUpdateAll(condition=change_pred)
-            .whenNotMatchedInsertAll()
-            .execute()
-        )
-    else:
-        merge_delta(
-            spark,
-            source_df,
-            target_path,
-            merge_condition=merge_condition,
-            when_matched_update_all=True,
-            when_not_matched_insert_all=True,
-            logger=logger,
-        )
+            delta_table = DeltaTable.forPath(spark, target_path)
+            (
+                delta_table.alias("t")
+                .merge(source_df.alias("s"), merge_condition)
+                .whenMatchedUpdateAll(condition=change_pred)
+                .whenNotMatchedInsertAll()
+                .execute()
+            )
+        else:
+            merge_delta(
+                spark,
+                source_df,
+                target_path,
+                merge_condition=merge_condition,
+                when_matched_update_all=True,
+                when_not_matched_insert_all=True,
+                logger=logger,
+            )
+    except Exception as exc:
+        if _is_path_not_found(exc):
+            return _bootstrap_delta_table(spark, source_df, target_path, logger, "scd1")
+        raise
 
     if logger:
         logger.info(f"SCD1 MERGE complete for {target_path}", module="scd1")
@@ -101,7 +123,6 @@ def apply_scd_type2(
         EffectiveStartDate, EffectiveEndDate, IsCurrent, VersionNumber
     """
     keys = [primary_key] if isinstance(primary_key, str) else list(primary_key)
-    pk_join = " AND ".join([f"t.`{k}` = s.`{k}`" for k in keys])
 
     # Prepare source with SCD2 attributes for new/current versions
     staged = (
@@ -112,15 +133,17 @@ def apply_scd_type2(
     )
 
     if not table_exists(spark, target_path):
-        write_delta(staged, target_path, mode="overwrite")
-        if logger:
-            logger.info(f"SCD2 created target {target_path}", module="scd2")
-        return spark.read.format("delta").load(target_path)
+        return _bootstrap_delta_table(spark, staged, target_path, logger, "scd2")
 
     from delta.tables import DeltaTable
 
-    target = DeltaTable.forPath(spark, target_path)
-    current = spark.read.format("delta").load(target_path).filter(F.col(SCD2_IS_CURRENT) == True)  # noqa: E712
+    try:
+        target = DeltaTable.forPath(spark, target_path)
+        current = spark.read.format("delta").load(target_path).filter(F.col(SCD2_IS_CURRENT) == True)  # noqa: E712
+    except Exception as exc:
+        if _is_path_not_found(exc):
+            return _bootstrap_delta_table(spark, staged, target_path, logger, "scd2")
+        raise
 
     # Detect changed records vs current
     change_expr = " OR ".join(
@@ -142,14 +165,8 @@ def apply_scd_type2(
         """
     )
 
-    news = spark.sql(
-        f"""
-        SELECT s.*
-        FROM _scd2_src s
-        LEFT ANTI JOIN _scd2_cur c
-          ON {" AND ".join([f"c.`{k}` = s.`{k}`" for k in keys])}
-        """
-    )
+    # Prefer DataFrame left_anti (more portable than Spark SQL LEFT ANTI JOIN)
+    news = source_df.join(current.select(*keys), on=keys, how="left_anti")
 
     # Expire current versions that changed
     has_changes = not _dataframe_is_empty(changes)

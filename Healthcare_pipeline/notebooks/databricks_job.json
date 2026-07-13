@@ -52,14 +52,6 @@
         "notebook_path": "notebooks/Monitoring/01_monitoring_maintenance",
         "source": "GIT"
       }
-    },
-    {
-      "task_key": "run_all_pipelines",
-      "depends_on": [{"task_key": "monitoring_maintenance"}],
-      "notebook_task": {
-        "notebook_path": "notebooks/00_run_all_pipelines",
-        "source": "GIT"
-      }
     }
   ],
   "performance_target": "STANDARD",

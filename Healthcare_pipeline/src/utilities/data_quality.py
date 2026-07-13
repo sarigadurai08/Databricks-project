@@ -27,6 +27,7 @@ from pyspark.sql.types import (
 
 from config.paths import PATHS
 from src.logging.logger import HealthcareLogger
+from src.utilities.delta_helpers import write_delta
 from src.utilities.exceptions import DataQualityError
 
 
@@ -379,12 +380,7 @@ class DataQualityFramework:
                 "DetectedAt",
             )
         )
-        (
-            enriched.write.format("delta")
-            .mode("append")
-            .option("mergeSchema", "true")
-            .save(PATHS.dq_failed_records_path())
-        )
+        write_delta(enriched, PATHS.dq_failed_records_path(), mode="append", merge_schema=True)
 
     def _persist_results(self, results: list[DQResult]) -> None:
         now = datetime.now(timezone.utc).replace(tzinfo=None)
@@ -407,12 +403,7 @@ class DataQualityFramework:
         if not rows:
             return
         df = self.spark.createDataFrame(rows, schema=DQ_RESULT_SCHEMA)
-        (
-            df.write.format("delta")
-            .mode("append")
-            .option("mergeSchema", "true")
-            .save(PATHS.dq_results_path())
-        )
+        write_delta(df, PATHS.dq_results_path(), mode="append", merge_schema=True)
 
 
 def build_patient_dq(spark: SparkSession, run_id: str, logger: Optional[HealthcareLogger] = None) -> DataQualityFramework:

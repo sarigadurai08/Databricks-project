@@ -73,6 +73,7 @@ from src.logging.logger import ensure_log_table, get_logger
 from src.utilities.data_quality import DataQualityFramework, Severity
 from src.utilities.dataframe_utils import generate_run_id
 from src.utilities.databricks_runtime import prepare_databricks_runtime
+from src.utilities.delta_helpers import table_exists
 
 # COMMAND ----------
 
@@ -89,6 +90,21 @@ logger.info("Data quality pipeline started", module="data_quality", details=cfg.
 # COMMAND ----------
 
 try:
+    required = [
+        "patients",
+        "doctors",
+        "appointments",
+        "insurance_claims",
+        "billing",
+        "pharmacy_orders",
+        "laboratory_results",
+    ]
+    missing = [e for e in required if not table_exists(spark, cfg.paths.silver_path(e))]
+    if missing:
+        raise FileNotFoundError(
+            f"Missing Silver tables {missing}. Run Bronze then Silver before Data Quality."
+        )
+
     patients = spark.read.format("delta").load(cfg.paths.silver_path("patients")).filter(F.col("IsCurrent") == True)  # noqa: E712
     doctors = spark.read.format("delta").load(cfg.paths.silver_path("doctors"))
     appointments = spark.read.format("delta").load(cfg.paths.silver_path("appointments"))
@@ -226,7 +242,10 @@ except Exception as exc:
 # COMMAND ----------
 
 summary = spark.createDataFrame([r.__dict__ for r in all_results])
-display(summary.orderBy("severity", "status"))  # noqa: F821
+try:
+    display(summary.orderBy("severity", "status"))  # noqa: F821
+except Exception as display_exc:
+    logger.warning(f"Could not display DQ summary: {display_exc}", module="data_quality")
 
 failed = summary.filter(F.col("status") == "FAILED")
 logger.info(

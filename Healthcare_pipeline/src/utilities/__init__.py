@@ -18,6 +18,7 @@ from src.utilities.dataframe_utils import (
 )
 from src.utilities.delta_helpers import (
     enable_liquid_clustering,
+    ensure_delta_parent,
     history,
     maintain_entity,
     merge_delta,
@@ -61,6 +62,7 @@ __all__ = [
     "standardize_string_columns",
     "write_to_dlq",
     "enable_liquid_clustering",
+    "ensure_delta_parent",
     "history",
     "maintain_entity",
     "merge_delta",

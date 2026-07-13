@@ -72,6 +72,7 @@ from src.utilities.databricks_runtime import prepare_databricks_runtime
 from src.utilities.delta_helpers import (
     maintain_entity,
     optimize_table,
+    table_exists,
     write_delta,
 )
 
@@ -103,17 +104,32 @@ logger.info("Gold pipeline started", module="gold", details=cfg.to_dict())
 # COMMAND ----------
 
 try:
+    required = {
+        "patients": cfg.paths.silver_path("patients"),
+        "doctors": cfg.paths.silver_path("doctors"),
+        "appointments": cfg.paths.silver_path("appointments"),
+        "insurance_claims": cfg.paths.silver_path("insurance_claims"),
+        "pharmacy_orders": cfg.paths.silver_path("pharmacy_orders"),
+        "laboratory_results": cfg.paths.silver_path("laboratory_results"),
+        "billing": cfg.paths.silver_path("billing"),
+    }
+    missing = [name for name, path in required.items() if not table_exists(spark, path)]
+    if missing:
+        raise FileNotFoundError(
+            f"Missing Silver tables {missing}. Run Bronze then Silver before Gold."
+        )
+
     patients = (
         spark.read.format("delta")
-        .load(cfg.paths.silver_path("patients"))
+        .load(required["patients"])
         .filter(F.col("IsCurrent") == True)  # noqa: E712
     )
-    doctors = spark.read.format("delta").load(cfg.paths.silver_path("doctors"))
-    appointments = spark.read.format("delta").load(cfg.paths.silver_path("appointments"))
-    claims = spark.read.format("delta").load(cfg.paths.silver_path("insurance_claims"))
-    pharmacy = spark.read.format("delta").load(cfg.paths.silver_path("pharmacy_orders"))
-    labs = spark.read.format("delta").load(cfg.paths.silver_path("laboratory_results"))
-    billing = spark.read.format("delta").load(cfg.paths.silver_path("billing"))
+    doctors = spark.read.format("delta").load(required["doctors"])
+    appointments = spark.read.format("delta").load(required["appointments"])
+    claims = spark.read.format("delta").load(required["insurance_claims"])
+    pharmacy = spark.read.format("delta").load(required["pharmacy_orders"])
+    labs = spark.read.format("delta").load(required["laboratory_results"])
+    billing = spark.read.format("delta").load(required["billing"])
 
     logger.info("Silver sources loaded for gold build", module="gold")
 except Exception as exc:
@@ -188,13 +204,16 @@ if cfg.delta_maintenance.optimize_enabled:
 
 # COMMAND ----------
 
-monthly = spark.read.format("delta").load(cfg.paths.gold_path("monthly_revenue"))
-hospital = spark.read.format("delta").load(cfg.paths.gold_path("hospital_revenue"))
-top_dx = spark.read.format("delta").load(cfg.paths.gold_path("top_diseases"))
+try:
+    monthly = spark.read.format("delta").load(cfg.paths.gold_path("monthly_revenue"))
+    hospital = spark.read.format("delta").load(cfg.paths.gold_path("hospital_revenue"))
+    top_dx = spark.read.format("delta").load(cfg.paths.gold_path("top_diseases"))
 
-display(monthly)  # noqa: F821
-display(hospital)  # noqa: F821
-display(top_dx.limit(10))  # noqa: F821
+    display(monthly)  # noqa: F821
+    display(hospital)  # noqa: F821
+    display(top_dx.limit(10))  # noqa: F821
+except Exception as exc:
+    logger.warning(f"KPI snapshot skipped: {exc}", module="gold")
 
 # COMMAND ----------
 

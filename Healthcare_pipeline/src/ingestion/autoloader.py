@@ -100,7 +100,9 @@ class AutoLoaderIngestion:
         self.logger = logger
         self.run_id = run_id or str(uuid.uuid4())
         self.load_id = generate_load_id()
-        self._is_databricks = self._detect_databricks()
+        # Free Edition / Serverless: default to batch fallback (new_bronze.py pattern).
+        # Opt into cloudFiles by setting ingestion._is_databricks = True explicitly.
+        self._is_databricks = False
 
     def _detect_databricks(self) -> bool:
         try:
@@ -337,6 +339,12 @@ class AutoLoaderIngestion:
             raw = raw.withColumn(META_RESCUED_DATA, F.col(META_RESCUED_DATA).cast("string"))
 
         # Lineage — uses patched F.input_file_name on Databricks Serverless
+        try:
+            from src.utilities.databricks_runtime import patch_input_file_name
+
+            patch_input_file_name()
+        except Exception:
+            pass
         try:
             raw = raw.withColumn("_source_file", F.input_file_name())
         except Exception:

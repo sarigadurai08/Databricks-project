@@ -5,19 +5,71 @@ constraints, generated columns, and liquid clustering where supported.
 
 from __future__ import annotations
 
-from typing import Iterable, Optional, Sequence
+from pathlib import Path
+from typing import TYPE_CHECKING, Iterable, Optional, Sequence
 
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
 
 from config.constants import OPTIMIZE_ZORDER_COLUMNS
-from src.logging.logger import HealthcareLogger
 from src.utilities.exceptions import MergeConflictError
+
+if TYPE_CHECKING:
+    from src.logging.logger import HealthcareLogger
+
+
+def _dbutils(spark: Optional[SparkSession] = None):
+    spark = spark or SparkSession.getActiveSession()
+    try:
+        from pyspark.dbutils import DBUtils  # type: ignore
+
+        if spark is not None:
+            return DBUtils(spark)
+    except Exception:
+        pass
+    try:
+        import IPython
+
+        return IPython.get_ipython().user_ns.get("dbutils")  # type: ignore[union-attr]
+    except Exception:
+        return None
+
+
+def ensure_delta_parent(spark: SparkSession, path: str) -> None:
+    """
+    Ensure parent directories exist for Volume / DBFS Delta paths.
+
+    Databricks Volumes can raise PATH_NOT_FOUND on first write if parents
+    were never created.
+    """
+    normalized = path.rstrip("/")
+    parent = normalized.rsplit("/", 1)[0] if "/" in normalized else ""
+    if not parent:
+        return
+
+    dbutils = _dbutils(spark)
+    if dbutils is not None:
+        try:
+            dbutils.fs.mkdirs(parent)
+            return
+        except Exception:
+            pass
+
+    try:
+        Path(parent).mkdir(parents=True, exist_ok=True)
+    except OSError:
+        pass
 
 
 def table_exists(spark: SparkSession, path: str) -> bool:
+    """
+    Return True only when a readable Delta table exists at path.
+
+    Uses limit(1).count() so Spark Connect / Serverless cannot short-circuit
+    a missing path the way limit(0) sometimes does.
+    """
     try:
-        spark.read.format("delta").load(path).limit(0)
+        spark.read.format("delta").load(path).limit(1).count()
         return True
     except Exception:
         return False
@@ -30,6 +82,9 @@ def write_delta(
     partition_by: Optional[Sequence[str]] = None,
     merge_schema: bool = True,
 ) -> None:
+    spark = getattr(df, "sparkSession", None) or SparkSession.getActiveSession()
+    if spark is not None:
+        ensure_delta_parent(spark, path)
     writer = df.write.format("delta").mode(mode).option("mergeSchema", str(merge_schema).lower())
     if partition_by:
         writer = writer.partitionBy(*partition_by)
@@ -206,11 +261,30 @@ def maintain_entity(
     entity: str,
     path: str,
     vacuum_hours: int = 168,
+    vacuum_enabled: bool = True,
+    optimize_enabled: bool = True,
     logger: Optional[HealthcareLogger] = None,
 ) -> None:
-    zcols = OPTIMIZE_ZORDER_COLUMNS.get(entity)
-    optimize_table(spark, path, zorder_columns=zcols, logger=logger)
-    vacuum_table(spark, path, retention_hours=vacuum_hours, logger=logger)
+    if not table_exists(spark, path):
+        if logger:
+            logger.warning(
+                f"Maintenance skipped — Delta path missing: {path}",
+                module="delta_maintenance",
+            )
+        return
+    try:
+        if optimize_enabled:
+            zcols = OPTIMIZE_ZORDER_COLUMNS.get(entity)
+            optimize_table(spark, path, zorder_columns=zcols, logger=logger)
+    except Exception as exc:
+        if logger:
+            logger.warning(f"OPTIMIZE skipped for {entity}: {exc}", module="delta_maintenance")
+    try:
+        if vacuum_enabled:
+            vacuum_table(spark, path, retention_hours=vacuum_hours, logger=logger)
+    except Exception as exc:
+        if logger:
+            logger.warning(f"VACUUM skipped for {entity}: {exc}", module="delta_maintenance")
 
 
 def with_generated_ingestion_date(df: DataFrame, source_col: str = "_ingestion_time") -> DataFrame:

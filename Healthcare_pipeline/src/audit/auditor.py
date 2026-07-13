@@ -26,6 +26,7 @@ from pyspark.sql.types import (
 from config.constants import PipelineStatus
 from config.paths import PATHS
 from src.logging.logger import HealthcareLogger
+from src.utilities.delta_helpers import write_delta
 
 
 AUDIT_SCHEMA = StructType(
@@ -168,12 +169,7 @@ class PipelineAuditor:
             "Environment": self.environment,
         }
         df = self.spark.createDataFrame([row], schema=AUDIT_SCHEMA)
-        (
-            df.write.format("delta")
-            .mode("append")
-            .option("mergeSchema", "true")
-            .save(PATHS.audit_path())
-        )
+        write_delta(df, PATHS.audit_path(), mode="append", merge_schema=True)
         if self.logger:
             self.logger.info(
                 f"Audit recorded status={status.value} table={table_name}",
@@ -190,7 +186,7 @@ class PipelineAuditor:
 def ensure_audit_table(spark: SparkSession) -> None:
     path = PATHS.audit_path()
     try:
-        spark.read.format("delta").load(path).limit(0)
+        spark.read.format("delta").load(path).limit(1).count()
     except Exception:
         empty = spark.createDataFrame([], schema=AUDIT_SCHEMA)
-        empty.write.format("delta").mode("overwrite").save(path)
+        write_delta(empty, path, mode="overwrite", merge_schema=True)

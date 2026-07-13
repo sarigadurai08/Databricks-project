@@ -106,7 +106,7 @@ try:
     for path, name in NOTEBOOKS:
         with auditor.track(f"orchestrate_{name}") as ctx:
             logger.info(f"Starting notebook {path}", module="orchestration")
-            result = dbutils.notebook.run(path, timeout_seconds=0)  # type: ignore[name-defined]
+            result = dbutils.notebook.run(path, timeout_seconds=3600)  # type: ignore[name-defined]
             ctx["rows_inserted"] = 1
             status_map[name] = result or "SUCCESS"
             logger.info(

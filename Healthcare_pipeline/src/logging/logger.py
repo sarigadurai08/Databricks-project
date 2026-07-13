@@ -115,13 +115,10 @@ class HealthcareLogger:
         if not self.persist_to_delta or not self._buffer or self.spark is None:
             return None
 
+        from src.utilities.delta_helpers import write_delta
+
         df = self.spark.createDataFrame(self._buffer, schema=LOG_TABLE_SCHEMA)
-        (
-            df.write.format("delta")
-            .mode("append")
-            .option("mergeSchema", "true")
-            .save(PATHS.log_path())
-        )
+        write_delta(df, PATHS.log_path(), mode="append", merge_schema=True)
         self._buffer.clear()
         return df
 
@@ -185,9 +182,11 @@ def get_logger(
 
 def ensure_log_table(spark: SparkSession) -> None:
     """Create empty Delta log table if it does not exist."""
+    from src.utilities.delta_helpers import write_delta
+
     path = PATHS.log_path()
     try:
-        spark.read.format("delta").load(path).limit(0)
+        spark.read.format("delta").load(path).limit(1).count()
     except Exception:
         empty = spark.createDataFrame([], schema=LOG_TABLE_SCHEMA)
-        empty.write.format("delta").mode("overwrite").save(path)
+        write_delta(empty, path, mode="overwrite", merge_schema=True)

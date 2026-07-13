@@ -8,14 +8,19 @@ import time
 from functools import wraps
 from typing import Any, Callable, Optional, TypeVar
 
-from tenacity import (
-    retry,
-    retry_if_exception_type,
-    stop_after_attempt,
-    wait_exponential,
-)
-
 from config.constants import MAX_RETRIES, RETRY_BACKOFF_SECONDS, RETRY_MAX_BACKOFF_SECONDS
+
+try:
+    from tenacity import (
+        retry,
+        retry_if_exception_type,
+        stop_after_attempt,
+        wait_exponential,
+    )
+
+    _HAS_TENACITY = True
+except ImportError:  # Databricks Free Edition may not preinstall tenacity
+    _HAS_TENACITY = False
 
 
 F = TypeVar("F", bound=Callable[..., Any])
@@ -76,13 +81,29 @@ def with_retry(
     """Decorator applying exponential backoff for retryable failures."""
 
     def decorator(fn: F) -> F:
-        wrapped = retry(
-            reraise=True,
-            stop=stop_after_attempt(max_attempts),
-            wait=wait_exponential(multiplier=min_wait, max=max_wait),
-            retry=retry_if_exception_type(retryable),
-        )(fn)
-        return wrapped  # type: ignore[return-value]
+        if _HAS_TENACITY:
+            wrapped = retry(
+                reraise=True,
+                stop=stop_after_attempt(max_attempts),
+                wait=wait_exponential(multiplier=min_wait, max=max_wait),
+                retry=retry_if_exception_type(retryable),
+            )(fn)
+            return wrapped  # type: ignore[return-value]
+
+        @wraps(fn)
+        def fallback(*args: Any, **kwargs: Any) -> Any:
+            last_exc: Optional[BaseException] = None
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    return fn(*args, **kwargs)
+                except retryable as exc:
+                    last_exc = exc
+                    if attempt == max_attempts:
+                        break
+                    time.sleep(min(min_wait * (2 ** (attempt - 1)), max_wait))
+            raise last_exc  # type: ignore[misc]
+
+        return fallback  # type: ignore[return-value]
 
     return decorator
 
