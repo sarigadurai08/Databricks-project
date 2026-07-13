@@ -1,0 +1,8402 @@
+[
+  {
+    "PrescriptionID": "RX000001",
+    "PatientID": "PAT000199",
+    "Medicine": "Metformin",
+    "Quantity": 6,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000002",
+    "PatientID": "PAT000381",
+    "Medicine": "Prednisone",
+    "Quantity": 14,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000003",
+    "PatientID": "PAT000103",
+    "Medicine": "Clopidogrel",
+    "Quantity": 27,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000004",
+    "PatientID": "PAT000377",
+    "Medicine": "Prednisone",
+    "Quantity": 73,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000005",
+    "PatientID": "PAT000427",
+    "Medicine": "Ibuprofen",
+    "Quantity": 39,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000006",
+    "PatientID": "PAT000110",
+    "Medicine": "Ibuprofen",
+    "Quantity": 87,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000007",
+    "PatientID": "PAT000419",
+    "Medicine": "Clopidogrel",
+    "Quantity": 76,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000008",
+    "PatientID": "PAT000238",
+    "Medicine": "Omeprazole",
+    "Quantity": 47,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000009",
+    "PatientID": "PAT000321",
+    "Medicine": "Lisinopril",
+    "Quantity": 83,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000010",
+    "PatientID": "PAT000456",
+    "Medicine": "Amlodipine",
+    "Quantity": 73,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000011",
+    "PatientID": "PAT000112",
+    "Medicine": "Clopidogrel",
+    "Quantity": 33,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000012",
+    "PatientID": "PAT000159",
+    "Medicine": "Sertraline",
+    "Quantity": 4,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000013",
+    "PatientID": "PAT000425",
+    "Medicine": "Lisinopril",
+    "Quantity": 28,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000014",
+    "PatientID": "PAT000106",
+    "Medicine": "Atorvastatin",
+    "Quantity": 43,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000015",
+    "PatientID": "PAT000369",
+    "Medicine": "Gabapentin",
+    "Quantity": 50,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000016",
+    "PatientID": "PAT000201",
+    "Medicine": "Albuterol",
+    "Quantity": 59,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000017",
+    "PatientID": "PAT000472",
+    "Medicine": "Losartan",
+    "Quantity": 22,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000018",
+    "PatientID": "PAT000288",
+    "Medicine": "Gabapentin",
+    "Quantity": 62,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000019",
+    "PatientID": "PAT000408",
+    "Medicine": "Losartan",
+    "Quantity": 37,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000020",
+    "PatientID": "PAT000040",
+    "Medicine": "Amoxicillin",
+    "Quantity": 32,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000021",
+    "PatientID": "PAT000453",
+    "Medicine": "Losartan",
+    "Quantity": 14,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000022",
+    "PatientID": "PAT000318",
+    "Medicine": "Lisinopril",
+    "Quantity": 4,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000023",
+    "PatientID": "PAT000485",
+    "Medicine": "Lisinopril",
+    "Quantity": 2,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000024",
+    "PatientID": "PAT000156",
+    "Medicine": "Omeprazole",
+    "Quantity": 1,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000025",
+    "PatientID": "PAT000374",
+    "Medicine": "Gabapentin",
+    "Quantity": 49,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000026",
+    "PatientID": "PAT000050",
+    "Medicine": "Losartan",
+    "Quantity": 21,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000027",
+    "PatientID": "PAT000111",
+    "Medicine": "Lisinopril",
+    "Quantity": 48,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000028",
+    "PatientID": "PAT000498",
+    "Medicine": "Amoxicillin",
+    "Quantity": 25,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000029",
+    "PatientID": "PAT000039",
+    "Medicine": "Levothyroxine",
+    "Quantity": 48,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000030",
+    "PatientID": "PAT000335",
+    "Medicine": "Omeprazole",
+    "Quantity": 54,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000031",
+    "PatientID": "PAT000395",
+    "Medicine": "Lisinopril",
+    "Quantity": 39,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000032",
+    "PatientID": "PAT000155",
+    "Medicine": "Lisinopril",
+    "Quantity": 16,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000033",
+    "PatientID": "PAT000234",
+    "Medicine": "Atorvastatin",
+    "Quantity": 34,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000034",
+    "PatientID": "PAT000062",
+    "Medicine": "Clopidogrel",
+    "Quantity": 27,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000035",
+    "PatientID": "PAT000382",
+    "Medicine": "Clopidogrel",
+    "Quantity": 82,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000036",
+    "PatientID": "PAT000451",
+    "Medicine": "Amoxicillin",
+    "Quantity": 4,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000037",
+    "PatientID": "PAT000090",
+    "Medicine": "Clopidogrel",
+    "Quantity": 61,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000038",
+    "PatientID": "PAT000045",
+    "Medicine": "Lisinopril",
+    "Quantity": 15,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000039",
+    "PatientID": "PAT000234",
+    "Medicine": "Ibuprofen",
+    "Quantity": 31,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000040",
+    "PatientID": "PAT000356",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 75,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000041",
+    "PatientID": "PAT000139",
+    "Medicine": "Sertraline",
+    "Quantity": 35,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000042",
+    "PatientID": "PAT000289",
+    "Medicine": "Lisinopril",
+    "Quantity": 90,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000043",
+    "PatientID": "PAT000375",
+    "Medicine": "Gabapentin",
+    "Quantity": 9,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000044",
+    "PatientID": "PAT000111",
+    "Medicine": "Ibuprofen",
+    "Quantity": 20,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000045",
+    "PatientID": "PAT000348",
+    "Medicine": "Metformin",
+    "Quantity": 51,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000046",
+    "PatientID": "PAT000020",
+    "Medicine": "Levothyroxine",
+    "Quantity": 4,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000047",
+    "PatientID": "PAT000426",
+    "Medicine": "Gabapentin",
+    "Quantity": 56,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000048",
+    "PatientID": "PAT000090",
+    "Medicine": "Gabapentin",
+    "Quantity": 53,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000049",
+    "PatientID": "PAT000460",
+    "Medicine": "Lisinopril",
+    "Quantity": 74,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000050",
+    "PatientID": "PAT000033",
+    "Medicine": "Lisinopril",
+    "Quantity": 85,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000051",
+    "PatientID": "PAT000364",
+    "Medicine": "Prednisone",
+    "Quantity": 36,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000052",
+    "PatientID": "PAT000104",
+    "Medicine": "Omeprazole",
+    "Quantity": 62,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000053",
+    "PatientID": "PAT000013",
+    "Medicine": "Prednisone",
+    "Quantity": 35,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000054",
+    "PatientID": "PAT000494",
+    "Medicine": "Amoxicillin",
+    "Quantity": 35,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000055",
+    "PatientID": "PAT000121",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 25,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000056",
+    "PatientID": "PAT000415",
+    "Medicine": "Ibuprofen",
+    "Quantity": 58,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000057",
+    "PatientID": "PAT000023",
+    "Medicine": "Lisinopril",
+    "Quantity": 84,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000058",
+    "PatientID": "PAT000428",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 73,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000059",
+    "PatientID": "PAT000287",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 56,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000060",
+    "PatientID": "PAT000406",
+    "Medicine": "Ibuprofen",
+    "Quantity": 63,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000061",
+    "PatientID": "PAT000147",
+    "Medicine": "Amlodipine",
+    "Quantity": 7,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000062",
+    "PatientID": "PAT000307",
+    "Medicine": "Albuterol",
+    "Quantity": 12,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000063",
+    "PatientID": "PAT000421",
+    "Medicine": "Albuterol",
+    "Quantity": 59,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000064",
+    "PatientID": "PAT000084",
+    "Medicine": "Gabapentin",
+    "Quantity": 70,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000065",
+    "PatientID": "PAT000462",
+    "Medicine": "Albuterol",
+    "Quantity": 85,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000066",
+    "PatientID": "PAT000277",
+    "Medicine": "Albuterol",
+    "Quantity": 71,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000067",
+    "PatientID": "PAT000377",
+    "Medicine": "Atorvastatin",
+    "Quantity": 42,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000068",
+    "PatientID": "PAT000209",
+    "Medicine": "Amoxicillin",
+    "Quantity": 45,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000069",
+    "PatientID": "PAT000206",
+    "Medicine": "Atorvastatin",
+    "Quantity": 75,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000070",
+    "PatientID": "PAT000178",
+    "Medicine": "Albuterol",
+    "Quantity": 60,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000071",
+    "PatientID": "PAT000076",
+    "Medicine": "Prednisone",
+    "Quantity": 38,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000072",
+    "PatientID": "PAT000385",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 87,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000073",
+    "PatientID": "PAT000346",
+    "Medicine": "Clopidogrel",
+    "Quantity": 64,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000074",
+    "PatientID": "PAT000185",
+    "Medicine": "Sertraline",
+    "Quantity": 53,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000075",
+    "PatientID": "PAT000309",
+    "Medicine": "Levothyroxine",
+    "Quantity": 12,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000076",
+    "PatientID": "PAT000171",
+    "Medicine": "Omeprazole",
+    "Quantity": 18,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000077",
+    "PatientID": "PAT000331",
+    "Medicine": "Clopidogrel",
+    "Quantity": 46,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000078",
+    "PatientID": "PAT000386",
+    "Medicine": "Gabapentin",
+    "Quantity": 58,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000079",
+    "PatientID": "PAT000085",
+    "Medicine": "Sertraline",
+    "Quantity": 88,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000080",
+    "PatientID": "PAT000176",
+    "Medicine": "Clopidogrel",
+    "Quantity": 6,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000081",
+    "PatientID": "PAT000075",
+    "Medicine": "Sertraline",
+    "Quantity": 81,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000082",
+    "PatientID": "PAT000277",
+    "Medicine": "Losartan",
+    "Quantity": 44,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000083",
+    "PatientID": "PAT000436",
+    "Medicine": "Amoxicillin",
+    "Quantity": 21,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000084",
+    "PatientID": "PAT000072",
+    "Medicine": "Prednisone",
+    "Quantity": 74,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000085",
+    "PatientID": "PAT000423",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 27,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000086",
+    "PatientID": "PAT000042",
+    "Medicine": "Ibuprofen",
+    "Quantity": 51,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000087",
+    "PatientID": "PAT000451",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 54,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000088",
+    "PatientID": "PAT000279",
+    "Medicine": "Metformin",
+    "Quantity": 65,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000089",
+    "PatientID": "PAT000054",
+    "Medicine": "Lisinopril",
+    "Quantity": 67,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000090",
+    "PatientID": "PAT000131",
+    "Medicine": "Losartan",
+    "Quantity": 1,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000091",
+    "PatientID": "PAT000341",
+    "Medicine": "Clopidogrel",
+    "Quantity": 71,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000092",
+    "PatientID": "PAT000351",
+    "Medicine": "Atorvastatin",
+    "Quantity": 30,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000093",
+    "PatientID": "PAT000251",
+    "Medicine": "Ibuprofen",
+    "Quantity": 43,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000094",
+    "PatientID": "PAT000375",
+    "Medicine": "Metformin",
+    "Quantity": 42,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000095",
+    "PatientID": "PAT000281",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 48,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000096",
+    "PatientID": "PAT000268",
+    "Medicine": "Clopidogrel",
+    "Quantity": 51,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000097",
+    "PatientID": "PAT000113",
+    "Medicine": "Amoxicillin",
+    "Quantity": 51,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000098",
+    "PatientID": "PAT000384",
+    "Medicine": "Losartan",
+    "Quantity": 45,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000099",
+    "PatientID": "PAT000385",
+    "Medicine": "Levothyroxine",
+    "Quantity": 89,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000100",
+    "PatientID": "PAT000328",
+    "Medicine": "Metformin",
+    "Quantity": 29,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000101",
+    "PatientID": "PAT000080",
+    "Medicine": "Amoxicillin",
+    "Quantity": 59,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000102",
+    "PatientID": "PAT000459",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 89,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000103",
+    "PatientID": "PAT000367",
+    "Medicine": "Prednisone",
+    "Quantity": 25,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000104",
+    "PatientID": "PAT000410",
+    "Medicine": "Lisinopril",
+    "Quantity": 65,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000105",
+    "PatientID": "PAT000074",
+    "Medicine": "Metformin",
+    "Quantity": 64,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000106",
+    "PatientID": "PAT000356",
+    "Medicine": "Clopidogrel",
+    "Quantity": 10,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000107",
+    "PatientID": "PAT000387",
+    "Medicine": "Omeprazole",
+    "Quantity": 31,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000108",
+    "PatientID": "PAT000423",
+    "Medicine": "Levothyroxine",
+    "Quantity": 39,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000109",
+    "PatientID": "PAT000327",
+    "Medicine": "Amlodipine",
+    "Quantity": 70,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000110",
+    "PatientID": "PAT000013",
+    "Medicine": "Metformin",
+    "Quantity": 25,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000111",
+    "PatientID": "PAT000152",
+    "Medicine": "Lisinopril",
+    "Quantity": 4,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000112",
+    "PatientID": "PAT000096",
+    "Medicine": "Metformin",
+    "Quantity": 27,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000113",
+    "PatientID": "PAT000037",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 88,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000114",
+    "PatientID": "PAT000232",
+    "Medicine": "Metformin",
+    "Quantity": 33,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000115",
+    "PatientID": "PAT000484",
+    "Medicine": "Metformin",
+    "Quantity": 55,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000116",
+    "PatientID": "PAT000207",
+    "Medicine": "Albuterol",
+    "Quantity": 85,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000117",
+    "PatientID": "PAT000306",
+    "Medicine": "Lisinopril",
+    "Quantity": 90,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000118",
+    "PatientID": "PAT000199",
+    "Medicine": "Omeprazole",
+    "Quantity": 44,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000119",
+    "PatientID": "PAT000156",
+    "Medicine": "Albuterol",
+    "Quantity": 27,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000120",
+    "PatientID": "PAT000302",
+    "Medicine": "Levothyroxine",
+    "Quantity": 80,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000121",
+    "PatientID": "PAT000326",
+    "Medicine": "Clopidogrel",
+    "Quantity": 62,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000122",
+    "PatientID": "PAT000022",
+    "Medicine": "Losartan",
+    "Quantity": 76,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000123",
+    "PatientID": "PAT000017",
+    "Medicine": "Amoxicillin",
+    "Quantity": 63,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000124",
+    "PatientID": "PAT000180",
+    "Medicine": "Gabapentin",
+    "Quantity": 41,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000125",
+    "PatientID": "PAT000359",
+    "Medicine": "Lisinopril",
+    "Quantity": 33,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000126",
+    "PatientID": "PAT000386",
+    "Medicine": "Gabapentin",
+    "Quantity": 50,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000127",
+    "PatientID": "PAT000217",
+    "Medicine": "Sertraline",
+    "Quantity": 13,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000128",
+    "PatientID": "PAT000318",
+    "Medicine": "Ibuprofen",
+    "Quantity": 76,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000129",
+    "PatientID": "PAT000486",
+    "Medicine": "Clopidogrel",
+    "Quantity": 45,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000130",
+    "PatientID": "PAT000014",
+    "Medicine": "Amoxicillin",
+    "Quantity": 63,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000131",
+    "PatientID": "PAT000493",
+    "Medicine": "Levothyroxine",
+    "Quantity": 5,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000132",
+    "PatientID": "PAT000244",
+    "Medicine": "Gabapentin",
+    "Quantity": 12,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000133",
+    "PatientID": "PAT000048",
+    "Medicine": "Omeprazole",
+    "Quantity": 70,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000134",
+    "PatientID": "PAT000371",
+    "Medicine": "Metformin",
+    "Quantity": 32,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000135",
+    "PatientID": "PAT000473",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 81,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000136",
+    "PatientID": "PAT000195",
+    "Medicine": "Metformin",
+    "Quantity": 59,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000137",
+    "PatientID": "PAT000124",
+    "Medicine": "Ibuprofen",
+    "Quantity": 44,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000138",
+    "PatientID": "PAT000018",
+    "Medicine": "Losartan",
+    "Quantity": 61,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000139",
+    "PatientID": "PAT000283",
+    "Medicine": "Albuterol",
+    "Quantity": 40,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000140",
+    "PatientID": "PAT000111",
+    "Medicine": "Prednisone",
+    "Quantity": 58,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000141",
+    "PatientID": "PAT000049",
+    "Medicine": "Losartan",
+    "Quantity": 53,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000142",
+    "PatientID": "PAT000066",
+    "Medicine": "Lisinopril",
+    "Quantity": 88,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000143",
+    "PatientID": "PAT000400",
+    "Medicine": "Losartan",
+    "Quantity": 87,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000144",
+    "PatientID": "PAT000228",
+    "Medicine": "Lisinopril",
+    "Quantity": 65,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000145",
+    "PatientID": "PAT000093",
+    "Medicine": "Metformin",
+    "Quantity": 65,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000146",
+    "PatientID": "PAT000357",
+    "Medicine": "Gabapentin",
+    "Quantity": 36,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000147",
+    "PatientID": "PAT000411",
+    "Medicine": "Losartan",
+    "Quantity": 50,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000148",
+    "PatientID": "PAT000335",
+    "Medicine": "Clopidogrel",
+    "Quantity": 69,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000149",
+    "PatientID": "PAT000130",
+    "Medicine": "Ibuprofen",
+    "Quantity": 7,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000150",
+    "PatientID": "PAT000358",
+    "Medicine": "Losartan",
+    "Quantity": 16,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000151",
+    "PatientID": "PAT000090",
+    "Medicine": "Sertraline",
+    "Quantity": 63,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000152",
+    "PatientID": "PAT000151",
+    "Medicine": "Clopidogrel",
+    "Quantity": 58,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000153",
+    "PatientID": "PAT000021",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 21,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000154",
+    "PatientID": "PAT000170",
+    "Medicine": "Omeprazole",
+    "Quantity": 77,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000155",
+    "PatientID": "PAT000352",
+    "Medicine": "Levothyroxine",
+    "Quantity": 15,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000156",
+    "PatientID": "PAT000102",
+    "Medicine": "Atorvastatin",
+    "Quantity": 10,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000157",
+    "PatientID": "PAT000128",
+    "Medicine": "Gabapentin",
+    "Quantity": 63,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000158",
+    "PatientID": "PAT000398",
+    "Medicine": "Lisinopril",
+    "Quantity": 50,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000159",
+    "PatientID": "PAT000464",
+    "Medicine": "Ibuprofen",
+    "Quantity": 84,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000160",
+    "PatientID": "PAT000023",
+    "Medicine": "Atorvastatin",
+    "Quantity": 49,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000161",
+    "PatientID": "PAT000115",
+    "Medicine": "Omeprazole",
+    "Quantity": 24,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000162",
+    "PatientID": "PAT000299",
+    "Medicine": "Albuterol",
+    "Quantity": 88,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000163",
+    "PatientID": "PAT000118",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 64,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000164",
+    "PatientID": "PAT000414",
+    "Medicine": "Ibuprofen",
+    "Quantity": 57,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000165",
+    "PatientID": "PAT000052",
+    "Medicine": "Ibuprofen",
+    "Quantity": 15,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000166",
+    "PatientID": "PAT000068",
+    "Medicine": "Atorvastatin",
+    "Quantity": 18,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000167",
+    "PatientID": "PAT000289",
+    "Medicine": "Ibuprofen",
+    "Quantity": 78,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000168",
+    "PatientID": "PAT000255",
+    "Medicine": "Lisinopril",
+    "Quantity": 57,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000169",
+    "PatientID": "PAT000221",
+    "Medicine": "Albuterol",
+    "Quantity": 90,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000170",
+    "PatientID": "PAT000460",
+    "Medicine": "Lisinopril",
+    "Quantity": 68,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000171",
+    "PatientID": "PAT000326",
+    "Medicine": "Ibuprofen",
+    "Quantity": 48,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000172",
+    "PatientID": "PAT000215",
+    "Medicine": "Sertraline",
+    "Quantity": 14,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000173",
+    "PatientID": "PAT000143",
+    "Medicine": "Gabapentin",
+    "Quantity": 5,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000174",
+    "PatientID": "PAT000360",
+    "Medicine": "Levothyroxine",
+    "Quantity": 72,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000175",
+    "PatientID": "PAT000034",
+    "Medicine": "Levothyroxine",
+    "Quantity": 9,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000176",
+    "PatientID": "PAT000450",
+    "Medicine": "Metformin",
+    "Quantity": 34,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000177",
+    "PatientID": "PAT000244",
+    "Medicine": "Amoxicillin",
+    "Quantity": 46,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000178",
+    "PatientID": "PAT000471",
+    "Medicine": "Levothyroxine",
+    "Quantity": 65,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000179",
+    "PatientID": "PAT000062",
+    "Medicine": "Amlodipine",
+    "Quantity": 18,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000180",
+    "PatientID": "PAT000045",
+    "Medicine": "Lisinopril",
+    "Quantity": 21,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000181",
+    "PatientID": "PAT000341",
+    "Medicine": "Losartan",
+    "Quantity": 24,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000182",
+    "PatientID": "PAT000338",
+    "Medicine": "Amlodipine",
+    "Quantity": 58,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000183",
+    "PatientID": "PAT000286",
+    "Medicine": "Sertraline",
+    "Quantity": 48,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000184",
+    "PatientID": "PAT000035",
+    "Medicine": "Omeprazole",
+    "Quantity": 62,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000185",
+    "PatientID": "PAT000095",
+    "Medicine": "Prednisone",
+    "Quantity": 85,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000186",
+    "PatientID": "PAT000060",
+    "Medicine": "Losartan",
+    "Quantity": 53,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000187",
+    "PatientID": "PAT000119",
+    "Medicine": "Sertraline",
+    "Quantity": 6,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000188",
+    "PatientID": "PAT000154",
+    "Medicine": "Amlodipine",
+    "Quantity": 19,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000189",
+    "PatientID": "PAT000201",
+    "Medicine": "Atorvastatin",
+    "Quantity": 90,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000190",
+    "PatientID": "PAT000031",
+    "Medicine": "Lisinopril",
+    "Quantity": 48,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000191",
+    "PatientID": "PAT000058",
+    "Medicine": "Sertraline",
+    "Quantity": 2,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000192",
+    "PatientID": "PAT000137",
+    "Medicine": "Sertraline",
+    "Quantity": 86,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000193",
+    "PatientID": "PAT000005",
+    "Medicine": "Losartan",
+    "Quantity": 68,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000194",
+    "PatientID": "PAT000164",
+    "Medicine": "Omeprazole",
+    "Quantity": 18,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000195",
+    "PatientID": "PAT000441",
+    "Medicine": "Clopidogrel",
+    "Quantity": 32,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000196",
+    "PatientID": "PAT000097",
+    "Medicine": "Gabapentin",
+    "Quantity": 28,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000197",
+    "PatientID": "PAT000245",
+    "Medicine": "Amoxicillin",
+    "Quantity": 61,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000198",
+    "PatientID": "PAT000051",
+    "Medicine": "Gabapentin",
+    "Quantity": 28,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000199",
+    "PatientID": "PAT000284",
+    "Medicine": "Atorvastatin",
+    "Quantity": 50,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000200",
+    "PatientID": "PAT000278",
+    "Medicine": "Amoxicillin",
+    "Quantity": 81,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000201",
+    "PatientID": "PAT000075",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 10,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000202",
+    "PatientID": "PAT000440",
+    "Medicine": "Amoxicillin",
+    "Quantity": 17,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000203",
+    "PatientID": "PAT000441",
+    "Medicine": "Sertraline",
+    "Quantity": 19,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000204",
+    "PatientID": "PAT000245",
+    "Medicine": "Prednisone",
+    "Quantity": 9,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000205",
+    "PatientID": "PAT000290",
+    "Medicine": "Sertraline",
+    "Quantity": 10,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000206",
+    "PatientID": "PAT000321",
+    "Medicine": "Atorvastatin",
+    "Quantity": 32,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000207",
+    "PatientID": "PAT000430",
+    "Medicine": "Prednisone",
+    "Quantity": 53,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000208",
+    "PatientID": "PAT000481",
+    "Medicine": "Amoxicillin",
+    "Quantity": 47,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000209",
+    "PatientID": "PAT000209",
+    "Medicine": "Amlodipine",
+    "Quantity": 34,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000210",
+    "PatientID": "PAT000022",
+    "Medicine": "Lisinopril",
+    "Quantity": 56,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000211",
+    "PatientID": "PAT000400",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 42,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000212",
+    "PatientID": "PAT000099",
+    "Medicine": "Levothyroxine",
+    "Quantity": 4,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000213",
+    "PatientID": "PAT000201",
+    "Medicine": "Amoxicillin",
+    "Quantity": 48,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000214",
+    "PatientID": "PAT000429",
+    "Medicine": "Gabapentin",
+    "Quantity": 78,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000215",
+    "PatientID": "PAT000384",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 29,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000216",
+    "PatientID": "PAT000246",
+    "Medicine": "Clopidogrel",
+    "Quantity": 17,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000217",
+    "PatientID": "PAT000456",
+    "Medicine": "Losartan",
+    "Quantity": 66,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000218",
+    "PatientID": "PAT000447",
+    "Medicine": "Levothyroxine",
+    "Quantity": 83,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000219",
+    "PatientID": "PAT000081",
+    "Medicine": "Prednisone",
+    "Quantity": 82,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000220",
+    "PatientID": "PAT000267",
+    "Medicine": "Amlodipine",
+    "Quantity": 77,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000221",
+    "PatientID": "PAT000396",
+    "Medicine": "Omeprazole",
+    "Quantity": 64,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000222",
+    "PatientID": "PAT000308",
+    "Medicine": "Metformin",
+    "Quantity": 56,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000223",
+    "PatientID": "PAT000034",
+    "Medicine": "Lisinopril",
+    "Quantity": 54,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000224",
+    "PatientID": "PAT000361",
+    "Medicine": "Sertraline",
+    "Quantity": 11,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000225",
+    "PatientID": "PAT000396",
+    "Medicine": "Clopidogrel",
+    "Quantity": 19,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000226",
+    "PatientID": "PAT000190",
+    "Medicine": "Amoxicillin",
+    "Quantity": 6,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000227",
+    "PatientID": "PAT000144",
+    "Medicine": "Omeprazole",
+    "Quantity": 51,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000228",
+    "PatientID": "PAT000414",
+    "Medicine": "Gabapentin",
+    "Quantity": 84,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000229",
+    "PatientID": "PAT000156",
+    "Medicine": "Clopidogrel",
+    "Quantity": 44,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000230",
+    "PatientID": "PAT000310",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 69,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000231",
+    "PatientID": "PAT000438",
+    "Medicine": "Albuterol",
+    "Quantity": 40,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000232",
+    "PatientID": "PAT000250",
+    "Medicine": "Gabapentin",
+    "Quantity": 66,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000233",
+    "PatientID": "PAT000302",
+    "Medicine": "Levothyroxine",
+    "Quantity": 89,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000234",
+    "PatientID": "PAT000473",
+    "Medicine": "Ibuprofen",
+    "Quantity": 72,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000235",
+    "PatientID": "PAT000307",
+    "Medicine": "Amoxicillin",
+    "Quantity": 78,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000236",
+    "PatientID": "PAT000071",
+    "Medicine": "Amoxicillin",
+    "Quantity": 74,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000237",
+    "PatientID": "PAT000047",
+    "Medicine": "Gabapentin",
+    "Quantity": 44,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000238",
+    "PatientID": "PAT000500",
+    "Medicine": "Ibuprofen",
+    "Quantity": 63,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000239",
+    "PatientID": "PAT000265",
+    "Medicine": "Albuterol",
+    "Quantity": 69,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000240",
+    "PatientID": "PAT000033",
+    "Medicine": "Losartan",
+    "Quantity": 81,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000241",
+    "PatientID": "PAT000138",
+    "Medicine": "Omeprazole",
+    "Quantity": 81,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000242",
+    "PatientID": "PAT000448",
+    "Medicine": "Clopidogrel",
+    "Quantity": 35,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000243",
+    "PatientID": "PAT000263",
+    "Medicine": "Omeprazole",
+    "Quantity": 77,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000244",
+    "PatientID": "PAT000475",
+    "Medicine": "Amlodipine",
+    "Quantity": 41,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000245",
+    "PatientID": "PAT000465",
+    "Medicine": "Clopidogrel",
+    "Quantity": 42,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000246",
+    "PatientID": "PAT000098",
+    "Medicine": "Amlodipine",
+    "Quantity": 73,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000247",
+    "PatientID": "PAT000099",
+    "Medicine": "Albuterol",
+    "Quantity": 40,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000248",
+    "PatientID": "PAT000266",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 43,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000249",
+    "PatientID": "PAT000143",
+    "Medicine": "Amoxicillin",
+    "Quantity": 53,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000250",
+    "PatientID": "PAT000218",
+    "Medicine": "Omeprazole",
+    "Quantity": 77,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000251",
+    "PatientID": "PAT000097",
+    "Medicine": "Amoxicillin",
+    "Quantity": 85,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000252",
+    "PatientID": "PAT000456",
+    "Medicine": "Prednisone",
+    "Quantity": 79,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000253",
+    "PatientID": "PAT000411",
+    "Medicine": "Prednisone",
+    "Quantity": 18,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000254",
+    "PatientID": "PAT000152",
+    "Medicine": "Prednisone",
+    "Quantity": 89,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000255",
+    "PatientID": "PAT000352",
+    "Medicine": "Amlodipine",
+    "Quantity": 88,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000256",
+    "PatientID": "PAT000284",
+    "Medicine": "Albuterol",
+    "Quantity": 70,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000257",
+    "PatientID": "PAT000409",
+    "Medicine": "Albuterol",
+    "Quantity": 27,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000258",
+    "PatientID": "PAT000267",
+    "Medicine": "Gabapentin",
+    "Quantity": 75,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000259",
+    "PatientID": "PAT000371",
+    "Medicine": "Atorvastatin",
+    "Quantity": 16,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000260",
+    "PatientID": "PAT000327",
+    "Medicine": "Ibuprofen",
+    "Quantity": 38,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000261",
+    "PatientID": "PAT000307",
+    "Medicine": "Amlodipine",
+    "Quantity": 27,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000262",
+    "PatientID": "PAT000426",
+    "Medicine": "Prednisone",
+    "Quantity": 82,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000263",
+    "PatientID": "PAT000455",
+    "Medicine": "Albuterol",
+    "Quantity": 24,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000264",
+    "PatientID": "PAT000192",
+    "Medicine": "Amoxicillin",
+    "Quantity": 64,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000265",
+    "PatientID": "PAT000248",
+    "Medicine": "Amlodipine",
+    "Quantity": 51,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000266",
+    "PatientID": "PAT000478",
+    "Medicine": "Ibuprofen",
+    "Quantity": 35,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000267",
+    "PatientID": "PAT000276",
+    "Medicine": "Losartan",
+    "Quantity": 59,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000268",
+    "PatientID": "PAT000131",
+    "Medicine": "Albuterol",
+    "Quantity": 19,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000269",
+    "PatientID": "PAT000130",
+    "Medicine": "Losartan",
+    "Quantity": 10,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000270",
+    "PatientID": "PAT000417",
+    "Medicine": "Metformin",
+    "Quantity": 49,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000271",
+    "PatientID": "PAT000002",
+    "Medicine": "Sertraline",
+    "Quantity": 51,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000272",
+    "PatientID": "PAT000416",
+    "Medicine": "Metformin",
+    "Quantity": 25,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000273",
+    "PatientID": "PAT000476",
+    "Medicine": "Clopidogrel",
+    "Quantity": 33,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000274",
+    "PatientID": "PAT000479",
+    "Medicine": "Gabapentin",
+    "Quantity": 59,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000275",
+    "PatientID": "PAT000421",
+    "Medicine": "Sertraline",
+    "Quantity": 75,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000276",
+    "PatientID": "PAT000291",
+    "Medicine": "Omeprazole",
+    "Quantity": 66,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000277",
+    "PatientID": "PAT000137",
+    "Medicine": "Levothyroxine",
+    "Quantity": 26,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000278",
+    "PatientID": "PAT000322",
+    "Medicine": "Lisinopril",
+    "Quantity": 55,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000279",
+    "PatientID": "PAT000056",
+    "Medicine": "Gabapentin",
+    "Quantity": 77,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000280",
+    "PatientID": "PAT000199",
+    "Medicine": "Gabapentin",
+    "Quantity": 56,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000281",
+    "PatientID": "PAT000072",
+    "Medicine": "Albuterol",
+    "Quantity": 16,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000282",
+    "PatientID": "PAT000186",
+    "Medicine": "Atorvastatin",
+    "Quantity": 16,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000283",
+    "PatientID": "PAT000022",
+    "Medicine": "Prednisone",
+    "Quantity": 7,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000284",
+    "PatientID": "PAT000143",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 9,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000285",
+    "PatientID": "PAT000275",
+    "Medicine": "Metformin",
+    "Quantity": 71,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000286",
+    "PatientID": "PAT000402",
+    "Medicine": "Omeprazole",
+    "Quantity": 17,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000287",
+    "PatientID": "PAT000217",
+    "Medicine": "Metformin",
+    "Quantity": 88,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000288",
+    "PatientID": "PAT000457",
+    "Medicine": "Amlodipine",
+    "Quantity": 6,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000289",
+    "PatientID": "PAT000031",
+    "Medicine": "Amoxicillin",
+    "Quantity": 73,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000290",
+    "PatientID": "PAT000173",
+    "Medicine": "Lisinopril",
+    "Quantity": 15,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000291",
+    "PatientID": "PAT000146",
+    "Medicine": "Losartan",
+    "Quantity": 36,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000292",
+    "PatientID": "PAT000119",
+    "Medicine": "Levothyroxine",
+    "Quantity": 31,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000293",
+    "PatientID": "PAT000310",
+    "Medicine": "Amlodipine",
+    "Quantity": 80,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000294",
+    "PatientID": "PAT000476",
+    "Medicine": "Losartan",
+    "Quantity": 35,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000295",
+    "PatientID": "PAT000431",
+    "Medicine": "Sertraline",
+    "Quantity": 46,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000296",
+    "PatientID": "PAT000012",
+    "Medicine": "Amlodipine",
+    "Quantity": 20,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000297",
+    "PatientID": "PAT000163",
+    "Medicine": "Sertraline",
+    "Quantity": 75,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000298",
+    "PatientID": "PAT000088",
+    "Medicine": "Prednisone",
+    "Quantity": 29,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000299",
+    "PatientID": "PAT000105",
+    "Medicine": "Prednisone",
+    "Quantity": 50,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000300",
+    "PatientID": "PAT000009",
+    "Medicine": "Sertraline",
+    "Quantity": 79,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000301",
+    "PatientID": "PAT000293",
+    "Medicine": "Atorvastatin",
+    "Quantity": 12,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000302",
+    "PatientID": "PAT000499",
+    "Medicine": "Ibuprofen",
+    "Quantity": 79,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000303",
+    "PatientID": "PAT000064",
+    "Medicine": "Omeprazole",
+    "Quantity": 63,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000304",
+    "PatientID": "PAT000433",
+    "Medicine": "Metformin",
+    "Quantity": 32,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000305",
+    "PatientID": "PAT000124",
+    "Medicine": "Levothyroxine",
+    "Quantity": 29,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000306",
+    "PatientID": "PAT000085",
+    "Medicine": "Gabapentin",
+    "Quantity": 79,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000307",
+    "PatientID": "PAT000470",
+    "Medicine": "Clopidogrel",
+    "Quantity": 23,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000308",
+    "PatientID": "PAT000055",
+    "Medicine": "Amlodipine",
+    "Quantity": 36,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000309",
+    "PatientID": "PAT000344",
+    "Medicine": "Lisinopril",
+    "Quantity": 31,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000310",
+    "PatientID": "PAT000297",
+    "Medicine": "Omeprazole",
+    "Quantity": 56,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000311",
+    "PatientID": "PAT000435",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 77,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000312",
+    "PatientID": "PAT000110",
+    "Medicine": "Levothyroxine",
+    "Quantity": 58,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000313",
+    "PatientID": "PAT000434",
+    "Medicine": "Amlodipine",
+    "Quantity": 13,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000314",
+    "PatientID": "PAT000365",
+    "Medicine": "Metformin",
+    "Quantity": 53,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000315",
+    "PatientID": "PAT000077",
+    "Medicine": "Gabapentin",
+    "Quantity": 57,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000316",
+    "PatientID": "PAT000436",
+    "Medicine": "Ibuprofen",
+    "Quantity": 50,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000317",
+    "PatientID": "PAT000012",
+    "Medicine": "Losartan",
+    "Quantity": 49,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000318",
+    "PatientID": "PAT000106",
+    "Medicine": "Sertraline",
+    "Quantity": 35,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000319",
+    "PatientID": "PAT000252",
+    "Medicine": "Clopidogrel",
+    "Quantity": 87,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000320",
+    "PatientID": "PAT000176",
+    "Medicine": "Levothyroxine",
+    "Quantity": 68,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000321",
+    "PatientID": "PAT000256",
+    "Medicine": "Albuterol",
+    "Quantity": 3,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000322",
+    "PatientID": "PAT000199",
+    "Medicine": "Sertraline",
+    "Quantity": 79,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000323",
+    "PatientID": "PAT000311",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 57,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000324",
+    "PatientID": "PAT000074",
+    "Medicine": "Amlodipine",
+    "Quantity": 48,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000325",
+    "PatientID": "PAT000308",
+    "Medicine": "Ibuprofen",
+    "Quantity": 10,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000326",
+    "PatientID": "PAT000350",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 90,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000327",
+    "PatientID": "PAT000404",
+    "Medicine": "Levothyroxine",
+    "Quantity": 22,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000328",
+    "PatientID": "PAT000112",
+    "Medicine": "Levothyroxine",
+    "Quantity": 27,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000329",
+    "PatientID": "PAT000208",
+    "Medicine": "Albuterol",
+    "Quantity": 46,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000330",
+    "PatientID": "PAT000367",
+    "Medicine": "Omeprazole",
+    "Quantity": 32,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000331",
+    "PatientID": "PAT000195",
+    "Medicine": "Omeprazole",
+    "Quantity": 30,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000332",
+    "PatientID": "PAT000492",
+    "Medicine": "Losartan",
+    "Quantity": 61,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000333",
+    "PatientID": "PAT000479",
+    "Medicine": "Lisinopril",
+    "Quantity": 88,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000334",
+    "PatientID": "PAT000331",
+    "Medicine": "Losartan",
+    "Quantity": 32,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000335",
+    "PatientID": "PAT000232",
+    "Medicine": "Ibuprofen",
+    "Quantity": 9,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000336",
+    "PatientID": "PAT000200",
+    "Medicine": "Ibuprofen",
+    "Quantity": 3,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000337",
+    "PatientID": "PAT000185",
+    "Medicine": "Losartan",
+    "Quantity": 45,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000338",
+    "PatientID": "PAT000252",
+    "Medicine": "Levothyroxine",
+    "Quantity": 3,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000339",
+    "PatientID": "PAT000466",
+    "Medicine": "Levothyroxine",
+    "Quantity": 58,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000340",
+    "PatientID": "PAT000224",
+    "Medicine": "Levothyroxine",
+    "Quantity": 12,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000341",
+    "PatientID": "PAT000118",
+    "Medicine": "Omeprazole",
+    "Quantity": 45,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000342",
+    "PatientID": "PAT000467",
+    "Medicine": "Omeprazole",
+    "Quantity": 47,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000343",
+    "PatientID": "PAT000081",
+    "Medicine": "Omeprazole",
+    "Quantity": 62,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000344",
+    "PatientID": "PAT000438",
+    "Medicine": "Atorvastatin",
+    "Quantity": 29,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000345",
+    "PatientID": "PAT000265",
+    "Medicine": "Losartan",
+    "Quantity": 83,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000346",
+    "PatientID": "PAT000415",
+    "Medicine": "Losartan",
+    "Quantity": 68,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000347",
+    "PatientID": "PAT000196",
+    "Medicine": "Amlodipine",
+    "Quantity": 5,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000348",
+    "PatientID": "PAT000390",
+    "Medicine": "Albuterol",
+    "Quantity": 7,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000349",
+    "PatientID": "PAT000363",
+    "Medicine": "Amlodipine",
+    "Quantity": 12,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000350",
+    "PatientID": "PAT000048",
+    "Medicine": "Clopidogrel",
+    "Quantity": 21,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000351",
+    "PatientID": "PAT000284",
+    "Medicine": "Losartan",
+    "Quantity": 90,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000352",
+    "PatientID": "PAT000041",
+    "Medicine": "Lisinopril",
+    "Quantity": 33,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000353",
+    "PatientID": "PAT000232",
+    "Medicine": "Sertraline",
+    "Quantity": 33,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000354",
+    "PatientID": "PAT000073",
+    "Medicine": "Atorvastatin",
+    "Quantity": 38,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000355",
+    "PatientID": "PAT000143",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 56,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000356",
+    "PatientID": "PAT000118",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 24,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000357",
+    "PatientID": "PAT000086",
+    "Medicine": "Levothyroxine",
+    "Quantity": 40,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000358",
+    "PatientID": "PAT000119",
+    "Medicine": "Sertraline",
+    "Quantity": 9,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000359",
+    "PatientID": "PAT000318",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 12,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000360",
+    "PatientID": "PAT000336",
+    "Medicine": "Lisinopril",
+    "Quantity": 74,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000361",
+    "PatientID": "PAT000148",
+    "Medicine": "Prednisone",
+    "Quantity": 23,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000362",
+    "PatientID": "PAT000483",
+    "Medicine": "Sertraline",
+    "Quantity": 61,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000363",
+    "PatientID": "PAT000121",
+    "Medicine": "Levothyroxine",
+    "Quantity": 22,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000364",
+    "PatientID": "PAT000309",
+    "Medicine": "Lisinopril",
+    "Quantity": 26,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000365",
+    "PatientID": "PAT000035",
+    "Medicine": "Ibuprofen",
+    "Quantity": 10,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000366",
+    "PatientID": "PAT000138",
+    "Medicine": "Prednisone",
+    "Quantity": 13,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000367",
+    "PatientID": "PAT000274",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 23,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000368",
+    "PatientID": "PAT000284",
+    "Medicine": "Metformin",
+    "Quantity": 60,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000369",
+    "PatientID": "PAT000371",
+    "Medicine": "Prednisone",
+    "Quantity": 48,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000370",
+    "PatientID": "PAT000274",
+    "Medicine": "Atorvastatin",
+    "Quantity": 20,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000371",
+    "PatientID": "PAT000126",
+    "Medicine": "Clopidogrel",
+    "Quantity": 24,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000372",
+    "PatientID": "PAT000167",
+    "Medicine": "Prednisone",
+    "Quantity": 2,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000373",
+    "PatientID": "PAT000393",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 22,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000374",
+    "PatientID": "PAT000417",
+    "Medicine": "Omeprazole",
+    "Quantity": 66,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000375",
+    "PatientID": "PAT000259",
+    "Medicine": "Lisinopril",
+    "Quantity": 65,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000376",
+    "PatientID": "PAT000202",
+    "Medicine": "Clopidogrel",
+    "Quantity": 8,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000377",
+    "PatientID": "PAT000025",
+    "Medicine": "Atorvastatin",
+    "Quantity": 22,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000378",
+    "PatientID": "PAT000434",
+    "Medicine": "Gabapentin",
+    "Quantity": 20,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000379",
+    "PatientID": "PAT000442",
+    "Medicine": "Atorvastatin",
+    "Quantity": 31,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000380",
+    "PatientID": "PAT000294",
+    "Medicine": "Losartan",
+    "Quantity": 48,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000381",
+    "PatientID": "PAT000237",
+    "Medicine": "Prednisone",
+    "Quantity": 36,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000382",
+    "PatientID": "PAT000090",
+    "Medicine": "Amlodipine",
+    "Quantity": 59,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000383",
+    "PatientID": "PAT000366",
+    "Medicine": "Ibuprofen",
+    "Quantity": 15,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000384",
+    "PatientID": "PAT000328",
+    "Medicine": "Amlodipine",
+    "Quantity": 21,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000385",
+    "PatientID": "PAT000035",
+    "Medicine": "Losartan",
+    "Quantity": 6,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000386",
+    "PatientID": "PAT000001",
+    "Medicine": "Levothyroxine",
+    "Quantity": 18,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000387",
+    "PatientID": "PAT000271",
+    "Medicine": "Omeprazole",
+    "Quantity": 59,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000388",
+    "PatientID": "PAT000347",
+    "Medicine": "Prednisone",
+    "Quantity": 63,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000389",
+    "PatientID": "PAT000282",
+    "Medicine": "Prednisone",
+    "Quantity": 51,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000390",
+    "PatientID": "PAT000456",
+    "Medicine": "Sertraline",
+    "Quantity": 52,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000391",
+    "PatientID": "PAT000493",
+    "Medicine": "Sertraline",
+    "Quantity": 60,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000392",
+    "PatientID": "PAT000182",
+    "Medicine": "Amoxicillin",
+    "Quantity": 67,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000393",
+    "PatientID": "PAT000296",
+    "Medicine": "Prednisone",
+    "Quantity": 78,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000394",
+    "PatientID": "PAT000385",
+    "Medicine": "Ibuprofen",
+    "Quantity": 52,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000395",
+    "PatientID": "PAT000480",
+    "Medicine": "Omeprazole",
+    "Quantity": 68,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000396",
+    "PatientID": "PAT000258",
+    "Medicine": "Levothyroxine",
+    "Quantity": 22,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000397",
+    "PatientID": "PAT000065",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 64,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000398",
+    "PatientID": "PAT000106",
+    "Medicine": "Prednisone",
+    "Quantity": 5,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000399",
+    "PatientID": "PAT000189",
+    "Medicine": "Metformin",
+    "Quantity": 77,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000400",
+    "PatientID": "PAT000060",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 39,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000401",
+    "PatientID": "PAT000196",
+    "Medicine": "Losartan",
+    "Quantity": 53,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000402",
+    "PatientID": "PAT000192",
+    "Medicine": "Levothyroxine",
+    "Quantity": 39,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000403",
+    "PatientID": "PAT000250",
+    "Medicine": "Lisinopril",
+    "Quantity": 41,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000404",
+    "PatientID": "PAT000111",
+    "Medicine": "Amlodipine",
+    "Quantity": 3,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000405",
+    "PatientID": "PAT000385",
+    "Medicine": "Levothyroxine",
+    "Quantity": 82,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000406",
+    "PatientID": "PAT000443",
+    "Medicine": "Atorvastatin",
+    "Quantity": 58,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000407",
+    "PatientID": "PAT000333",
+    "Medicine": "Losartan",
+    "Quantity": 18,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000408",
+    "PatientID": "PAT000203",
+    "Medicine": "Prednisone",
+    "Quantity": 39,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000409",
+    "PatientID": "PAT000009",
+    "Medicine": "Amlodipine",
+    "Quantity": 19,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000410",
+    "PatientID": "PAT000463",
+    "Medicine": "Clopidogrel",
+    "Quantity": 30,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000411",
+    "PatientID": "PAT000250",
+    "Medicine": "Gabapentin",
+    "Quantity": 33,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000412",
+    "PatientID": "PAT000365",
+    "Medicine": "Levothyroxine",
+    "Quantity": 60,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000413",
+    "PatientID": "PAT000452",
+    "Medicine": "Gabapentin",
+    "Quantity": 48,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000414",
+    "PatientID": "PAT000067",
+    "Medicine": "Amlodipine",
+    "Quantity": 60,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000415",
+    "PatientID": "PAT000126",
+    "Medicine": "Levothyroxine",
+    "Quantity": 7,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000416",
+    "PatientID": "PAT000473",
+    "Medicine": "Atorvastatin",
+    "Quantity": 82,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000417",
+    "PatientID": "PAT000192",
+    "Medicine": "Metformin",
+    "Quantity": 38,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000418",
+    "PatientID": "PAT000239",
+    "Medicine": "Lisinopril",
+    "Quantity": 45,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000419",
+    "PatientID": "PAT000455",
+    "Medicine": "Clopidogrel",
+    "Quantity": 50,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000420",
+    "PatientID": "PAT000040",
+    "Medicine": "Amoxicillin",
+    "Quantity": 56,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000421",
+    "PatientID": "PAT000182",
+    "Medicine": "Losartan",
+    "Quantity": 38,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000422",
+    "PatientID": "PAT000283",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 66,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000423",
+    "PatientID": "PAT000479",
+    "Medicine": "Gabapentin",
+    "Quantity": 6,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000424",
+    "PatientID": "PAT000035",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 62,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000425",
+    "PatientID": "PAT000100",
+    "Medicine": "Albuterol",
+    "Quantity": 43,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000426",
+    "PatientID": "PAT000085",
+    "Medicine": "Omeprazole",
+    "Quantity": 65,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000427",
+    "PatientID": "PAT000075",
+    "Medicine": "Lisinopril",
+    "Quantity": 13,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000428",
+    "PatientID": "PAT000139",
+    "Medicine": "Ibuprofen",
+    "Quantity": 72,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000429",
+    "PatientID": "PAT000261",
+    "Medicine": "Lisinopril",
+    "Quantity": 4,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000430",
+    "PatientID": "PAT000267",
+    "Medicine": "Amlodipine",
+    "Quantity": 81,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000431",
+    "PatientID": "PAT000230",
+    "Medicine": "Albuterol",
+    "Quantity": 4,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000432",
+    "PatientID": "PAT000409",
+    "Medicine": "Levothyroxine",
+    "Quantity": 43,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000433",
+    "PatientID": "PAT000178",
+    "Medicine": "Losartan",
+    "Quantity": 59,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000434",
+    "PatientID": "PAT000146",
+    "Medicine": "Losartan",
+    "Quantity": 42,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000435",
+    "PatientID": "PAT000411",
+    "Medicine": "Albuterol",
+    "Quantity": 7,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000436",
+    "PatientID": "PAT000064",
+    "Medicine": "Sertraline",
+    "Quantity": 75,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000437",
+    "PatientID": "PAT000389",
+    "Medicine": "Clopidogrel",
+    "Quantity": 57,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000438",
+    "PatientID": "PAT000391",
+    "Medicine": "Gabapentin",
+    "Quantity": 56,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000439",
+    "PatientID": "PAT000342",
+    "Medicine": "Sertraline",
+    "Quantity": 5,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000440",
+    "PatientID": "PAT000374",
+    "Medicine": "Prednisone",
+    "Quantity": 71,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000441",
+    "PatientID": "PAT000260",
+    "Medicine": "Ibuprofen",
+    "Quantity": 73,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000442",
+    "PatientID": "PAT000478",
+    "Medicine": "Metformin",
+    "Quantity": 20,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000443",
+    "PatientID": "PAT000170",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 49,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000444",
+    "PatientID": "PAT000375",
+    "Medicine": "Amoxicillin",
+    "Quantity": 57,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000445",
+    "PatientID": "PAT000137",
+    "Medicine": "Ibuprofen",
+    "Quantity": 82,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000446",
+    "PatientID": "PAT000391",
+    "Medicine": "Atorvastatin",
+    "Quantity": 19,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000447",
+    "PatientID": "PAT000048",
+    "Medicine": "Clopidogrel",
+    "Quantity": 26,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000448",
+    "PatientID": "PAT000142",
+    "Medicine": "Losartan",
+    "Quantity": 50,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000449",
+    "PatientID": "PAT000022",
+    "Medicine": "Levothyroxine",
+    "Quantity": 29,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000450",
+    "PatientID": "PAT000007",
+    "Medicine": "Lisinopril",
+    "Quantity": 39,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000451",
+    "PatientID": "PAT000215",
+    "Medicine": "Atorvastatin",
+    "Quantity": 25,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000452",
+    "PatientID": "PAT000214",
+    "Medicine": "Losartan",
+    "Quantity": 25,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000453",
+    "PatientID": "PAT000219",
+    "Medicine": "Prednisone",
+    "Quantity": 20,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000454",
+    "PatientID": "PAT000131",
+    "Medicine": "Sertraline",
+    "Quantity": 73,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000455",
+    "PatientID": "PAT000001",
+    "Medicine": "Clopidogrel",
+    "Quantity": 27,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000456",
+    "PatientID": "PAT000440",
+    "Medicine": "Metformin",
+    "Quantity": 21,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000457",
+    "PatientID": "PAT000373",
+    "Medicine": "Lisinopril",
+    "Quantity": 34,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000458",
+    "PatientID": "PAT000113",
+    "Medicine": "Gabapentin",
+    "Quantity": 9,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000459",
+    "PatientID": "PAT000474",
+    "Medicine": "Gabapentin",
+    "Quantity": 22,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000460",
+    "PatientID": "PAT000059",
+    "Medicine": "Amoxicillin",
+    "Quantity": 64,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000461",
+    "PatientID": "PAT000236",
+    "Medicine": "Metformin",
+    "Quantity": 86,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000462",
+    "PatientID": "PAT000316",
+    "Medicine": "Prednisone",
+    "Quantity": 44,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000463",
+    "PatientID": "PAT000436",
+    "Medicine": "Ibuprofen",
+    "Quantity": 48,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000464",
+    "PatientID": "PAT000296",
+    "Medicine": "Gabapentin",
+    "Quantity": 34,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000465",
+    "PatientID": "PAT000456",
+    "Medicine": "Sertraline",
+    "Quantity": 71,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000466",
+    "PatientID": "PAT000324",
+    "Medicine": "Clopidogrel",
+    "Quantity": 43,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000467",
+    "PatientID": "PAT000270",
+    "Medicine": "Amoxicillin",
+    "Quantity": 42,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000468",
+    "PatientID": "PAT000350",
+    "Medicine": "Atorvastatin",
+    "Quantity": 86,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000469",
+    "PatientID": "PAT000267",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 76,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000470",
+    "PatientID": "PAT000413",
+    "Medicine": "Amoxicillin",
+    "Quantity": 36,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000471",
+    "PatientID": "PAT000116",
+    "Medicine": "Losartan",
+    "Quantity": 32,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000472",
+    "PatientID": "PAT000223",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 3,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000473",
+    "PatientID": "PAT000169",
+    "Medicine": "Gabapentin",
+    "Quantity": 35,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000474",
+    "PatientID": "PAT000256",
+    "Medicine": "Sertraline",
+    "Quantity": 39,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000475",
+    "PatientID": "PAT000027",
+    "Medicine": "Ibuprofen",
+    "Quantity": 52,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000476",
+    "PatientID": "PAT000411",
+    "Medicine": "Losartan",
+    "Quantity": 39,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000477",
+    "PatientID": "PAT000055",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 33,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000478",
+    "PatientID": "PAT000285",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 19,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000479",
+    "PatientID": "PAT000451",
+    "Medicine": "Amlodipine",
+    "Quantity": 29,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000480",
+    "PatientID": "PAT000464",
+    "Medicine": "Amlodipine",
+    "Quantity": 60,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000481",
+    "PatientID": "PAT000358",
+    "Medicine": "Atorvastatin",
+    "Quantity": 13,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000482",
+    "PatientID": "PAT000186",
+    "Medicine": "Sertraline",
+    "Quantity": 65,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000483",
+    "PatientID": "PAT000215",
+    "Medicine": "Levothyroxine",
+    "Quantity": 52,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000484",
+    "PatientID": "PAT000154",
+    "Medicine": "Losartan",
+    "Quantity": 43,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000485",
+    "PatientID": "PAT000084",
+    "Medicine": "Metformin",
+    "Quantity": 32,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000486",
+    "PatientID": "PAT000486",
+    "Medicine": "Losartan",
+    "Quantity": 62,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000487",
+    "PatientID": "PAT000034",
+    "Medicine": "Clopidogrel",
+    "Quantity": 85,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000488",
+    "PatientID": "PAT000475",
+    "Medicine": "Prednisone",
+    "Quantity": 41,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000489",
+    "PatientID": "PAT000224",
+    "Medicine": "Clopidogrel",
+    "Quantity": 8,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000490",
+    "PatientID": "PAT000079",
+    "Medicine": "Levothyroxine",
+    "Quantity": 56,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000491",
+    "PatientID": "PAT000016",
+    "Medicine": "Levothyroxine",
+    "Quantity": 61,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000492",
+    "PatientID": "PAT000061",
+    "Medicine": "Albuterol",
+    "Quantity": 48,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000493",
+    "PatientID": "PAT000250",
+    "Medicine": "Omeprazole",
+    "Quantity": 31,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000494",
+    "PatientID": "PAT000476",
+    "Medicine": "Clopidogrel",
+    "Quantity": 63,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000495",
+    "PatientID": "PAT000110",
+    "Medicine": "Levothyroxine",
+    "Quantity": 76,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000496",
+    "PatientID": "PAT000435",
+    "Medicine": "Levothyroxine",
+    "Quantity": 56,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000497",
+    "PatientID": "PAT000125",
+    "Medicine": "Amlodipine",
+    "Quantity": 37,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000498",
+    "PatientID": "PAT000173",
+    "Medicine": "Losartan",
+    "Quantity": 22,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000499",
+    "PatientID": "PAT000168",
+    "Medicine": "Atorvastatin",
+    "Quantity": 77,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000500",
+    "PatientID": "PAT000437",
+    "Medicine": "Losartan",
+    "Quantity": 49,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000501",
+    "PatientID": "PAT000043",
+    "Medicine": "Metformin",
+    "Quantity": 13,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000502",
+    "PatientID": "PAT000077",
+    "Medicine": "Metformin",
+    "Quantity": 2,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000503",
+    "PatientID": "PAT000253",
+    "Medicine": "Sertraline",
+    "Quantity": 55,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000504",
+    "PatientID": "PAT000479",
+    "Medicine": "Clopidogrel",
+    "Quantity": 12,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000505",
+    "PatientID": "PAT000332",
+    "Medicine": "Prednisone",
+    "Quantity": 90,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000506",
+    "PatientID": "PAT000002",
+    "Medicine": "Atorvastatin",
+    "Quantity": 7,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000507",
+    "PatientID": "PAT000017",
+    "Medicine": "Gabapentin",
+    "Quantity": 23,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000508",
+    "PatientID": "PAT000432",
+    "Medicine": "Atorvastatin",
+    "Quantity": 38,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000509",
+    "PatientID": "PAT000352",
+    "Medicine": "Albuterol",
+    "Quantity": 87,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000510",
+    "PatientID": "PAT000183",
+    "Medicine": "Clopidogrel",
+    "Quantity": 90,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000511",
+    "PatientID": "PAT000045",
+    "Medicine": "Amoxicillin",
+    "Quantity": 74,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000512",
+    "PatientID": "PAT000458",
+    "Medicine": "Lisinopril",
+    "Quantity": 22,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000513",
+    "PatientID": "PAT000052",
+    "Medicine": "Omeprazole",
+    "Quantity": 43,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000514",
+    "PatientID": "PAT000043",
+    "Medicine": "Lisinopril",
+    "Quantity": 75,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000515",
+    "PatientID": "PAT000001",
+    "Medicine": "Lisinopril",
+    "Quantity": 79,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000516",
+    "PatientID": "PAT000405",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 25,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000517",
+    "PatientID": "PAT000422",
+    "Medicine": "Atorvastatin",
+    "Quantity": 51,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000518",
+    "PatientID": "PAT000137",
+    "Medicine": "Gabapentin",
+    "Quantity": 14,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000519",
+    "PatientID": "PAT000316",
+    "Medicine": "Losartan",
+    "Quantity": 38,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000520",
+    "PatientID": "PAT000037",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 68,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000521",
+    "PatientID": "PAT000146",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 79,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000522",
+    "PatientID": "PAT000237",
+    "Medicine": "Atorvastatin",
+    "Quantity": 9,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000523",
+    "PatientID": "PAT000081",
+    "Medicine": "Losartan",
+    "Quantity": 34,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000524",
+    "PatientID": "PAT000264",
+    "Medicine": "Amoxicillin",
+    "Quantity": 90,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000525",
+    "PatientID": "PAT000311",
+    "Medicine": "Metformin",
+    "Quantity": 64,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000526",
+    "PatientID": "PAT000146",
+    "Medicine": "Amlodipine",
+    "Quantity": 89,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000527",
+    "PatientID": "PAT000437",
+    "Medicine": "Lisinopril",
+    "Quantity": 51,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000528",
+    "PatientID": "PAT000084",
+    "Medicine": "Albuterol",
+    "Quantity": 86,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000529",
+    "PatientID": "PAT000415",
+    "Medicine": "Ibuprofen",
+    "Quantity": 61,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000530",
+    "PatientID": "PAT000488",
+    "Medicine": "Gabapentin",
+    "Quantity": 46,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000531",
+    "PatientID": "PAT000151",
+    "Medicine": "Sertraline",
+    "Quantity": 40,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000532",
+    "PatientID": "PAT000215",
+    "Medicine": "Amoxicillin",
+    "Quantity": 52,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000533",
+    "PatientID": "PAT000407",
+    "Medicine": "Prednisone",
+    "Quantity": 31,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000534",
+    "PatientID": "PAT000342",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 40,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000535",
+    "PatientID": "PAT000124",
+    "Medicine": "Albuterol",
+    "Quantity": 27,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000536",
+    "PatientID": "PAT000361",
+    "Medicine": "Gabapentin",
+    "Quantity": 20,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000537",
+    "PatientID": "PAT000041",
+    "Medicine": "Atorvastatin",
+    "Quantity": 5,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000538",
+    "PatientID": "PAT000449",
+    "Medicine": "Lisinopril",
+    "Quantity": 76,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000539",
+    "PatientID": "PAT000056",
+    "Medicine": "Metformin",
+    "Quantity": 19,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000540",
+    "PatientID": "PAT000077",
+    "Medicine": "Gabapentin",
+    "Quantity": 17,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000541",
+    "PatientID": "PAT000145",
+    "Medicine": "Ibuprofen",
+    "Quantity": 10,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000542",
+    "PatientID": "PAT000353",
+    "Medicine": "Prednisone",
+    "Quantity": 43,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000543",
+    "PatientID": "PAT000123",
+    "Medicine": "Albuterol",
+    "Quantity": 75,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000544",
+    "PatientID": "PAT000223",
+    "Medicine": "Ibuprofen",
+    "Quantity": 62,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000545",
+    "PatientID": "PAT000477",
+    "Medicine": "Levothyroxine",
+    "Quantity": 16,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000546",
+    "PatientID": "PAT000483",
+    "Medicine": "Amoxicillin",
+    "Quantity": 86,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000547",
+    "PatientID": "PAT000374",
+    "Medicine": "Amoxicillin",
+    "Quantity": 71,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000548",
+    "PatientID": "PAT000480",
+    "Medicine": "Losartan",
+    "Quantity": 39,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000549",
+    "PatientID": "PAT000459",
+    "Medicine": "Ibuprofen",
+    "Quantity": 27,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000550",
+    "PatientID": "PAT000018",
+    "Medicine": "Gabapentin",
+    "Quantity": 84,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000551",
+    "PatientID": "PAT000201",
+    "Medicine": "Albuterol",
+    "Quantity": 21,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000552",
+    "PatientID": "PAT000034",
+    "Medicine": "Amlodipine",
+    "Quantity": 45,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000553",
+    "PatientID": "PAT000431",
+    "Medicine": "Lisinopril",
+    "Quantity": 5,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000554",
+    "PatientID": "PAT000200",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 33,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000555",
+    "PatientID": "PAT000238",
+    "Medicine": "Atorvastatin",
+    "Quantity": 64,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000556",
+    "PatientID": "PAT000402",
+    "Medicine": "Amoxicillin",
+    "Quantity": 51,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000557",
+    "PatientID": "PAT000231",
+    "Medicine": "Ibuprofen",
+    "Quantity": 42,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000558",
+    "PatientID": "PAT000382",
+    "Medicine": "Atorvastatin",
+    "Quantity": 42,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000559",
+    "PatientID": "PAT000338",
+    "Medicine": "Ibuprofen",
+    "Quantity": 55,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000560",
+    "PatientID": "PAT000445",
+    "Medicine": "Albuterol",
+    "Quantity": 73,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000561",
+    "PatientID": "PAT000004",
+    "Medicine": "Ibuprofen",
+    "Quantity": 24,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000562",
+    "PatientID": "PAT000489",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 22,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000563",
+    "PatientID": "PAT000048",
+    "Medicine": "Omeprazole",
+    "Quantity": 54,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000564",
+    "PatientID": "PAT000076",
+    "Medicine": "Gabapentin",
+    "Quantity": 43,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000565",
+    "PatientID": "PAT000123",
+    "Medicine": "Lisinopril",
+    "Quantity": 18,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000566",
+    "PatientID": "PAT000254",
+    "Medicine": "Sertraline",
+    "Quantity": 78,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000567",
+    "PatientID": "PAT000370",
+    "Medicine": "Omeprazole",
+    "Quantity": 26,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000568",
+    "PatientID": "PAT000020",
+    "Medicine": "Atorvastatin",
+    "Quantity": 54,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000569",
+    "PatientID": "PAT000324",
+    "Medicine": "Prednisone",
+    "Quantity": 2,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000570",
+    "PatientID": "PAT000410",
+    "Medicine": "Albuterol",
+    "Quantity": 44,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000571",
+    "PatientID": "PAT000173",
+    "Medicine": "Losartan",
+    "Quantity": 48,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000572",
+    "PatientID": "PAT000248",
+    "Medicine": "Lisinopril",
+    "Quantity": 14,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000573",
+    "PatientID": "PAT000104",
+    "Medicine": "Prednisone",
+    "Quantity": 65,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000574",
+    "PatientID": "PAT000171",
+    "Medicine": "Amlodipine",
+    "Quantity": 19,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000575",
+    "PatientID": "PAT000440",
+    "Medicine": "Amoxicillin",
+    "Quantity": 85,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000576",
+    "PatientID": "PAT000141",
+    "Medicine": "Ibuprofen",
+    "Quantity": 65,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000577",
+    "PatientID": "PAT000456",
+    "Medicine": "Sertraline",
+    "Quantity": 51,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000578",
+    "PatientID": "PAT000314",
+    "Medicine": "Sertraline",
+    "Quantity": 76,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000579",
+    "PatientID": "PAT000101",
+    "Medicine": "Clopidogrel",
+    "Quantity": 79,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000580",
+    "PatientID": "PAT000233",
+    "Medicine": "Levothyroxine",
+    "Quantity": 6,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000581",
+    "PatientID": "PAT000281",
+    "Medicine": "Ibuprofen",
+    "Quantity": 76,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000582",
+    "PatientID": "PAT000387",
+    "Medicine": "Omeprazole",
+    "Quantity": 69,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000583",
+    "PatientID": "PAT000146",
+    "Medicine": "Gabapentin",
+    "Quantity": 6,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000584",
+    "PatientID": "PAT000209",
+    "Medicine": "Albuterol",
+    "Quantity": 3,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000585",
+    "PatientID": "PAT000495",
+    "Medicine": "Losartan",
+    "Quantity": 81,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000586",
+    "PatientID": "PAT000243",
+    "Medicine": "Prednisone",
+    "Quantity": 9,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000587",
+    "PatientID": "PAT000476",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 54,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000588",
+    "PatientID": "PAT000293",
+    "Medicine": "Gabapentin",
+    "Quantity": 78,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000589",
+    "PatientID": "PAT000428",
+    "Medicine": "Amlodipine",
+    "Quantity": 41,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000590",
+    "PatientID": "PAT000231",
+    "Medicine": "Losartan",
+    "Quantity": 29,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000591",
+    "PatientID": "PAT000457",
+    "Medicine": "Omeprazole",
+    "Quantity": 39,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000592",
+    "PatientID": "PAT000419",
+    "Medicine": "Amoxicillin",
+    "Quantity": 5,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000593",
+    "PatientID": "PAT000464",
+    "Medicine": "Amlodipine",
+    "Quantity": 86,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000594",
+    "PatientID": "PAT000203",
+    "Medicine": "Losartan",
+    "Quantity": 33,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000595",
+    "PatientID": "PAT000272",
+    "Medicine": "Omeprazole",
+    "Quantity": 1,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000596",
+    "PatientID": "PAT000114",
+    "Medicine": "Amlodipine",
+    "Quantity": 6,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000597",
+    "PatientID": "PAT000123",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 58,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000598",
+    "PatientID": "PAT000221",
+    "Medicine": "Levothyroxine",
+    "Quantity": 1,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000599",
+    "PatientID": "PAT000411",
+    "Medicine": "Lisinopril",
+    "Quantity": 10,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000600",
+    "PatientID": "PAT000275",
+    "Medicine": "Prednisone",
+    "Quantity": 36,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000601",
+    "PatientID": "PAT000482",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 70,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000602",
+    "PatientID": "PAT000257",
+    "Medicine": "Levothyroxine",
+    "Quantity": 3,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000603",
+    "PatientID": "PAT000404",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 82,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000604",
+    "PatientID": "PAT000340",
+    "Medicine": "Omeprazole",
+    "Quantity": 77,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000605",
+    "PatientID": "PAT000298",
+    "Medicine": "Lisinopril",
+    "Quantity": 64,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000606",
+    "PatientID": "PAT000339",
+    "Medicine": "Amlodipine",
+    "Quantity": 69,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000607",
+    "PatientID": "PAT000400",
+    "Medicine": "Sertraline",
+    "Quantity": 37,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000608",
+    "PatientID": "PAT000474",
+    "Medicine": "Metformin",
+    "Quantity": 31,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000609",
+    "PatientID": "PAT000372",
+    "Medicine": "Levothyroxine",
+    "Quantity": 72,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000610",
+    "PatientID": "PAT000280",
+    "Medicine": "Albuterol",
+    "Quantity": 23,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000611",
+    "PatientID": "PAT000008",
+    "Medicine": "Amoxicillin",
+    "Quantity": 26,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000612",
+    "PatientID": "PAT000041",
+    "Medicine": "Amoxicillin",
+    "Quantity": 55,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000613",
+    "PatientID": "PAT000126",
+    "Medicine": "Albuterol",
+    "Quantity": 83,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000614",
+    "PatientID": "PAT000051",
+    "Medicine": "Gabapentin",
+    "Quantity": 3,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000615",
+    "PatientID": "PAT000087",
+    "Medicine": "Atorvastatin",
+    "Quantity": 34,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000616",
+    "PatientID": "PAT000344",
+    "Medicine": "Amoxicillin",
+    "Quantity": 38,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000617",
+    "PatientID": "PAT000083",
+    "Medicine": "Omeprazole",
+    "Quantity": 54,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000618",
+    "PatientID": "PAT000105",
+    "Medicine": "Clopidogrel",
+    "Quantity": 55,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000619",
+    "PatientID": "PAT000186",
+    "Medicine": "Ibuprofen",
+    "Quantity": 21,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000620",
+    "PatientID": "PAT000159",
+    "Medicine": "Metformin",
+    "Quantity": 37,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000621",
+    "PatientID": "PAT000281",
+    "Medicine": "Sertraline",
+    "Quantity": 89,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000622",
+    "PatientID": "PAT000040",
+    "Medicine": "Amoxicillin",
+    "Quantity": 9,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000623",
+    "PatientID": "PAT000437",
+    "Medicine": "Atorvastatin",
+    "Quantity": 16,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000624",
+    "PatientID": "PAT000489",
+    "Medicine": "Clopidogrel",
+    "Quantity": 1,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000625",
+    "PatientID": "PAT000399",
+    "Medicine": "Amlodipine",
+    "Quantity": 9,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000626",
+    "PatientID": "PAT000495",
+    "Medicine": "Prednisone",
+    "Quantity": 35,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000627",
+    "PatientID": "PAT000392",
+    "Medicine": "Atorvastatin",
+    "Quantity": 15,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000628",
+    "PatientID": "PAT000063",
+    "Medicine": "Gabapentin",
+    "Quantity": 44,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000629",
+    "PatientID": "PAT000239",
+    "Medicine": "Sertraline",
+    "Quantity": 69,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000630",
+    "PatientID": "PAT000247",
+    "Medicine": "Sertraline",
+    "Quantity": 16,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000631",
+    "PatientID": "PAT000143",
+    "Medicine": "Amoxicillin",
+    "Quantity": 79,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000632",
+    "PatientID": "PAT000183",
+    "Medicine": "Prednisone",
+    "Quantity": 11,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000633",
+    "PatientID": "PAT000181",
+    "Medicine": "Prednisone",
+    "Quantity": 12,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000634",
+    "PatientID": "PAT000413",
+    "Medicine": "Atorvastatin",
+    "Quantity": 50,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000635",
+    "PatientID": "PAT000484",
+    "Medicine": "Amlodipine",
+    "Quantity": 70,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000636",
+    "PatientID": "PAT000467",
+    "Medicine": "Omeprazole",
+    "Quantity": 3,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000637",
+    "PatientID": "PAT000412",
+    "Medicine": "Clopidogrel",
+    "Quantity": 80,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000638",
+    "PatientID": "PAT000033",
+    "Medicine": "Prednisone",
+    "Quantity": 12,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000639",
+    "PatientID": "PAT000176",
+    "Medicine": "Atorvastatin",
+    "Quantity": 19,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000640",
+    "PatientID": "PAT000418",
+    "Medicine": "Atorvastatin",
+    "Quantity": 67,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000641",
+    "PatientID": "PAT000100",
+    "Medicine": "Ibuprofen",
+    "Quantity": 69,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000642",
+    "PatientID": "PAT000180",
+    "Medicine": "Gabapentin",
+    "Quantity": 81,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000643",
+    "PatientID": "PAT000437",
+    "Medicine": "Lisinopril",
+    "Quantity": 44,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000644",
+    "PatientID": "PAT000054",
+    "Medicine": "Levothyroxine",
+    "Quantity": 56,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000645",
+    "PatientID": "PAT000398",
+    "Medicine": "Prednisone",
+    "Quantity": 66,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000646",
+    "PatientID": "PAT000109",
+    "Medicine": "Prednisone",
+    "Quantity": 52,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000647",
+    "PatientID": "PAT000318",
+    "Medicine": "Atorvastatin",
+    "Quantity": 25,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000648",
+    "PatientID": "PAT000397",
+    "Medicine": "Amoxicillin",
+    "Quantity": 62,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000649",
+    "PatientID": "PAT000035",
+    "Medicine": "Losartan",
+    "Quantity": 90,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000650",
+    "PatientID": "PAT000428",
+    "Medicine": "Ibuprofen",
+    "Quantity": 30,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000651",
+    "PatientID": "PAT000286",
+    "Medicine": "Amoxicillin",
+    "Quantity": 64,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000652",
+    "PatientID": "PAT000199",
+    "Medicine": "Prednisone",
+    "Quantity": 59,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000653",
+    "PatientID": "PAT000189",
+    "Medicine": "Albuterol",
+    "Quantity": 83,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000654",
+    "PatientID": "PAT000019",
+    "Medicine": "Amlodipine",
+    "Quantity": 6,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000655",
+    "PatientID": "PAT000002",
+    "Medicine": "Gabapentin",
+    "Quantity": 25,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000656",
+    "PatientID": "PAT000009",
+    "Medicine": "Losartan",
+    "Quantity": 46,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000657",
+    "PatientID": "PAT000333",
+    "Medicine": "Amoxicillin",
+    "Quantity": 48,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000658",
+    "PatientID": "PAT000384",
+    "Medicine": "Albuterol",
+    "Quantity": 54,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000659",
+    "PatientID": "PAT000497",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 1,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000660",
+    "PatientID": "PAT000044",
+    "Medicine": "Albuterol",
+    "Quantity": 60,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000661",
+    "PatientID": "PAT000305",
+    "Medicine": "Atorvastatin",
+    "Quantity": 13,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000662",
+    "PatientID": "PAT000393",
+    "Medicine": "Sertraline",
+    "Quantity": 72,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000663",
+    "PatientID": "PAT000070",
+    "Medicine": "Metformin",
+    "Quantity": 76,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000664",
+    "PatientID": "PAT000284",
+    "Medicine": "Gabapentin",
+    "Quantity": 64,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000665",
+    "PatientID": "PAT000062",
+    "Medicine": "Sertraline",
+    "Quantity": 44,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000666",
+    "PatientID": "PAT000403",
+    "Medicine": "Losartan",
+    "Quantity": 5,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000667",
+    "PatientID": "PAT000163",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 82,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000668",
+    "PatientID": "PAT000275",
+    "Medicine": "Amlodipine",
+    "Quantity": 40,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000669",
+    "PatientID": "PAT000151",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 55,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000670",
+    "PatientID": "PAT000029",
+    "Medicine": "Lisinopril",
+    "Quantity": 14,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000671",
+    "PatientID": "PAT000494",
+    "Medicine": "Omeprazole",
+    "Quantity": 86,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000672",
+    "PatientID": "PAT000133",
+    "Medicine": "Atorvastatin",
+    "Quantity": 90,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000673",
+    "PatientID": "PAT000079",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 49,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000674",
+    "PatientID": "PAT000436",
+    "Medicine": "Omeprazole",
+    "Quantity": 44,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000675",
+    "PatientID": "PAT000500",
+    "Medicine": "Levothyroxine",
+    "Quantity": 10,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000676",
+    "PatientID": "PAT000039",
+    "Medicine": "Sertraline",
+    "Quantity": 47,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000677",
+    "PatientID": "PAT000379",
+    "Medicine": "Gabapentin",
+    "Quantity": 40,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000678",
+    "PatientID": "PAT000012",
+    "Medicine": "Omeprazole",
+    "Quantity": 53,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000679",
+    "PatientID": "PAT000168",
+    "Medicine": "Lisinopril",
+    "Quantity": 37,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000680",
+    "PatientID": "PAT000446",
+    "Medicine": "Atorvastatin",
+    "Quantity": 12,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000681",
+    "PatientID": "PAT000309",
+    "Medicine": "Atorvastatin",
+    "Quantity": 68,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000682",
+    "PatientID": "PAT000186",
+    "Medicine": "Losartan",
+    "Quantity": 13,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000683",
+    "PatientID": "PAT000500",
+    "Medicine": "Metformin",
+    "Quantity": 13,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000684",
+    "PatientID": "PAT000163",
+    "Medicine": "Omeprazole",
+    "Quantity": 43,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000685",
+    "PatientID": "PAT000094",
+    "Medicine": "Clopidogrel",
+    "Quantity": 16,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000686",
+    "PatientID": "PAT000299",
+    "Medicine": "Losartan",
+    "Quantity": 28,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000687",
+    "PatientID": "PAT000119",
+    "Medicine": "Prednisone",
+    "Quantity": 11,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000688",
+    "PatientID": "PAT000160",
+    "Medicine": "Lisinopril",
+    "Quantity": 36,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000689",
+    "PatientID": "PAT000387",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 71,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000690",
+    "PatientID": "PAT000416",
+    "Medicine": "Sertraline",
+    "Quantity": 11,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000691",
+    "PatientID": "PAT000479",
+    "Medicine": "Ibuprofen",
+    "Quantity": 71,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000692",
+    "PatientID": "PAT000280",
+    "Medicine": "Losartan",
+    "Quantity": 89,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000693",
+    "PatientID": "PAT000337",
+    "Medicine": "Omeprazole",
+    "Quantity": 71,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000694",
+    "PatientID": "PAT000459",
+    "Medicine": "Omeprazole",
+    "Quantity": 13,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000695",
+    "PatientID": "PAT000160",
+    "Medicine": "Levothyroxine",
+    "Quantity": 6,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000696",
+    "PatientID": "PAT000048",
+    "Medicine": "Clopidogrel",
+    "Quantity": 54,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000697",
+    "PatientID": "PAT000138",
+    "Medicine": "Amoxicillin",
+    "Quantity": 43,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000698",
+    "PatientID": "PAT000071",
+    "Medicine": "Ibuprofen",
+    "Quantity": 7,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000699",
+    "PatientID": "PAT000486",
+    "Medicine": "Metformin",
+    "Quantity": 13,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000700",
+    "PatientID": "PAT000055",
+    "Medicine": "Losartan",
+    "Quantity": 1,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000701",
+    "PatientID": "PAT000022",
+    "Medicine": "Clopidogrel",
+    "Quantity": 62,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000702",
+    "PatientID": "PAT000208",
+    "Medicine": "Gabapentin",
+    "Quantity": 47,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000703",
+    "PatientID": "PAT000136",
+    "Medicine": "Sertraline",
+    "Quantity": 14,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000704",
+    "PatientID": "PAT000482",
+    "Medicine": "Atorvastatin",
+    "Quantity": 76,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000705",
+    "PatientID": "PAT000042",
+    "Medicine": "Sertraline",
+    "Quantity": 32,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000706",
+    "PatientID": "PAT000095",
+    "Medicine": "Albuterol",
+    "Quantity": 22,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000707",
+    "PatientID": "PAT000359",
+    "Medicine": "Amoxicillin",
+    "Quantity": 73,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000708",
+    "PatientID": "PAT000323",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 14,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000709",
+    "PatientID": "PAT000241",
+    "Medicine": "Prednisone",
+    "Quantity": 3,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000710",
+    "PatientID": "PAT000087",
+    "Medicine": "Amlodipine",
+    "Quantity": 17,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000711",
+    "PatientID": "PAT000261",
+    "Medicine": "Ibuprofen",
+    "Quantity": 88,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000712",
+    "PatientID": "PAT000003",
+    "Medicine": "Amlodipine",
+    "Quantity": 53,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000713",
+    "PatientID": "PAT000449",
+    "Medicine": "Amoxicillin",
+    "Quantity": 67,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000714",
+    "PatientID": "PAT000407",
+    "Medicine": "Omeprazole",
+    "Quantity": 74,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000715",
+    "PatientID": "PAT000253",
+    "Medicine": "Ibuprofen",
+    "Quantity": 25,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000716",
+    "PatientID": "PAT000031",
+    "Medicine": "Sertraline",
+    "Quantity": 31,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000717",
+    "PatientID": "PAT000314",
+    "Medicine": "Levothyroxine",
+    "Quantity": 28,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000718",
+    "PatientID": "PAT000099",
+    "Medicine": "Amoxicillin",
+    "Quantity": 50,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000719",
+    "PatientID": "PAT000150",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 68,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000720",
+    "PatientID": "PAT000208",
+    "Medicine": "Albuterol",
+    "Quantity": 18,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000721",
+    "PatientID": "PAT000467",
+    "Medicine": "Losartan",
+    "Quantity": 53,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000722",
+    "PatientID": "PAT000138",
+    "Medicine": "Losartan",
+    "Quantity": 37,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000723",
+    "PatientID": "PAT000439",
+    "Medicine": "Amlodipine",
+    "Quantity": 79,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000724",
+    "PatientID": "PAT000362",
+    "Medicine": "Clopidogrel",
+    "Quantity": 16,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000725",
+    "PatientID": "PAT000332",
+    "Medicine": "Levothyroxine",
+    "Quantity": 33,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000726",
+    "PatientID": "PAT000001",
+    "Medicine": "Losartan",
+    "Quantity": 64,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000727",
+    "PatientID": "PAT000303",
+    "Medicine": "Metformin",
+    "Quantity": 52,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000728",
+    "PatientID": "PAT000354",
+    "Medicine": "Amlodipine",
+    "Quantity": 33,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000729",
+    "PatientID": "PAT000095",
+    "Medicine": "Atorvastatin",
+    "Quantity": 74,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000730",
+    "PatientID": "PAT000298",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 83,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000731",
+    "PatientID": "PAT000128",
+    "Medicine": "Metformin",
+    "Quantity": 86,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000732",
+    "PatientID": "PAT000119",
+    "Medicine": "Atorvastatin",
+    "Quantity": 6,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000733",
+    "PatientID": "PAT000375",
+    "Medicine": "Amlodipine",
+    "Quantity": 6,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000734",
+    "PatientID": "PAT000203",
+    "Medicine": "Metformin",
+    "Quantity": 88,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000735",
+    "PatientID": "PAT000142",
+    "Medicine": "Atorvastatin",
+    "Quantity": 28,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000736",
+    "PatientID": "PAT000002",
+    "Medicine": "Metformin",
+    "Quantity": 74,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000737",
+    "PatientID": "PAT000368",
+    "Medicine": "Amoxicillin",
+    "Quantity": 27,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000738",
+    "PatientID": "PAT000008",
+    "Medicine": "Metformin",
+    "Quantity": 90,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000739",
+    "PatientID": "PAT000175",
+    "Medicine": "Levothyroxine",
+    "Quantity": 14,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000740",
+    "PatientID": "PAT000074",
+    "Medicine": "Amlodipine",
+    "Quantity": 58,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000741",
+    "PatientID": "PAT000403",
+    "Medicine": "Atorvastatin",
+    "Quantity": 83,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000742",
+    "PatientID": "PAT000167",
+    "Medicine": "Metformin",
+    "Quantity": 48,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000743",
+    "PatientID": "PAT000338",
+    "Medicine": "Levothyroxine",
+    "Quantity": 49,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000744",
+    "PatientID": "PAT000141",
+    "Medicine": "Sertraline",
+    "Quantity": 88,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000745",
+    "PatientID": "PAT000104",
+    "Medicine": "Gabapentin",
+    "Quantity": 85,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000746",
+    "PatientID": "PAT000075",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 82,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000747",
+    "PatientID": "PAT000181",
+    "Medicine": "Amlodipine",
+    "Quantity": 50,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000748",
+    "PatientID": "PAT000440",
+    "Medicine": "Amlodipine",
+    "Quantity": 86,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000749",
+    "PatientID": "PAT000251",
+    "Medicine": "Amoxicillin",
+    "Quantity": 32,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000750",
+    "PatientID": "PAT000224",
+    "Medicine": "Gabapentin",
+    "Quantity": 36,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000751",
+    "PatientID": "PAT000002",
+    "Medicine": "Lisinopril",
+    "Quantity": 33,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000752",
+    "PatientID": "PAT000082",
+    "Medicine": "Levothyroxine",
+    "Quantity": 60,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000753",
+    "PatientID": "PAT000384",
+    "Medicine": "Lisinopril",
+    "Quantity": 8,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000754",
+    "PatientID": "PAT000149",
+    "Medicine": "Gabapentin",
+    "Quantity": 68,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000755",
+    "PatientID": "PAT000057",
+    "Medicine": "Amlodipine",
+    "Quantity": 53,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000756",
+    "PatientID": "PAT000073",
+    "Medicine": "Clopidogrel",
+    "Quantity": 37,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000757",
+    "PatientID": "PAT000091",
+    "Medicine": "Omeprazole",
+    "Quantity": 36,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000758",
+    "PatientID": "PAT000243",
+    "Medicine": "Levothyroxine",
+    "Quantity": 2,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000759",
+    "PatientID": "PAT000034",
+    "Medicine": "Prednisone",
+    "Quantity": 68,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000760",
+    "PatientID": "PAT000179",
+    "Medicine": "Losartan",
+    "Quantity": 59,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000761",
+    "PatientID": "PAT000115",
+    "Medicine": "Omeprazole",
+    "Quantity": 83,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000762",
+    "PatientID": "PAT000353",
+    "Medicine": "Gabapentin",
+    "Quantity": 26,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000763",
+    "PatientID": "PAT000430",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 36,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000764",
+    "PatientID": "PAT000139",
+    "Medicine": "Gabapentin",
+    "Quantity": 50,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000765",
+    "PatientID": "PAT000113",
+    "Medicine": "Atorvastatin",
+    "Quantity": 62,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000766",
+    "PatientID": "PAT000009",
+    "Medicine": "Gabapentin",
+    "Quantity": 18,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000767",
+    "PatientID": "PAT000331",
+    "Medicine": "Prednisone",
+    "Quantity": 31,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000768",
+    "PatientID": "PAT000113",
+    "Medicine": "Gabapentin",
+    "Quantity": 50,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000769",
+    "PatientID": "PAT000329",
+    "Medicine": "Sertraline",
+    "Quantity": 66,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000770",
+    "PatientID": "PAT000057",
+    "Medicine": "Clopidogrel",
+    "Quantity": 19,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000771",
+    "PatientID": "PAT000268",
+    "Medicine": "Omeprazole",
+    "Quantity": 48,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000772",
+    "PatientID": "PAT000051",
+    "Medicine": "Omeprazole",
+    "Quantity": 89,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000773",
+    "PatientID": "PAT000265",
+    "Medicine": "Omeprazole",
+    "Quantity": 85,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000774",
+    "PatientID": "PAT000383",
+    "Medicine": "Prednisone",
+    "Quantity": 40,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000775",
+    "PatientID": "PAT000033",
+    "Medicine": "Levothyroxine",
+    "Quantity": 3,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000776",
+    "PatientID": "PAT000124",
+    "Medicine": "Losartan",
+    "Quantity": 14,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000777",
+    "PatientID": "PAT000130",
+    "Medicine": "Clopidogrel",
+    "Quantity": 37,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000778",
+    "PatientID": "PAT000388",
+    "Medicine": "Prednisone",
+    "Quantity": 32,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000779",
+    "PatientID": "PAT000439",
+    "Medicine": "Amoxicillin",
+    "Quantity": 72,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000780",
+    "PatientID": "PAT000410",
+    "Medicine": "Losartan",
+    "Quantity": 74,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000781",
+    "PatientID": "PAT000472",
+    "Medicine": "Clopidogrel",
+    "Quantity": 68,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000782",
+    "PatientID": "PAT000255",
+    "Medicine": "Atorvastatin",
+    "Quantity": 81,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000783",
+    "PatientID": "PAT000077",
+    "Medicine": "Sertraline",
+    "Quantity": 1,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000784",
+    "PatientID": "PAT000394",
+    "Medicine": "Lisinopril",
+    "Quantity": 42,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000785",
+    "PatientID": "PAT000215",
+    "Medicine": "Ibuprofen",
+    "Quantity": 71,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000786",
+    "PatientID": "PAT000001",
+    "Medicine": "Losartan",
+    "Quantity": 44,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000787",
+    "PatientID": "PAT000096",
+    "Medicine": "Gabapentin",
+    "Quantity": 25,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000788",
+    "PatientID": "PAT000370",
+    "Medicine": "Metformin",
+    "Quantity": 40,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000789",
+    "PatientID": "PAT000129",
+    "Medicine": "Prednisone",
+    "Quantity": 55,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000790",
+    "PatientID": "PAT000301",
+    "Medicine": "Ibuprofen",
+    "Quantity": 35,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000791",
+    "PatientID": "PAT000206",
+    "Medicine": "Amlodipine",
+    "Quantity": 81,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000792",
+    "PatientID": "PAT000290",
+    "Medicine": "Amoxicillin",
+    "Quantity": 78,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000793",
+    "PatientID": "PAT000050",
+    "Medicine": "Losartan",
+    "Quantity": 46,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000794",
+    "PatientID": "PAT000320",
+    "Medicine": "Levothyroxine",
+    "Quantity": 61,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000795",
+    "PatientID": "PAT000167",
+    "Medicine": "Amlodipine",
+    "Quantity": 32,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000796",
+    "PatientID": "PAT000183",
+    "Medicine": "Lisinopril",
+    "Quantity": 44,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000797",
+    "PatientID": "PAT000273",
+    "Medicine": "Gabapentin",
+    "Quantity": 31,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000798",
+    "PatientID": "PAT000117",
+    "Medicine": "Albuterol",
+    "Quantity": 64,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000799",
+    "PatientID": "PAT000009",
+    "Medicine": "Levothyroxine",
+    "Quantity": 72,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000800",
+    "PatientID": "PAT000053",
+    "Medicine": "Ibuprofen",
+    "Quantity": 10,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000801",
+    "PatientID": "PAT000119",
+    "Medicine": "Losartan",
+    "Quantity": 18,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000802",
+    "PatientID": "PAT000105",
+    "Medicine": "Levothyroxine",
+    "Quantity": 6,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000803",
+    "PatientID": "PAT000274",
+    "Medicine": "Gabapentin",
+    "Quantity": 53,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000804",
+    "PatientID": "PAT000053",
+    "Medicine": "Ibuprofen",
+    "Quantity": 10,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000805",
+    "PatientID": "PAT000226",
+    "Medicine": "Amoxicillin",
+    "Quantity": 71,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000806",
+    "PatientID": "PAT000114",
+    "Medicine": "Ibuprofen",
+    "Quantity": 18,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000807",
+    "PatientID": "PAT000112",
+    "Medicine": "Ibuprofen",
+    "Quantity": 28,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000808",
+    "PatientID": "PAT000019",
+    "Medicine": "Albuterol",
+    "Quantity": 13,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000809",
+    "PatientID": "PAT000471",
+    "Medicine": "Omeprazole",
+    "Quantity": 2,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000810",
+    "PatientID": "PAT000062",
+    "Medicine": "Losartan",
+    "Quantity": 53,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000811",
+    "PatientID": "PAT000302",
+    "Medicine": "Omeprazole",
+    "Quantity": 83,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000812",
+    "PatientID": "PAT000458",
+    "Medicine": "Clopidogrel",
+    "Quantity": 58,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000813",
+    "PatientID": "PAT000175",
+    "Medicine": "Amlodipine",
+    "Quantity": 12,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000814",
+    "PatientID": "PAT000314",
+    "Medicine": "Clopidogrel",
+    "Quantity": 31,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000815",
+    "PatientID": "PAT000413",
+    "Medicine": "Metformin",
+    "Quantity": 12,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000816",
+    "PatientID": "PAT000275",
+    "Medicine": "Omeprazole",
+    "Quantity": 77,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000817",
+    "PatientID": "PAT000481",
+    "Medicine": "Ibuprofen",
+    "Quantity": 81,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000818",
+    "PatientID": "PAT000023",
+    "Medicine": "Prednisone",
+    "Quantity": 31,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000819",
+    "PatientID": "PAT000142",
+    "Medicine": "Gabapentin",
+    "Quantity": 89,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000820",
+    "PatientID": "PAT000337",
+    "Medicine": "Sertraline",
+    "Quantity": 22,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000821",
+    "PatientID": "PAT000374",
+    "Medicine": "Prednisone",
+    "Quantity": 90,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000822",
+    "PatientID": "PAT000419",
+    "Medicine": "Lisinopril",
+    "Quantity": 63,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000823",
+    "PatientID": "PAT000455",
+    "Medicine": "Amlodipine",
+    "Quantity": 53,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000824",
+    "PatientID": "PAT000046",
+    "Medicine": "Albuterol",
+    "Quantity": 13,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000825",
+    "PatientID": "PAT000118",
+    "Medicine": "Sertraline",
+    "Quantity": 75,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000826",
+    "PatientID": "PAT000143",
+    "Medicine": "Clopidogrel",
+    "Quantity": 74,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000827",
+    "PatientID": "PAT000357",
+    "Medicine": "Lisinopril",
+    "Quantity": 55,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000828",
+    "PatientID": "PAT000386",
+    "Medicine": "Albuterol",
+    "Quantity": 46,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000829",
+    "PatientID": "PAT000357",
+    "Medicine": "Gabapentin",
+    "Quantity": 72,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000830",
+    "PatientID": "PAT000379",
+    "Medicine": "Atorvastatin",
+    "Quantity": 4,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000831",
+    "PatientID": "PAT000293",
+    "Medicine": "Metformin",
+    "Quantity": 81,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000832",
+    "PatientID": "PAT000141",
+    "Medicine": "Lisinopril",
+    "Quantity": 86,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000833",
+    "PatientID": "PAT000422",
+    "Medicine": "Amlodipine",
+    "Quantity": 23,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000834",
+    "PatientID": "PAT000378",
+    "Medicine": "Atorvastatin",
+    "Quantity": 30,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000835",
+    "PatientID": "PAT000101",
+    "Medicine": "Lisinopril",
+    "Quantity": 23,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000836",
+    "PatientID": "PAT000102",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 27,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000837",
+    "PatientID": "PAT000236",
+    "Medicine": "Atorvastatin",
+    "Quantity": 38,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000838",
+    "PatientID": "PAT000231",
+    "Medicine": "Lisinopril",
+    "Quantity": 85,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000839",
+    "PatientID": "PAT000069",
+    "Medicine": "Amlodipine",
+    "Quantity": 80,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000840",
+    "PatientID": "PAT000372",
+    "Medicine": "Lisinopril",
+    "Quantity": 16,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000841",
+    "PatientID": "PAT000188",
+    "Medicine": "Clopidogrel",
+    "Quantity": 27,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000842",
+    "PatientID": "PAT000428",
+    "Medicine": "Amoxicillin",
+    "Quantity": 39,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000843",
+    "PatientID": "PAT000079",
+    "Medicine": "Amoxicillin",
+    "Quantity": 56,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000844",
+    "PatientID": "PAT000427",
+    "Medicine": "Ibuprofen",
+    "Quantity": 9,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000845",
+    "PatientID": "PAT000243",
+    "Medicine": "Clopidogrel",
+    "Quantity": 21,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000846",
+    "PatientID": "PAT000088",
+    "Medicine": "Levothyroxine",
+    "Quantity": 1,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000847",
+    "PatientID": "PAT000273",
+    "Medicine": "Albuterol",
+    "Quantity": 5,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000848",
+    "PatientID": "PAT000432",
+    "Medicine": "Atorvastatin",
+    "Quantity": 88,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000849",
+    "PatientID": "PAT000056",
+    "Medicine": "Clopidogrel",
+    "Quantity": 54,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000850",
+    "PatientID": "PAT000109",
+    "Medicine": "Metformin",
+    "Quantity": 21,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000851",
+    "PatientID": "PAT000213",
+    "Medicine": "Metformin",
+    "Quantity": 20,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000852",
+    "PatientID": "PAT000118",
+    "Medicine": "Metformin",
+    "Quantity": 56,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000853",
+    "PatientID": "PAT000137",
+    "Medicine": "Ibuprofen",
+    "Quantity": 22,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000854",
+    "PatientID": "PAT000366",
+    "Medicine": "Ibuprofen",
+    "Quantity": 67,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000855",
+    "PatientID": "PAT000272",
+    "Medicine": "Sertraline",
+    "Quantity": 87,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000856",
+    "PatientID": "PAT000461",
+    "Medicine": "Clopidogrel",
+    "Quantity": 76,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000857",
+    "PatientID": "PAT000169",
+    "Medicine": "Clopidogrel",
+    "Quantity": 75,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000858",
+    "PatientID": "PAT000081",
+    "Medicine": "Clopidogrel",
+    "Quantity": 58,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000859",
+    "PatientID": "PAT000273",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 77,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000860",
+    "PatientID": "PAT000111",
+    "Medicine": "Amoxicillin",
+    "Quantity": 73,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000861",
+    "PatientID": "PAT000089",
+    "Medicine": "Gabapentin",
+    "Quantity": 55,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000862",
+    "PatientID": "PAT000143",
+    "Medicine": "Losartan",
+    "Quantity": 57,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000863",
+    "PatientID": "PAT000311",
+    "Medicine": "Albuterol",
+    "Quantity": 34,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000864",
+    "PatientID": "PAT000101",
+    "Medicine": "Amlodipine",
+    "Quantity": 3,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000865",
+    "PatientID": "PAT000193",
+    "Medicine": "Levothyroxine",
+    "Quantity": 38,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000866",
+    "PatientID": "PAT000239",
+    "Medicine": "Prednisone",
+    "Quantity": 69,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000867",
+    "PatientID": "PAT000448",
+    "Medicine": "Clopidogrel",
+    "Quantity": 12,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000868",
+    "PatientID": "PAT000408",
+    "Medicine": "Losartan",
+    "Quantity": 15,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000869",
+    "PatientID": "PAT000462",
+    "Medicine": "Ibuprofen",
+    "Quantity": 17,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000870",
+    "PatientID": "PAT000378",
+    "Medicine": "Lisinopril",
+    "Quantity": 30,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000871",
+    "PatientID": "PAT000487",
+    "Medicine": "Ibuprofen",
+    "Quantity": 69,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000872",
+    "PatientID": "PAT000287",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 15,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000873",
+    "PatientID": "PAT000466",
+    "Medicine": "Gabapentin",
+    "Quantity": 51,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000874",
+    "PatientID": "PAT000365",
+    "Medicine": "Amoxicillin",
+    "Quantity": 75,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000875",
+    "PatientID": "PAT000028",
+    "Medicine": "Ibuprofen",
+    "Quantity": 18,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000876",
+    "PatientID": "PAT000276",
+    "Medicine": "Sertraline",
+    "Quantity": 24,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000877",
+    "PatientID": "PAT000410",
+    "Medicine": "Clopidogrel",
+    "Quantity": 30,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000878",
+    "PatientID": "PAT000465",
+    "Medicine": "Atorvastatin",
+    "Quantity": 31,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000879",
+    "PatientID": "PAT000440",
+    "Medicine": "Lisinopril",
+    "Quantity": 66,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000880",
+    "PatientID": "PAT000453",
+    "Medicine": "Losartan",
+    "Quantity": 70,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000881",
+    "PatientID": "PAT000276",
+    "Medicine": "Metformin",
+    "Quantity": 31,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000882",
+    "PatientID": "PAT000174",
+    "Medicine": "Sertraline",
+    "Quantity": 11,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000883",
+    "PatientID": "PAT000048",
+    "Medicine": "Sertraline",
+    "Quantity": 69,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000884",
+    "PatientID": "PAT000171",
+    "Medicine": "Omeprazole",
+    "Quantity": 34,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000885",
+    "PatientID": "PAT000424",
+    "Medicine": "Sertraline",
+    "Quantity": 18,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000886",
+    "PatientID": "PAT000219",
+    "Medicine": "Atorvastatin",
+    "Quantity": 6,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000887",
+    "PatientID": "PAT000072",
+    "Medicine": "Gabapentin",
+    "Quantity": 27,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000888",
+    "PatientID": "PAT000358",
+    "Medicine": "Prednisone",
+    "Quantity": 29,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000889",
+    "PatientID": "PAT000266",
+    "Medicine": "Amoxicillin",
+    "Quantity": 12,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000890",
+    "PatientID": "PAT000227",
+    "Medicine": "Atorvastatin",
+    "Quantity": 80,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000891",
+    "PatientID": "PAT000370",
+    "Medicine": "Metformin",
+    "Quantity": 55,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000892",
+    "PatientID": "PAT000042",
+    "Medicine": "Amoxicillin",
+    "Quantity": 70,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000893",
+    "PatientID": "PAT000236",
+    "Medicine": "Ibuprofen",
+    "Quantity": 42,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000894",
+    "PatientID": "PAT000142",
+    "Medicine": "Atorvastatin",
+    "Quantity": 88,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000895",
+    "PatientID": "PAT000016",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 44,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000896",
+    "PatientID": "PAT000400",
+    "Medicine": "Lisinopril",
+    "Quantity": 2,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000897",
+    "PatientID": "PAT000354",
+    "Medicine": "Lisinopril",
+    "Quantity": 86,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000898",
+    "PatientID": "PAT000043",
+    "Medicine": "Lisinopril",
+    "Quantity": 4,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000899",
+    "PatientID": "PAT000388",
+    "Medicine": "Albuterol",
+    "Quantity": 22,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000900",
+    "PatientID": "PAT000300",
+    "Medicine": "Ibuprofen",
+    "Quantity": 82,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000901",
+    "PatientID": "PAT000353",
+    "Medicine": "Metformin",
+    "Quantity": 11,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000902",
+    "PatientID": "PAT000488",
+    "Medicine": "Amlodipine",
+    "Quantity": 62,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000903",
+    "PatientID": "PAT000225",
+    "Medicine": "Prednisone",
+    "Quantity": 13,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000904",
+    "PatientID": "PAT000332",
+    "Medicine": "Prednisone",
+    "Quantity": 69,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000905",
+    "PatientID": "PAT000404",
+    "Medicine": "Albuterol",
+    "Quantity": 8,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000906",
+    "PatientID": "PAT000014",
+    "Medicine": "Amoxicillin",
+    "Quantity": 78,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000907",
+    "PatientID": "PAT000181",
+    "Medicine": "Ibuprofen",
+    "Quantity": 20,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000908",
+    "PatientID": "PAT000345",
+    "Medicine": "Albuterol",
+    "Quantity": 49,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000909",
+    "PatientID": "PAT000331",
+    "Medicine": "Metformin",
+    "Quantity": 65,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000910",
+    "PatientID": "PAT000134",
+    "Medicine": "Omeprazole",
+    "Quantity": 38,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000911",
+    "PatientID": "PAT000280",
+    "Medicine": "Atorvastatin",
+    "Quantity": 11,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000912",
+    "PatientID": "PAT000308",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 19,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000913",
+    "PatientID": "PAT000277",
+    "Medicine": "Amoxicillin",
+    "Quantity": 74,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000914",
+    "PatientID": "PAT000252",
+    "Medicine": "Gabapentin",
+    "Quantity": 37,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000915",
+    "PatientID": "PAT000078",
+    "Medicine": "Sertraline",
+    "Quantity": 10,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000916",
+    "PatientID": "PAT000257",
+    "Medicine": "Atorvastatin",
+    "Quantity": 37,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000917",
+    "PatientID": "PAT000161",
+    "Medicine": "Losartan",
+    "Quantity": 6,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000918",
+    "PatientID": "PAT000021",
+    "Medicine": "Levothyroxine",
+    "Quantity": 61,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000919",
+    "PatientID": "PAT000240",
+    "Medicine": "Sertraline",
+    "Quantity": 56,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000920",
+    "PatientID": "PAT000307",
+    "Medicine": "Lisinopril",
+    "Quantity": 6,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000921",
+    "PatientID": "PAT000339",
+    "Medicine": "Lisinopril",
+    "Quantity": 1,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000922",
+    "PatientID": "PAT000194",
+    "Medicine": "Omeprazole",
+    "Quantity": 32,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000923",
+    "PatientID": "PAT000175",
+    "Medicine": "Albuterol",
+    "Quantity": 82,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000924",
+    "PatientID": "PAT000371",
+    "Medicine": "Metformin",
+    "Quantity": 47,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000925",
+    "PatientID": "PAT000272",
+    "Medicine": "Sertraline",
+    "Quantity": 36,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000926",
+    "PatientID": "PAT000194",
+    "Medicine": "Atorvastatin",
+    "Quantity": 52,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000927",
+    "PatientID": "PAT000121",
+    "Medicine": "Losartan",
+    "Quantity": 16,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000928",
+    "PatientID": "PAT000409",
+    "Medicine": "Levothyroxine",
+    "Quantity": 20,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000929",
+    "PatientID": "PAT000117",
+    "Medicine": "Omeprazole",
+    "Quantity": 66,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000930",
+    "PatientID": "PAT000339",
+    "Medicine": "Albuterol",
+    "Quantity": 48,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000931",
+    "PatientID": "PAT000159",
+    "Medicine": "Lisinopril",
+    "Quantity": 47,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000932",
+    "PatientID": "PAT000402",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 22,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000933",
+    "PatientID": "PAT000374",
+    "Medicine": "Losartan",
+    "Quantity": 49,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000934",
+    "PatientID": "PAT000366",
+    "Medicine": "Lisinopril",
+    "Quantity": 71,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000935",
+    "PatientID": "PAT000241",
+    "Medicine": "Lisinopril",
+    "Quantity": 81,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000936",
+    "PatientID": "PAT000107",
+    "Medicine": "Lisinopril",
+    "Quantity": 53,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000937",
+    "PatientID": "PAT000309",
+    "Medicine": "Amlodipine",
+    "Quantity": 53,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000938",
+    "PatientID": "PAT000286",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 79,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000939",
+    "PatientID": "PAT000182",
+    "Medicine": "Gabapentin",
+    "Quantity": 80,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000940",
+    "PatientID": "PAT000396",
+    "Medicine": "Prednisone",
+    "Quantity": 3,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000941",
+    "PatientID": "PAT000488",
+    "Medicine": "Losartan",
+    "Quantity": 82,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000942",
+    "PatientID": "PAT000095",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 68,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000943",
+    "PatientID": "PAT000032",
+    "Medicine": "Atorvastatin",
+    "Quantity": 9,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000944",
+    "PatientID": "PAT000476",
+    "Medicine": "Omeprazole",
+    "Quantity": 7,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000945",
+    "PatientID": "PAT000130",
+    "Medicine": "Metformin",
+    "Quantity": 51,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000946",
+    "PatientID": "PAT000064",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 68,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000947",
+    "PatientID": "PAT000469",
+    "Medicine": "Clopidogrel",
+    "Quantity": 72,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000948",
+    "PatientID": "PAT000134",
+    "Medicine": "Sertraline",
+    "Quantity": 1,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000949",
+    "PatientID": "PAT000493",
+    "Medicine": "Amoxicillin",
+    "Quantity": 34,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000950",
+    "PatientID": "PAT000091",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 83,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000951",
+    "PatientID": "PAT000256",
+    "Medicine": "Sertraline",
+    "Quantity": 61,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000952",
+    "PatientID": "PAT000265",
+    "Medicine": "Clopidogrel",
+    "Quantity": 32,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000953",
+    "PatientID": "PAT000368",
+    "Medicine": "Amlodipine",
+    "Quantity": 49,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000954",
+    "PatientID": "PAT000271",
+    "Medicine": "Prednisone",
+    "Quantity": 25,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000955",
+    "PatientID": "PAT000205",
+    "Medicine": "Amoxicillin",
+    "Quantity": 9,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000956",
+    "PatientID": "PAT000080",
+    "Medicine": "Omeprazole",
+    "Quantity": 32,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000957",
+    "PatientID": "PAT000073",
+    "Medicine": "Amoxicillin",
+    "Quantity": 9,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000958",
+    "PatientID": "PAT000317",
+    "Medicine": "Ibuprofen",
+    "Quantity": 52,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000959",
+    "PatientID": "PAT000372",
+    "Medicine": "Amoxicillin",
+    "Quantity": 38,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000960",
+    "PatientID": "PAT000293",
+    "Medicine": "Atorvastatin",
+    "Quantity": 67,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX000961",
+    "PatientID": "PAT000342",
+    "Medicine": "Amoxicillin",
+    "Quantity": 86,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000962",
+    "PatientID": "PAT000209",
+    "Medicine": "Ibuprofen",
+    "Quantity": 40,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000963",
+    "PatientID": "PAT000011",
+    "Medicine": "Omeprazole",
+    "Quantity": 21,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000964",
+    "PatientID": "PAT000388",
+    "Medicine": "Amlodipine",
+    "Quantity": 54,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000965",
+    "PatientID": "PAT000189",
+    "Medicine": "Ibuprofen",
+    "Quantity": 17,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000966",
+    "PatientID": "PAT000221",
+    "Medicine": "Ibuprofen",
+    "Quantity": 68,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000967",
+    "PatientID": "PAT000159",
+    "Medicine": "Amlodipine",
+    "Quantity": 14,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000968",
+    "PatientID": "PAT000043",
+    "Medicine": "Prednisone",
+    "Quantity": 33,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000969",
+    "PatientID": "PAT000421",
+    "Medicine": "Gabapentin",
+    "Quantity": 6,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX000970",
+    "PatientID": "PAT000485",
+    "Medicine": "Levothyroxine",
+    "Quantity": 38,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000971",
+    "PatientID": "PAT000081",
+    "Medicine": "Amoxicillin",
+    "Quantity": 50,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000972",
+    "PatientID": "PAT000388",
+    "Medicine": "Albuterol",
+    "Quantity": 48,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX000973",
+    "PatientID": "PAT000096",
+    "Medicine": "Omeprazole",
+    "Quantity": 6,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000974",
+    "PatientID": "PAT000370",
+    "Medicine": "Levothyroxine",
+    "Quantity": 30,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX000975",
+    "PatientID": "PAT000175",
+    "Medicine": "Amoxicillin",
+    "Quantity": 48,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000976",
+    "PatientID": "PAT000096",
+    "Medicine": "Sertraline",
+    "Quantity": 88,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000977",
+    "PatientID": "PAT000492",
+    "Medicine": "Omeprazole",
+    "Quantity": 25,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000978",
+    "PatientID": "PAT000343",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 3,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000979",
+    "PatientID": "PAT000194",
+    "Medicine": "Metformin",
+    "Quantity": 61,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX000980",
+    "PatientID": "PAT000406",
+    "Medicine": "Omeprazole",
+    "Quantity": 53,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000981",
+    "PatientID": "PAT000263",
+    "Medicine": "Omeprazole",
+    "Quantity": 38,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000982",
+    "PatientID": "PAT000259",
+    "Medicine": "Losartan",
+    "Quantity": 68,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000983",
+    "PatientID": "PAT000396",
+    "Medicine": "Clopidogrel",
+    "Quantity": 3,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000984",
+    "PatientID": "PAT000189",
+    "Medicine": "Amlodipine",
+    "Quantity": 14,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000985",
+    "PatientID": "PAT000358",
+    "Medicine": "Amlodipine",
+    "Quantity": 72,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX000986",
+    "PatientID": "PAT000092",
+    "Medicine": "Sertraline",
+    "Quantity": 67,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX000987",
+    "PatientID": "PAT000170",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 36,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000988",
+    "PatientID": "PAT000239",
+    "Medicine": "Ibuprofen",
+    "Quantity": 18,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000989",
+    "PatientID": "PAT000032",
+    "Medicine": "Losartan",
+    "Quantity": 90,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000990",
+    "PatientID": "PAT000175",
+    "Medicine": "Amoxicillin",
+    "Quantity": 89,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000991",
+    "PatientID": "PAT000352",
+    "Medicine": "Lisinopril",
+    "Quantity": 38,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX000992",
+    "PatientID": "PAT000437",
+    "Medicine": "Amoxicillin",
+    "Quantity": 8,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX000993",
+    "PatientID": "PAT000105",
+    "Medicine": "Omeprazole",
+    "Quantity": 31,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX000994",
+    "PatientID": "PAT000107",
+    "Medicine": "Clopidogrel",
+    "Quantity": 28,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX000995",
+    "PatientID": "PAT000100",
+    "Medicine": "Prednisone",
+    "Quantity": 46,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX000996",
+    "PatientID": "PAT000132",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 68,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX000997",
+    "PatientID": "PAT000453",
+    "Medicine": "Losartan",
+    "Quantity": 41,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX000998",
+    "PatientID": "PAT000203",
+    "Medicine": "Ibuprofen",
+    "Quantity": 16,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX000999",
+    "PatientID": "PAT000414",
+    "Medicine": "Ibuprofen",
+    "Quantity": 29,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001000",
+    "PatientID": "PAT000047",
+    "Medicine": "Atorvastatin",
+    "Quantity": 14,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001001",
+    "PatientID": "PAT000233",
+    "Medicine": "Metformin",
+    "Quantity": 77,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001002",
+    "PatientID": "PAT000370",
+    "Medicine": "Sertraline",
+    "Quantity": 60,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001003",
+    "PatientID": "PAT000279",
+    "Medicine": "Clopidogrel",
+    "Quantity": 16,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001004",
+    "PatientID": "PAT000500",
+    "Medicine": "Lisinopril",
+    "Quantity": 78,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001005",
+    "PatientID": "PAT000304",
+    "Medicine": "Amlodipine",
+    "Quantity": 31,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001006",
+    "PatientID": "PAT000348",
+    "Medicine": "Metformin",
+    "Quantity": 81,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001007",
+    "PatientID": "PAT000111",
+    "Medicine": "Amlodipine",
+    "Quantity": 64,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001008",
+    "PatientID": "PAT000330",
+    "Medicine": "Atorvastatin",
+    "Quantity": 52,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001009",
+    "PatientID": "PAT000021",
+    "Medicine": "Albuterol",
+    "Quantity": 29,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX001010",
+    "PatientID": "PAT000438",
+    "Medicine": "Clopidogrel",
+    "Quantity": 53,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001011",
+    "PatientID": "PAT000490",
+    "Medicine": "Lisinopril",
+    "Quantity": 10,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001012",
+    "PatientID": "PAT000390",
+    "Medicine": "Metformin",
+    "Quantity": 79,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001013",
+    "PatientID": "PAT000389",
+    "Medicine": "Sertraline",
+    "Quantity": 64,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001014",
+    "PatientID": "PAT000049",
+    "Medicine": "Albuterol",
+    "Quantity": 50,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX001015",
+    "PatientID": "PAT000440",
+    "Medicine": "Gabapentin",
+    "Quantity": 65,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001016",
+    "PatientID": "PAT000369",
+    "Medicine": "Levothyroxine",
+    "Quantity": 71,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001017",
+    "PatientID": "PAT000457",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 68,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001018",
+    "PatientID": "PAT000467",
+    "Medicine": "Lisinopril",
+    "Quantity": 2,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001019",
+    "PatientID": "PAT000421",
+    "Medicine": "Atorvastatin",
+    "Quantity": 27,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001020",
+    "PatientID": "PAT000301",
+    "Medicine": "Lisinopril",
+    "Quantity": 4,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001021",
+    "PatientID": "PAT000399",
+    "Medicine": "Metformin",
+    "Quantity": 43,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001022",
+    "PatientID": "PAT000282",
+    "Medicine": "Levothyroxine",
+    "Quantity": 15,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001023",
+    "PatientID": "PAT000269",
+    "Medicine": "Atorvastatin",
+    "Quantity": 77,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001024",
+    "PatientID": "PAT000126",
+    "Medicine": "Clopidogrel",
+    "Quantity": 2,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001025",
+    "PatientID": "PAT000171",
+    "Medicine": "Ibuprofen",
+    "Quantity": 49,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001026",
+    "PatientID": "PAT000360",
+    "Medicine": "Gabapentin",
+    "Quantity": 82,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001027",
+    "PatientID": "PAT000374",
+    "Medicine": "Gabapentin",
+    "Quantity": 34,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001028",
+    "PatientID": "PAT000062",
+    "Medicine": "Omeprazole",
+    "Quantity": 77,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001029",
+    "PatientID": "PAT000470",
+    "Medicine": "Ibuprofen",
+    "Quantity": 54,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001030",
+    "PatientID": "PAT000349",
+    "Medicine": "Lisinopril",
+    "Quantity": 80,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001031",
+    "PatientID": "PAT000189",
+    "Medicine": "Amlodipine",
+    "Quantity": 51,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001032",
+    "PatientID": "PAT000069",
+    "Medicine": "Losartan",
+    "Quantity": 45,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001033",
+    "PatientID": "PAT000040",
+    "Medicine": "Clopidogrel",
+    "Quantity": 8,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001034",
+    "PatientID": "PAT000037",
+    "Medicine": "Omeprazole",
+    "Quantity": 78,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001035",
+    "PatientID": "PAT000446",
+    "Medicine": "Prednisone",
+    "Quantity": 16,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001036",
+    "PatientID": "PAT000396",
+    "Medicine": "Sertraline",
+    "Quantity": 82,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001037",
+    "PatientID": "PAT000056",
+    "Medicine": "Losartan",
+    "Quantity": 37,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001038",
+    "PatientID": "PAT000116",
+    "Medicine": "Sertraline",
+    "Quantity": 38,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001039",
+    "PatientID": "PAT000272",
+    "Medicine": "Amlodipine",
+    "Quantity": 51,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001040",
+    "PatientID": "PAT000430",
+    "Medicine": "Gabapentin",
+    "Quantity": 44,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001041",
+    "PatientID": "PAT000072",
+    "Medicine": "Lisinopril",
+    "Quantity": 76,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001042",
+    "PatientID": "PAT000100",
+    "Medicine": "Prednisone",
+    "Quantity": 53,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001043",
+    "PatientID": "PAT000483",
+    "Medicine": "Atorvastatin",
+    "Quantity": 21,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001044",
+    "PatientID": "PAT000309",
+    "Medicine": "Amlodipine",
+    "Quantity": 78,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001045",
+    "PatientID": "PAT000038",
+    "Medicine": "Sertraline",
+    "Quantity": 19,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001046",
+    "PatientID": "PAT000141",
+    "Medicine": "Amlodipine",
+    "Quantity": 58,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001047",
+    "PatientID": "PAT000215",
+    "Medicine": "Albuterol",
+    "Quantity": 44,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX001048",
+    "PatientID": "PAT000131",
+    "Medicine": "Metformin",
+    "Quantity": 12,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001049",
+    "PatientID": "PAT000357",
+    "Medicine": "Clopidogrel",
+    "Quantity": 5,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001050",
+    "PatientID": "PAT000067",
+    "Medicine": "Ibuprofen",
+    "Quantity": 38,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001051",
+    "PatientID": "PAT000209",
+    "Medicine": "Sertraline",
+    "Quantity": 69,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001052",
+    "PatientID": "PAT000425",
+    "Medicine": "Ibuprofen",
+    "Quantity": 6,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001053",
+    "PatientID": "PAT000011",
+    "Medicine": "Albuterol",
+    "Quantity": 81,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX001054",
+    "PatientID": "PAT000122",
+    "Medicine": "Prednisone",
+    "Quantity": 44,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001055",
+    "PatientID": "PAT000220",
+    "Medicine": "Gabapentin",
+    "Quantity": 51,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001056",
+    "PatientID": "PAT000266",
+    "Medicine": "Levothyroxine",
+    "Quantity": 6,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001057",
+    "PatientID": "PAT000060",
+    "Medicine": "Ibuprofen",
+    "Quantity": 13,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001058",
+    "PatientID": "PAT000219",
+    "Medicine": "Ibuprofen",
+    "Quantity": 17,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001059",
+    "PatientID": "PAT000481",
+    "Medicine": "Prednisone",
+    "Quantity": 3,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001060",
+    "PatientID": "PAT000448",
+    "Medicine": "Lisinopril",
+    "Quantity": 25,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001061",
+    "PatientID": "PAT000454",
+    "Medicine": "Lisinopril",
+    "Quantity": 67,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001062",
+    "PatientID": "PAT000200",
+    "Medicine": "Amlodipine",
+    "Quantity": 47,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001063",
+    "PatientID": "PAT000046",
+    "Medicine": "Levothyroxine",
+    "Quantity": 78,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001064",
+    "PatientID": "PAT000198",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 4,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001065",
+    "PatientID": "PAT000234",
+    "Medicine": "Atorvastatin",
+    "Quantity": 88,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001066",
+    "PatientID": "PAT000482",
+    "Medicine": "Metformin",
+    "Quantity": 42,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001067",
+    "PatientID": "PAT000052",
+    "Medicine": "Ibuprofen",
+    "Quantity": 28,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001068",
+    "PatientID": "PAT000131",
+    "Medicine": "Atorvastatin",
+    "Quantity": 28,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001069",
+    "PatientID": "PAT000183",
+    "Medicine": "Clopidogrel",
+    "Quantity": 44,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001070",
+    "PatientID": "PAT000261",
+    "Medicine": "Lisinopril",
+    "Quantity": 56,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001071",
+    "PatientID": "PAT000224",
+    "Medicine": "Sertraline",
+    "Quantity": 24,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001072",
+    "PatientID": "PAT000249",
+    "Medicine": "Losartan",
+    "Quantity": 14,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001073",
+    "PatientID": "PAT000218",
+    "Medicine": "Amoxicillin",
+    "Quantity": 63,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001074",
+    "PatientID": "PAT000330",
+    "Medicine": "Prednisone",
+    "Quantity": 72,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001075",
+    "PatientID": "PAT000319",
+    "Medicine": "Clopidogrel",
+    "Quantity": 19,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001076",
+    "PatientID": "PAT000426",
+    "Medicine": "Amlodipine",
+    "Quantity": 68,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001077",
+    "PatientID": "PAT000384",
+    "Medicine": "Omeprazole",
+    "Quantity": 38,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001078",
+    "PatientID": "PAT000124",
+    "Medicine": "Lisinopril",
+    "Quantity": 15,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001079",
+    "PatientID": "PAT000003",
+    "Medicine": "Omeprazole",
+    "Quantity": 71,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001080",
+    "PatientID": "PAT000230",
+    "Medicine": "Prednisone",
+    "Quantity": 68,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001081",
+    "PatientID": "PAT000176",
+    "Medicine": "Prednisone",
+    "Quantity": 25,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001082",
+    "PatientID": "PAT000245",
+    "Medicine": "Omeprazole",
+    "Quantity": 31,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001083",
+    "PatientID": "PAT000468",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 86,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001084",
+    "PatientID": "PAT000070",
+    "Medicine": "Sertraline",
+    "Quantity": 68,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001085",
+    "PatientID": "PAT000109",
+    "Medicine": "Levothyroxine",
+    "Quantity": 6,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001086",
+    "PatientID": "PAT000192",
+    "Medicine": "Amlodipine",
+    "Quantity": 83,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001087",
+    "PatientID": "PAT000028",
+    "Medicine": "Losartan",
+    "Quantity": 16,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001088",
+    "PatientID": "PAT000190",
+    "Medicine": "Metformin",
+    "Quantity": 86,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001089",
+    "PatientID": "PAT000356",
+    "Medicine": "Gabapentin",
+    "Quantity": 89,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001090",
+    "PatientID": "PAT000421",
+    "Medicine": "Lisinopril",
+    "Quantity": 78,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001091",
+    "PatientID": "PAT000189",
+    "Medicine": "Lisinopril",
+    "Quantity": 65,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001092",
+    "PatientID": "PAT000363",
+    "Medicine": "Losartan",
+    "Quantity": 75,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001093",
+    "PatientID": "PAT000147",
+    "Medicine": "Metformin",
+    "Quantity": 38,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001094",
+    "PatientID": "PAT000479",
+    "Medicine": "Losartan",
+    "Quantity": 24,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001095",
+    "PatientID": "PAT000131",
+    "Medicine": "Lisinopril",
+    "Quantity": 58,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001096",
+    "PatientID": "PAT000207",
+    "Medicine": "Losartan",
+    "Quantity": 22,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001097",
+    "PatientID": "PAT000362",
+    "Medicine": "Prednisone",
+    "Quantity": 77,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001098",
+    "PatientID": "PAT000483",
+    "Medicine": "Losartan",
+    "Quantity": 80,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001099",
+    "PatientID": "PAT000393",
+    "Medicine": "Amoxicillin",
+    "Quantity": 54,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001100",
+    "PatientID": "PAT000414",
+    "Medicine": "Losartan",
+    "Quantity": 74,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001101",
+    "PatientID": "PAT000152",
+    "Medicine": "Levothyroxine",
+    "Quantity": 85,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001102",
+    "PatientID": "PAT000329",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 71,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001103",
+    "PatientID": "PAT000382",
+    "Medicine": "Losartan",
+    "Quantity": 77,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001104",
+    "PatientID": "PAT000348",
+    "Medicine": "Ibuprofen",
+    "Quantity": 87,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001105",
+    "PatientID": "PAT000046",
+    "Medicine": "Prednisone",
+    "Quantity": 59,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001106",
+    "PatientID": "PAT000152",
+    "Medicine": "Clopidogrel",
+    "Quantity": 67,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001107",
+    "PatientID": "PAT000402",
+    "Medicine": "Atorvastatin",
+    "Quantity": 69,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001108",
+    "PatientID": "PAT000197",
+    "Medicine": "Albuterol",
+    "Quantity": 75,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX001109",
+    "PatientID": "PAT000128",
+    "Medicine": "Amoxicillin",
+    "Quantity": 73,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001110",
+    "PatientID": "PAT000290",
+    "Medicine": "Atorvastatin",
+    "Quantity": 43,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001111",
+    "PatientID": "PAT000011",
+    "Medicine": "Metformin",
+    "Quantity": 38,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001112",
+    "PatientID": "PAT000455",
+    "Medicine": "Prednisone",
+    "Quantity": 65,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001113",
+    "PatientID": "PAT000317",
+    "Medicine": "Omeprazole",
+    "Quantity": 73,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001114",
+    "PatientID": "PAT000489",
+    "Medicine": "Prednisone",
+    "Quantity": 25,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001115",
+    "PatientID": "PAT000056",
+    "Medicine": "Atorvastatin",
+    "Quantity": 25,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001116",
+    "PatientID": "PAT000151",
+    "Medicine": "Atorvastatin",
+    "Quantity": 29,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001117",
+    "PatientID": "PAT000398",
+    "Medicine": "Prednisone",
+    "Quantity": 19,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001118",
+    "PatientID": "PAT000289",
+    "Medicine": "Levothyroxine",
+    "Quantity": 52,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001119",
+    "PatientID": "PAT000209",
+    "Medicine": "Sertraline",
+    "Quantity": 8,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001120",
+    "PatientID": "PAT000012",
+    "Medicine": "Losartan",
+    "Quantity": 90,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001121",
+    "PatientID": "PAT000080",
+    "Medicine": "Sertraline",
+    "Quantity": 61,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001122",
+    "PatientID": "PAT000061",
+    "Medicine": "Levothyroxine",
+    "Quantity": 82,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001123",
+    "PatientID": "PAT000498",
+    "Medicine": "Gabapentin",
+    "Quantity": 54,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001124",
+    "PatientID": "PAT000329",
+    "Medicine": "Clopidogrel",
+    "Quantity": 4,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001125",
+    "PatientID": "PAT000384",
+    "Medicine": "Gabapentin",
+    "Quantity": 23,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001126",
+    "PatientID": "PAT000288",
+    "Medicine": "Amlodipine",
+    "Quantity": 40,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001127",
+    "PatientID": "PAT000267",
+    "Medicine": "Ibuprofen",
+    "Quantity": 30,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001128",
+    "PatientID": "PAT000167",
+    "Medicine": "Losartan",
+    "Quantity": 29,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001129",
+    "PatientID": "PAT000309",
+    "Medicine": "Amoxicillin",
+    "Quantity": 85,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001130",
+    "PatientID": "PAT000333",
+    "Medicine": "Clopidogrel",
+    "Quantity": 47,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001131",
+    "PatientID": "PAT000071",
+    "Medicine": "Amlodipine",
+    "Quantity": 67,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001132",
+    "PatientID": "PAT000388",
+    "Medicine": "Amoxicillin",
+    "Quantity": 72,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001133",
+    "PatientID": "PAT000424",
+    "Medicine": "Lisinopril",
+    "Quantity": 37,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001134",
+    "PatientID": "PAT000492",
+    "Medicine": "Lisinopril",
+    "Quantity": 45,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001135",
+    "PatientID": "PAT000061",
+    "Medicine": "Levothyroxine",
+    "Quantity": 85,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001136",
+    "PatientID": "PAT000290",
+    "Medicine": "Atorvastatin",
+    "Quantity": 89,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001137",
+    "PatientID": "PAT000175",
+    "Medicine": "Losartan",
+    "Quantity": 56,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001138",
+    "PatientID": "PAT000412",
+    "Medicine": "Lisinopril",
+    "Quantity": 71,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001139",
+    "PatientID": "PAT000208",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 19,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001140",
+    "PatientID": "PAT000279",
+    "Medicine": "Losartan",
+    "Quantity": 46,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001141",
+    "PatientID": "PAT000223",
+    "Medicine": "Amoxicillin",
+    "Quantity": 19,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001142",
+    "PatientID": "PAT000048",
+    "Medicine": "Amoxicillin",
+    "Quantity": 35,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001143",
+    "PatientID": "PAT000196",
+    "Medicine": "Prednisone",
+    "Quantity": 71,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001144",
+    "PatientID": "PAT000177",
+    "Medicine": "Losartan",
+    "Quantity": 49,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001145",
+    "PatientID": "PAT000038",
+    "Medicine": "Levothyroxine",
+    "Quantity": 81,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001146",
+    "PatientID": "PAT000008",
+    "Medicine": "Clopidogrel",
+    "Quantity": 28,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001147",
+    "PatientID": "PAT000415",
+    "Medicine": "Sertraline",
+    "Quantity": 62,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001148",
+    "PatientID": "PAT000345",
+    "Medicine": "Levothyroxine",
+    "Quantity": 13,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001149",
+    "PatientID": "PAT000452",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 88,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001150",
+    "PatientID": "PAT000414",
+    "Medicine": "Atorvastatin",
+    "Quantity": 25,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001151",
+    "PatientID": "PAT000293",
+    "Medicine": "Sertraline",
+    "Quantity": 41,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001152",
+    "PatientID": "PAT000129",
+    "Medicine": "Albuterol",
+    "Quantity": 16,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX001153",
+    "PatientID": "PAT000398",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 25,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001154",
+    "PatientID": "PAT000278",
+    "Medicine": "Omeprazole",
+    "Quantity": 52,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001155",
+    "PatientID": "PAT000301",
+    "Medicine": "Atorvastatin",
+    "Quantity": 31,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001156",
+    "PatientID": "PAT000436",
+    "Medicine": "Prednisone",
+    "Quantity": 40,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001157",
+    "PatientID": "PAT000321",
+    "Medicine": "Sertraline",
+    "Quantity": 35,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001158",
+    "PatientID": "PAT000438",
+    "Medicine": "Clopidogrel",
+    "Quantity": 6,
+    "Price": 22.4
+  },
+  {
+    "PrescriptionID": "RX001159",
+    "PatientID": "PAT000245",
+    "Medicine": "Lisinopril",
+    "Quantity": 22,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001160",
+    "PatientID": "PAT000001",
+    "Medicine": "Prednisone",
+    "Quantity": 29,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001161",
+    "PatientID": "PAT000437",
+    "Medicine": "Lisinopril",
+    "Quantity": 86,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001162",
+    "PatientID": "PAT000308",
+    "Medicine": "Sertraline",
+    "Quantity": 56,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001163",
+    "PatientID": "PAT000033",
+    "Medicine": "Levothyroxine",
+    "Quantity": 50,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001164",
+    "PatientID": "PAT000427",
+    "Medicine": "Lisinopril",
+    "Quantity": 15,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001165",
+    "PatientID": "PAT000258",
+    "Medicine": "Prednisone",
+    "Quantity": 50,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001166",
+    "PatientID": "PAT000042",
+    "Medicine": "Amlodipine",
+    "Quantity": 10,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001167",
+    "PatientID": "PAT000417",
+    "Medicine": "Amoxicillin",
+    "Quantity": 25,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001168",
+    "PatientID": "PAT000422",
+    "Medicine": "Losartan",
+    "Quantity": 43,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001169",
+    "PatientID": "PAT000025",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 4,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001170",
+    "PatientID": "PAT000271",
+    "Medicine": "Metformin",
+    "Quantity": 49,
+    "Price": 8.75
+  },
+  {
+    "PrescriptionID": "RX001171",
+    "PatientID": "PAT000332",
+    "Medicine": "Lisinopril",
+    "Quantity": 79,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001172",
+    "PatientID": "PAT000151",
+    "Medicine": "Omeprazole",
+    "Quantity": 11,
+    "Price": 11.0
+  },
+  {
+    "PrescriptionID": "RX001173",
+    "PatientID": "PAT000038",
+    "Medicine": "Amoxicillin",
+    "Quantity": 78,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001174",
+    "PatientID": "PAT000028",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 42,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001175",
+    "PatientID": "PAT000397",
+    "Medicine": "Gabapentin",
+    "Quantity": 53,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001176",
+    "PatientID": "PAT000268",
+    "Medicine": "Atorvastatin",
+    "Quantity": 81,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001177",
+    "PatientID": "PAT000487",
+    "Medicine": "Amlodipine",
+    "Quantity": 75,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001178",
+    "PatientID": "PAT000211",
+    "Medicine": "Gabapentin",
+    "Quantity": 83,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001179",
+    "PatientID": "PAT000026",
+    "Medicine": "Amoxicillin",
+    "Quantity": 19,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001180",
+    "PatientID": "PAT000113",
+    "Medicine": "Ibuprofen",
+    "Quantity": 48,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001181",
+    "PatientID": "PAT000139",
+    "Medicine": "Amoxicillin",
+    "Quantity": 36,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001182",
+    "PatientID": "PAT000226",
+    "Medicine": "Lisinopril",
+    "Quantity": 64,
+    "Price": 12.5
+  },
+  {
+    "PrescriptionID": "RX001183",
+    "PatientID": "PAT000145",
+    "Medicine": "Gabapentin",
+    "Quantity": 77,
+    "Price": 18.6
+  },
+  {
+    "PrescriptionID": "RX001184",
+    "PatientID": "PAT000030",
+    "Medicine": "Levothyroxine",
+    "Quantity": 21,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001185",
+    "PatientID": "PAT000454",
+    "Medicine": "Ibuprofen",
+    "Quantity": 58,
+    "Price": 5.5
+  },
+  {
+    "PrescriptionID": "RX001186",
+    "PatientID": "PAT000391",
+    "Medicine": "Atorvastatin",
+    "Quantity": 52,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001187",
+    "PatientID": "PAT000344",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 53,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001188",
+    "PatientID": "PAT000071",
+    "Medicine": "Atorvastatin",
+    "Quantity": 77,
+    "Price": 15.2
+  },
+  {
+    "PrescriptionID": "RX001189",
+    "PatientID": "PAT000285",
+    "Medicine": "Albuterol",
+    "Quantity": 3,
+    "Price": 28.5
+  },
+  {
+    "PrescriptionID": "RX001190",
+    "PatientID": "PAT000382",
+    "Medicine": "Prednisone",
+    "Quantity": 12,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001191",
+    "PatientID": "PAT000372",
+    "Medicine": "Insulin Glargine",
+    "Quantity": 63,
+    "Price": 95.0
+  },
+  {
+    "PrescriptionID": "RX001192",
+    "PatientID": "PAT000473",
+    "Medicine": "Amoxicillin",
+    "Quantity": 61,
+    "Price": 7.9
+  },
+  {
+    "PrescriptionID": "RX001193",
+    "PatientID": "PAT000083",
+    "Medicine": "Levothyroxine",
+    "Quantity": 7,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001194",
+    "PatientID": "PAT000478",
+    "Medicine": "Losartan",
+    "Quantity": 90,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001195",
+    "PatientID": "PAT000394",
+    "Medicine": "Losartan",
+    "Quantity": 9,
+    "Price": 13.25
+  },
+  {
+    "PrescriptionID": "RX001196",
+    "PatientID": "PAT000012",
+    "Medicine": "Prednisone",
+    "Quantity": 34,
+    "Price": 10.3
+  },
+  {
+    "PrescriptionID": "RX001197",
+    "PatientID": "PAT000346",
+    "Medicine": "Levothyroxine",
+    "Quantity": 68,
+    "Price": 14.1
+  },
+  {
+    "PrescriptionID": "RX001198",
+    "PatientID": "PAT000035",
+    "Medicine": "Sertraline",
+    "Quantity": 34,
+    "Price": 16.8
+  },
+  {
+    "PrescriptionID": "RX001199",
+    "PatientID": "PAT000104",
+    "Medicine": "Amlodipine",
+    "Quantity": 26,
+    "Price": 9.4
+  },
+  {
+    "PrescriptionID": "RX001200",
+    "PatientID": "PAT000046",
+    "Medicine": "Gabapentin",
+    "Quantity": 30,
+    "Price": 18.6
+  }
+]
