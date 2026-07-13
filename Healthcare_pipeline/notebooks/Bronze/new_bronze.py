@@ -1,22 +1,9 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Bronze Ingestion — Healthcare Lakehouse
+# MAGIC # Bronze Ingestion — Healthcare Lakehouse (Reference Implementation)
 # MAGIC
-# MAGIC Incremental raw ingestion using **Databricks Auto Loader** (`cloudFiles`) with:
-# MAGIC - CSV / JSON support
-# MAGIC - Schema evolution (`addNewColumns`)
-# MAGIC - Rescue data column for unknown / malformed fields
-# MAGIC - Checkpointing & bad records path
-# MAGIC - Bronze lineage metadata (`_ingestion_time`, `_source_file`, `_load_id`, `_batch_id`, `_record_hash`)
-# MAGIC
-# MAGIC **Layer contract:** store data exactly as received + metadata. No business cleansing.
-# MAGIC
-# MAGIC **Runtime standard:** follows `new_bronze.py` (Databricks Free Edition / Serverless).
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC ## 0. Setup — path bootstrap for Databricks Repos / local
+# MAGIC Project standard for Databricks Free Edition / Serverless.
+# MAGIC All other notebooks follow this bootstrap, Spark, Volume, audit, and exit pattern.
 
 # COMMAND ----------
 
@@ -102,11 +89,6 @@ logger.info("Bronze pipeline started", module="bronze", details=cfg.to_dict())
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC ## 1. Stage sample files into Auto Loader landing zones
-
-# COMMAND ----------
-
 try:
     stage_sample_files_to_landing(fmt="csv", spark=spark)
     logger.info("Landing zone staged with CSV samples", module="bronze")
@@ -117,13 +99,7 @@ except Exception as exc:
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC ## 2. Ingest all entities into Bronze (Auto Loader / batch fallback)
-
-# COMMAND ----------
-
 ingestion = AutoLoaderIngestion(spark, cfg, logger, run_id)
-# Free Edition pattern (new_bronze.py): force Volume-backed batch fallback
 ingestion._is_databricks = False
 status_map = {}
 
@@ -148,11 +124,6 @@ except Exception as exc:
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC ## 3. Validate bronze metadata columns
-
-# COMMAND ----------
-
 required_meta = [META_INGESTION_TIME, META_SOURCE_FILE, META_LOAD_ID, META_BATCH_ID, META_RECORD_HASH]
 
 for entity in ALL_ENTITIES:
@@ -160,11 +131,6 @@ for entity in ALL_ENTITIES:
     missing = [c for c in required_meta if c not in df.columns]
     assert not missing, f"{entity} missing metadata columns: {missing}"
     logger.info(f"Metadata validation passed for {entity}", module="bronze")
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC ## 4. Schema evolution demo — inspect rescued data column
 
 # COMMAND ----------
 

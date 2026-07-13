@@ -36,7 +36,7 @@ def main() -> None:
     ensure_log_table(spark)
 
     print("=== Staging landing files ===")
-    stage_sample_files_to_landing("csv")
+    stage_sample_files_to_landing("csv", spark=spark)
 
     print("=== Bronze ===")
     bronze_logger = get_logger(spark, PIPELINE_BRONZE_INGESTION, run_id)

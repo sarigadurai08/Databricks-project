@@ -3,6 +3,10 @@ Auto Loader based incremental ingestion for CSV and JSON sources.
 
 Supports schema evolution, checkpointing, rescue data, bad records,
 and unknown columns via cloudFiles options.
+
+On Databricks Free Edition / Serverless the working pattern (new_bronze.py)
+uses the batch fallback with Volume landing + input_file_name patch, because
+cloudFiles Auto Loader is not reliably available on all Free Edition runtimes.
 """
 
 from __future__ import annotations
@@ -10,7 +14,7 @@ from __future__ import annotations
 import shutil
 import uuid
 from pathlib import Path
-from typing import Callable, Optional
+from typing import Optional
 
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
@@ -24,13 +28,64 @@ from src.utilities.delta_helpers import table_exists, write_delta
 from src.utilities.exceptions import IngestionError, with_retry
 
 
+def _dbutils(spark: Optional[SparkSession] = None):
+    """Return dbutils when running inside Databricks."""
+    spark = spark or SparkSession.getActiveSession()
+    try:
+        from pyspark.dbutils import DBUtils  # type: ignore
+
+        if spark is not None:
+            return DBUtils(spark)
+    except Exception:
+        pass
+    try:
+        import IPython
+
+        return IPython.get_ipython().user_ns.get("dbutils")  # type: ignore[union-attr]
+    except Exception:
+        return None
+
+
+def _path_exists(path: str, spark: Optional[SparkSession] = None) -> bool:
+    """Existence check that works for local paths and FUSE-mounted Volumes."""
+    p = Path(path)
+    if p.exists():
+        return True
+    try:
+        dbutils = _dbutils(spark)
+        if dbutils is not None:
+            dbutils.fs.ls(path)
+            return True
+    except Exception:
+        pass
+    return False
+
+
+def _mkdirs(path: str, spark: Optional[SparkSession] = None) -> None:
+    if PATHS.is_cloud_storage or path.startswith("/Volumes/") or path.startswith("dbfs:"):
+        try:
+            dbutils = _dbutils(spark)
+            if dbutils is not None:
+                dbutils.fs.mkdirs(path)
+                return
+        except Exception:
+            pass
+        try:
+            Path(path).mkdir(parents=True, exist_ok=True)
+        except OSError:
+            pass
+        return
+    Path(path).mkdir(parents=True, exist_ok=True)
+
+
 class AutoLoaderIngestion:
     """
     Production-style Auto Loader wrapper.
 
-    On Databricks, uses `cloudFiles`. For local/portfolio Spark runs without
-    Databricks Runtime, falls back to file-based batch reads with an equivalent
-    bronze metadata contract so notebooks remain executable end-to-end.
+    On Databricks, uses `cloudFiles` when `_is_databricks` is True.
+    Free Edition notebooks set `_is_databricks = False` (see new_bronze.py)
+    to force the Volume-backed batch fallback that is known to execute
+    successfully end-to-end.
     """
 
     def __init__(
@@ -51,7 +106,10 @@ class AutoLoaderIngestion:
         try:
             return bool(self.spark.conf.get("spark.databricks.clusterUsageTags.clusterId", None))
         except Exception:
-            return False
+            # Serverless may not expose clusterId — treat Databricks Runtime env as True
+            import os
+
+            return bool(os.environ.get("DATABRICKS_RUNTIME_VERSION"))
 
     # ------------------------------------------------------------------
     # Public API
@@ -65,7 +123,7 @@ class AutoLoaderIngestion:
         hash_columns: Optional[list[str]] = None,
     ) -> DataFrame:
         """
-        Ingest one entity into bronze using Auto Loader (or local fallback).
+        Ingest one entity into bronze using Auto Loader (or batch fallback).
 
         Returns the bronze DataFrame for the current load (streaming micro-batch
         or full batch fallback).
@@ -217,7 +275,7 @@ class AutoLoaderIngestion:
         return self.spark.createDataFrame([], schema=stream_df.schema)
 
     # ------------------------------------------------------------------
-    # Local / portfolio fallback (executable without Databricks Runtime)
+    # Batch fallback (Free Edition / portfolio — matches new_bronze.py)
     # ------------------------------------------------------------------
     def _ingest_batch_fallback(
         self,
@@ -233,30 +291,26 @@ class AutoLoaderIngestion:
         Mimics Auto Loader semantics for schema evolution via mergeSchema and
         writes a synthetic _rescued_data column.
         """
-        path = Path(source_path)
-        # Prefer entity landing folder; fall back to root datasets/{entity}.csv
-        files_exist = path.exists() and (
-            any(path.glob(f"*.{fmt}")) if path.is_dir() else True
-        )
-        if not files_exist:
+        read_path = source_path
+        files_exist = _path_exists(source_path, self.spark)
+
+        if files_exist:
+            p = Path(source_path)
+            if p.is_file():
+                read_path = str(p.parent).replace("\\", "/")
+        else:
             sample = (
                 self.config.paths.sample_csv_path(entity)
                 if fmt == "csv"
                 else self.config.paths.sample_json_path(entity)
             )
-            sample_path = Path(sample)
-            if not sample_path.exists():
+            if not _path_exists(sample, self.spark):
                 raise IngestionError(
                     f"No landing or sample files for {entity}",
                     details={"landing": source_path, "sample": sample},
                 )
-            path.mkdir(parents=True, exist_ok=True)
-            dest = path / sample_path.name
-            if not dest.exists():
-                shutil.copy2(sample_path, dest)
-            read_path = str(path).replace("\\", "/")
-        else:
-            read_path = source_path if path.is_dir() else str(path.parent).replace("\\", "/")
+            _stage_one_sample(self.spark, entity, fmt, sample, source_path)
+            read_path = source_path
 
         reader = self.spark.read
         if fmt == "csv":
@@ -277,9 +331,19 @@ class AutoLoaderIngestion:
         else:
             raise IngestionError(f"Unsupported format: {fmt}")
 
-        # Attach source file path for lineage (local equivalent of _metadata.file_path)
-        raw = raw.withColumn(META_RESCUED_DATA, F.lit(None).cast("string"))
-        raw = raw.withColumn("_source_file", F.input_file_name())
+        if META_RESCUED_DATA not in raw.columns:
+            raw = raw.withColumn(META_RESCUED_DATA, F.lit(None).cast("string"))
+        else:
+            raw = raw.withColumn(META_RESCUED_DATA, F.col(META_RESCUED_DATA).cast("string"))
+
+        # Lineage — uses patched F.input_file_name on Databricks Serverless
+        try:
+            raw = raw.withColumn("_source_file", F.input_file_name())
+        except Exception:
+            if "_metadata" in raw.columns:
+                raw = raw.withColumn("_source_file", F.col("_metadata.file_path"))
+            else:
+                raw = raw.withColumn("_source_file", F.lit(read_path))
 
         batch_id = f"BATCH_{uuid.uuid4().hex[:12]}"
         enriched = add_bronze_metadata(
@@ -309,16 +373,68 @@ class AutoLoaderIngestion:
         return self.spark.read.format("delta").load(target_path)
 
 
-def stage_sample_files_to_landing(fmt: str = "csv") -> None:
-    """Copy root sample datasets into Auto Loader landing directories."""
-    PATHS.ensure_local_directories()
+def _stage_one_sample(
+    spark: Optional[SparkSession],
+    entity: str,
+    fmt: str,
+    sample: str,
+    dest_dir: str,
+) -> None:
+    """Copy one sample dataset into the landing directory (local or Volume)."""
+    _mkdirs(dest_dir, spark)
+
+    # Prefer Spark read/write for Volume targets (writable, no Git writes)
+    if spark is not None and (PATHS.is_cloud_storage or dest_dir.startswith("/Volumes/")):
+        if fmt == "csv":
+            (
+                spark.read.option("header", "true")
+                .option("inferSchema", "true")
+                .csv(sample)
+                .coalesce(1)
+                .write.mode("overwrite")
+                .option("header", "true")
+                .csv(dest_dir)
+            )
+        else:
+            (
+                spark.read.option("multiLine", "true")
+                .json(sample)
+                .coalesce(1)
+                .write.mode("overwrite")
+                .json(dest_dir)
+            )
+        return
+
+    # Local filesystem copy
+    src = Path(sample)
+    if not src.exists():
+        return
+    dest_path = Path(dest_dir)
+    dest_path.mkdir(parents=True, exist_ok=True)
+    dest = dest_path / src.name
+    if not dest.exists():
+        shutil.copy2(src, dest)
+
+
+def stage_sample_files_to_landing(
+    fmt: str = "csv",
+    spark: Optional[SparkSession] = None,
+) -> None:
+    """
+    Stage root sample datasets into Auto Loader landing directories.
+
+    On Databricks, stages into the writable Volume landing zone (never the
+    Git repository). Locally, copies into datasets/landing/.
+    """
+    spark = spark or SparkSession.getActiveSession()
+    if not PATHS.is_cloud_storage:
+        PATHS.ensure_local_directories()
+
     for entity in ALL_ENTITIES:
-        src = Path(
+        src = (
             PATHS.sample_csv_path(entity) if fmt == "csv" else PATHS.sample_json_path(entity)
         )
-        if not src.exists():
+        if not _path_exists(src, spark):
             continue
-        dest_dir = Path(PATHS.landing_path(entity, fmt))
-        dest_dir.mkdir(parents=True, exist_ok=True)
-        dest = dest_dir / src.name
-        shutil.copy2(src, dest)
+        dest_dir = PATHS.landing_path(entity, fmt)
+        _stage_one_sample(spark, entity, fmt, src, dest_dir)

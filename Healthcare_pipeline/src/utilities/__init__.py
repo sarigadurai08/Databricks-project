@@ -38,6 +38,12 @@ from src.utilities.exceptions import (
     with_retry,
 )
 from src.utilities.spark_session import get_spark, stop_spark
+from src.utilities.databricks_runtime import (
+    configure_writable_volume,
+    patch_input_file_name,
+    prepare_databricks_runtime,
+    resolve_notebook_spark,
+)
 
 __all__ = [
     "add_bronze_metadata",
@@ -73,4 +79,8 @@ __all__ = [
     "with_retry",
     "get_spark",
     "stop_spark",
+    "configure_writable_volume",
+    "patch_input_file_name",
+    "prepare_databricks_runtime",
+    "resolve_notebook_spark",
 ]

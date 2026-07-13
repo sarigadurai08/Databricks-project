@@ -3,6 +3,10 @@ Path configuration for the Healthcare Lakehouse.
 
 Supports local / DBFS / Unity Catalog volume layouts via environment-aware
 base paths. All pipeline code should resolve paths through this module.
+
+On Databricks Free Edition / Serverless, runtime data must use a writable
+Volume (see src.utilities.databricks_runtime.configure_writable_volume).
+Never write lakehouse data into the Git repository.
 """
 
 from __future__ import annotations
@@ -24,6 +28,19 @@ def _default_project_root() -> Path:
     return Path(__file__).resolve().parent.parent
 
 
+def _is_cloud_uri(path: str) -> bool:
+    p = path.replace("\\", "/")
+    return (
+        p.startswith("/Volumes/")
+        or p.startswith("dbfs:")
+        or p.startswith("s3a:")
+        or p.startswith("s3:")
+        or p.startswith("abfss:")
+        or p.startswith("wasbs:")
+        or p.startswith("gs:")
+    )
+
+
 class LakehousePaths:
     """
     Resolves storage paths for landing, bronze, silver, gold, checkpoints,
@@ -31,8 +48,8 @@ class LakehousePaths:
 
     Environment variables (optional):
         HEALTHCARE_LAKEHOUSE_ROOT  - override project root
-        HEALTHCARE_STORAGE_BASE    - override storage base (e.g. dbfs:/mnt/healthcare)
-        HEALTHCARE_USE_DBFS        - "true" to use DBFS-style paths
+        HEALTHCARE_STORAGE_BASE    - override storage base (e.g. /Volumes/... or dbfs:/mnt/...)
+        HEALTHCARE_USE_DBFS        - "true" to force cloud-style paths under storage_base
     """
 
     def __init__(
@@ -57,17 +74,38 @@ class LakehousePaths:
         else:
             self.storage_base = str(self.project_root / "data").replace("\\", "/")
 
-        # Local datasets for sample CSV/JSON generation & local Spark runs
+        if _is_cloud_uri(self.storage_base):
+            self.use_dbfs = True
+
+        # Sample datasets live in the project (read-only on Databricks Git folders)
         self.datasets_dir = self.project_root / "datasets"
         self.landing_csv_dir = self.datasets_dir / "landing" / "csv"
         self.landing_json_dir = self.datasets_dir / "landing" / "json"
 
     # ------------------------------------------------------------------
+    # Storage binding
+    # ------------------------------------------------------------------
+    def bind_storage_base(self, storage_base: str, cloud: bool = True) -> None:
+        """Rebind all runtime paths to a writable storage root (Volume / DBFS)."""
+        self.storage_base = storage_base.rstrip("/")
+        self.use_dbfs = cloud or _is_cloud_uri(self.storage_base)
+
+    @property
+    def is_cloud_storage(self) -> bool:
+        return self.use_dbfs or _is_cloud_uri(self.storage_base)
+
+    # ------------------------------------------------------------------
     # Landing (raw files for Auto Loader)
     # ------------------------------------------------------------------
     def landing_path(self, entity: str, fmt: str = "csv") -> str:
+        """
+        Landing zone for ingestion.
+
+        Always under storage_base when using cloud/Volume storage so writes
+        never target the Git repository.
+        """
         fmt = fmt.lower()
-        if self.use_dbfs:
+        if self.is_cloud_storage:
             return f"{self.storage_base}/landing/{fmt}/{entity}"
         local = self.landing_csv_dir if fmt == "csv" else self.landing_json_dir
         return str((local / entity).resolve()).replace("\\", "/")
@@ -124,13 +162,22 @@ class LakehousePaths:
     # Helpers
     # ------------------------------------------------------------------
     def ensure_local_directories(self) -> None:
-        """Create local landing and data directories when not using DBFS."""
-        if self.use_dbfs:
+        """
+        Create local landing and data directories when not using cloud storage.
+
+        No-ops for Volume/DBFS paths. Never attempts to mkdir into cloud URIs
+        or read-only Git checkouts used only as sample sources.
+        """
+        if self.is_cloud_storage:
             return
-        for entity in ALL_ENTITIES:
-            (self.landing_csv_dir / entity).mkdir(parents=True, exist_ok=True)
-            (self.landing_json_dir / entity).mkdir(parents=True, exist_ok=True)
-        Path(self.storage_base).mkdir(parents=True, exist_ok=True)
+        try:
+            for entity in ALL_ENTITIES:
+                (self.landing_csv_dir / entity).mkdir(parents=True, exist_ok=True)
+                (self.landing_json_dir / entity).mkdir(parents=True, exist_ok=True)
+            Path(self.storage_base).mkdir(parents=True, exist_ok=True)
+        except OSError:
+            # Read-only filesystem (e.g. Databricks Git folder) — skip
+            pass
 
     def all_entity_landing_paths(self, fmt: str = "csv") -> dict[str, str]:
         return {entity: self.landing_path(entity, fmt) for entity in ALL_ENTITIES}

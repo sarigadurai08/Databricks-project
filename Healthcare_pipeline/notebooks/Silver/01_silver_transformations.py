@@ -6,6 +6,8 @@
 # MAGIC - Primary / foreign key validation via DQ framework
 # MAGIC - **SCD Type 1** for doctors, appointments, claims, pharmacy, labs, billing
 # MAGIC - **SCD Type 2** for patients (address / insurance / contact history)
+# MAGIC
+# MAGIC **Runtime standard:** same bootstrap / Spark / Volume / audit pattern as `new_bronze.py`.
 
 # COMMAND ----------
 
@@ -13,16 +15,51 @@ import sys
 from pathlib import Path
 
 def _bootstrap_project_root() -> None:
-    for cand in [Path.cwd(), Path.cwd().parent, Path("/Workspace/Repos/Healthcare_Lakehouse")]:
+    candidates = [
+        Path.cwd(),
+        Path.cwd().parent,
+        Path("/Workspace/Repos/Healthcare_Lakehouse"),
+        Path("/Workspace/Healthcare_Lakehouse"),
+    ]
+    users_root = Path("/Workspace/Users")
+    if users_root.exists():
+        for user_dir in users_root.iterdir():
+            candidates.extend(
+                [
+                    user_dir / "Databricks-project" / "Healthcare_pipeline",
+                    user_dir / "Databricks-project",
+                    user_dir / "Healthcare_pipeline",
+                    user_dir / "Healthcare_Lakehouse",
+                ]
+            )
+    for cand in candidates:
         if (cand / "config" / "config.py").exists():
-            if str(cand) not in sys.path:
-                sys.path.insert(0, str(cand))
+            root = str(cand)
+            if root not in sys.path:
+                sys.path.insert(0, root)
             return
+    try:
+        nb = Path(
+            dbutils.notebook.entry_point.getDbutils()  # type: ignore[name-defined]
+            .notebook()
+            .getContext()
+            .notebookPath()
+            .get()
+        )
+        workspace_nb = Path("/Workspace") / str(nb).lstrip("/")
+        for parent in list(nb.parents) + list(workspace_nb.parents):
+            if (parent / "config" / "config.py").exists():
+                if str(parent) not in sys.path:
+                    sys.path.insert(0, str(parent))
+                return
+    except Exception:
+        pass
 
 _bootstrap_project_root()
 
 # COMMAND ----------
 
+from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 
 from config.config import get_config
@@ -32,6 +69,7 @@ from config.constants import (
     PIPELINE_SILVER_TRANSFORM,
     VALID_APPOINTMENT_STATUSES,
 )
+from config.paths import PATHS
 from src.audit.auditor import PipelineAuditor
 from src.logging.logger import ensure_log_table, get_logger
 from src.transformations.scd import apply_scd_type1, apply_scd_type2
@@ -43,17 +81,20 @@ from src.utilities.data_quality import (
     build_patient_dq,
 )
 from src.utilities.dataframe_utils import generate_run_id
+from src.utilities.databricks_runtime import prepare_databricks_runtime
 from src.utilities.delta_helpers import write_delta
-from src.utilities.spark_session import get_spark
 
 # COMMAND ----------
 
-spark = get_spark("SilverTransform")
+spark = globals().get("spark") or SparkSession.getActiveSession()
 cfg = get_config()
+cfg = prepare_databricks_runtime(spark, cfg)
 run_id = generate_run_id()
 logger = get_logger(spark, PIPELINE_SILVER_TRANSFORM, run_id)
 ensure_log_table(spark)
 auditor = PipelineAuditor(spark, PIPELINE_SILVER_TRANSFORM, run_id, cfg.environment, logger)
+
+logger.info("Silver pipeline started", module="silver", details=cfg.to_dict())
 
 # COMMAND ----------
 
@@ -62,24 +103,32 @@ auditor = PipelineAuditor(spark, PIPELINE_SILVER_TRANSFORM, run_id, cfg.environm
 
 # COMMAND ----------
 
-bronze = {
-    e: spark.read.format("delta").load(cfg.paths.bronze_path(e))
-    for e in ALL_ENTITIES
-}
+status_map = {}
 
-silver_staged = {}
-for entity, df in bronze.items():
-    with auditor.track(f"silver_clean_{entity}") as ctx:
-        cleaned = clean_entity(entity, df)
-        silver_staged[entity] = cleaned
-        ctx["rows_read"] = df.count()
-        ctx["rows_inserted"] = cleaned.count()
-        logger.info(
-            f"Cleaned {entity}",
-            module="silver",
-            details={"in": ctx["rows_read"], "out": ctx["rows_inserted"]},
-        )
-        display(cleaned.limit(5))  # noqa: F821
+try:
+    bronze = {
+        e: spark.read.format("delta").load(cfg.paths.bronze_path(e))
+        for e in ALL_ENTITIES
+    }
+
+    silver_staged = {}
+    for entity, df in bronze.items():
+        with auditor.track(f"silver_clean_{entity}") as ctx:
+            cleaned = clean_entity(entity, df)
+            silver_staged[entity] = cleaned
+            ctx["rows_read"] = df.count()
+            ctx["rows_inserted"] = cleaned.count()
+            status_map[f"clean_{entity}"] = ctx["rows_inserted"]
+            logger.info(
+                f"Cleaned {entity}",
+                module="silver",
+                details={"in": ctx["rows_read"], "out": ctx["rows_inserted"]},
+            )
+            display(cleaned.limit(5))  # noqa: F821
+except Exception as exc:
+    logger.error("Silver cleanse failed", module="silver", exc=exc)
+    logger.flush()
+    raise
 
 # COMMAND ----------
 
@@ -88,19 +137,24 @@ for entity, df in bronze.items():
 
 # COMMAND ----------
 
-patient_dq = build_patient_dq(spark, run_id, logger)
-patient_results = patient_dq.validate(silver_staged["patients"])
-display(spark.createDataFrame([r.__dict__ for r in patient_results]))  # noqa: F821
+try:
+    patient_dq = build_patient_dq(spark, run_id, logger)
+    patient_results = patient_dq.validate(silver_staged["patients"])
+    display(spark.createDataFrame([r.__dict__ for r in patient_results]))  # noqa: F821
 
-appt_dq = build_appointment_dq(
-    spark,
-    run_id,
-    silver_staged["patients"],
-    silver_staged["doctors"],
-    logger,
-)
-appt_results = appt_dq.validate(silver_staged["appointments"])
-display(spark.createDataFrame([r.__dict__ for r in appt_results]))  # noqa: F821
+    appt_dq = build_appointment_dq(
+        spark,
+        run_id,
+        silver_staged["patients"],
+        silver_staged["doctors"],
+        logger,
+    )
+    appt_results = appt_dq.validate(silver_staged["appointments"])
+    display(spark.createDataFrame([r.__dict__ for r in appt_results]))  # noqa: F821
+except Exception as exc:
+    logger.error("Silver DQ validation failed", module="silver", exc=exc)
+    logger.flush()
+    raise
 
 # COMMAND ----------
 
@@ -119,18 +173,24 @@ patient_tracked_cols = [
     "Gender",
 ]
 
-with auditor.track("silver_patients_scd2") as ctx:
-    patients_scd2 = apply_scd_type2(
-        spark,
-        silver_staged["patients"],
-        cfg.paths.silver_path("patients"),
-        primary_key="PatientID",
-        tracked_columns=patient_tracked_cols,
-        logger=logger,
-    )
-    ctx["rows_read"] = silver_staged["patients"].count()
-    ctx["rows_inserted"] = patients_scd2.filter(F.col("IsCurrent") == True).count()  # noqa: E712
-    display(patients_scd2.filter(F.col("IsCurrent") == True).limit(10))  # noqa: F821,E712
+try:
+    with auditor.track("silver_patients_scd2") as ctx:
+        patients_scd2 = apply_scd_type2(
+            spark,
+            silver_staged["patients"],
+            cfg.paths.silver_path("patients"),
+            primary_key="PatientID",
+            tracked_columns=patient_tracked_cols,
+            logger=logger,
+        )
+        ctx["rows_read"] = silver_staged["patients"].count()
+        ctx["rows_inserted"] = patients_scd2.filter(F.col("IsCurrent") == True).count()  # noqa: E712
+        status_map["patients_scd2"] = ctx["rows_inserted"]
+        display(patients_scd2.filter(F.col("IsCurrent") == True).limit(10))  # noqa: F821,E712
+except Exception as exc:
+    logger.error("SCD Type 2 failed for patients", module="silver", exc=exc)
+    logger.flush()
+    raise
 
 # COMMAND ----------
 
@@ -148,19 +208,25 @@ scd1_entities = {
     "billing": ("InvoiceID", ["PatientID", "AppointmentID", "TotalAmount", "PaymentStatus", "PaymentDate"]),
 }
 
-for entity, (pk, compare_cols) in scd1_entities.items():
-    with auditor.track(f"silver_{entity}_scd1") as ctx:
-        result = apply_scd_type1(
-            spark,
-            silver_staged[entity],
-            cfg.paths.silver_path(entity),
-            primary_key=pk,
-            compare_columns=compare_cols,
-            logger=logger,
-        )
-        ctx["rows_read"] = silver_staged[entity].count()
-        ctx["rows_inserted"] = result.count()
-        logger.info(f"SCD1 complete for {entity}", module="silver", details={"rows": result.count()})
+try:
+    for entity, (pk, compare_cols) in scd1_entities.items():
+        with auditor.track(f"silver_{entity}_scd1") as ctx:
+            result = apply_scd_type1(
+                spark,
+                silver_staged[entity],
+                cfg.paths.silver_path(entity),
+                primary_key=pk,
+                compare_columns=compare_cols,
+                logger=logger,
+            )
+            ctx["rows_read"] = silver_staged[entity].count()
+            ctx["rows_inserted"] = result.count()
+            status_map[f"{entity}_scd1"] = ctx["rows_inserted"]
+            logger.info(f"SCD1 complete for {entity}", module="silver", details={"rows": result.count()})
+except Exception as exc:
+    logger.error("SCD Type 1 failed", module="silver", exc=exc)
+    logger.flush()
+    raise
 
 # COMMAND ----------
 
@@ -169,13 +235,21 @@ for entity, (pk, compare_cols) in scd1_entities.items():
 
 # COMMAND ----------
 
-patients_current = (
-    spark.read.format("delta")
-    .load(cfg.paths.silver_path("patients"))
-    .filter(F.col("IsCurrent") == True)  # noqa: E712
-)
-write_delta(patients_current, cfg.paths.silver_path("patients_current"), mode="overwrite")
-display(patients_current.limit(10))  # noqa: F821
+try:
+    patients_current = (
+        spark.read.format("delta")
+        .load(cfg.paths.silver_path("patients"))
+        .filter(F.col("IsCurrent") == True)  # noqa: E712
+    )
+    write_delta(patients_current, cfg.paths.silver_path("patients_current"), mode="overwrite")
+    display(patients_current.limit(10))  # noqa: F821
+except Exception as exc:
+    logger.error("Failed writing patients_current", module="silver", exc=exc)
+    logger.flush()
+    raise
+
+# COMMAND ----------
 
 logger.flush()
-logger.info("Silver pipeline completed", module="silver")
+logger.info("Silver pipeline completed", module="silver", details=status_map)
+dbutils.notebook.exit(str(status_map))  # type: ignore[name-defined]

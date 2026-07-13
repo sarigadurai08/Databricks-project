@@ -193,6 +193,7 @@ class HealthcareConfig:
 def get_config() -> HealthcareConfig:
     """Factory used by notebooks and jobs."""
     cfg = HealthcareConfig()
+    # Local only — never mkdir into Volumes/DBFS or read-only Git folders
     cfg.paths.ensure_local_directories()
     return cfg
 

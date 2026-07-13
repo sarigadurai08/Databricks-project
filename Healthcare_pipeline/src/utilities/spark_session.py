@@ -9,18 +9,44 @@ from pyspark.sql import SparkSession
 from config.config import CONFIG, HealthcareConfig
 
 
+def _is_databricks_runtime() -> bool:
+    """Detect Databricks Runtime / Serverless without requiring an active session."""
+    import os
+
+    return bool(
+        os.environ.get("DATABRICKS_RUNTIME_VERSION")
+        or os.environ.get("DB_HOME")
+        or os.path.exists("/databricks")
+    )
+
+
 def get_spark(
     app_name: Optional[str] = None,
     config: Optional[HealthcareConfig] = None,
     enable_hive: bool = False,
 ) -> SparkSession:
     """
-    Build or retrieve an active SparkSession configured for Delta Lake.
+    Retrieve the active SparkSession (Databricks) or build a local Delta session.
 
-    On Databricks, the runtime session is reused; locally a new session is created
-    with delta-spark extensions when available.
+    On Databricks Free Edition / Serverless / clusters the managed session is
+    always reused — never creates local[*].
     """
     cfg = config or CONFIG
+
+    active = SparkSession.getActiveSession()
+    if active is not None:
+        _apply_safe_conf(active, cfg)
+        return active
+
+    if _is_databricks_runtime():
+        # Databricks notebook global may not yet be bound to getActiveSession
+        # in rare edge cases; still refuse to spawn local[*].
+        raise RuntimeError(
+            "No active SparkSession found on Databricks. "
+            "Use the notebook `spark` session: "
+            "spark = globals().get('spark') or SparkSession.getActiveSession()"
+        )
+
     builder = (
         SparkSession.builder.appName(app_name or cfg.spark.app_name)
         .master(cfg.spark.master)
@@ -31,15 +57,10 @@ def get_spark(
     for key, value in cfg.spark.as_spark_conf().items():
         builder = builder.config(key, value)
 
-    # Prefer delta-spark package on local runs when installed
     try:
         import delta  # noqa: F401
 
-        builder = (
-            builder.config("spark.jars.packages", "io.delta:delta-spark_2.12:3.2.0")
-            if "databricks" not in cfg.spark.master
-            else builder
-        )
+        builder = builder.config("spark.jars.packages", "io.delta:delta-spark_2.12:3.2.0")
     except Exception:
         pass
 
@@ -51,10 +72,31 @@ def get_spark(
     return spark
 
 
+def _apply_safe_conf(spark: SparkSession, cfg: HealthcareConfig) -> None:
+    """Apply non-destructive SQL conf on an existing Databricks session."""
+    safe_keys = {
+        "spark.sql.shuffle.partitions": str(cfg.spark.shuffle_partitions),
+        "spark.sql.adaptive.enabled": str(cfg.spark.enable_aqe).lower(),
+        "spark.sql.adaptive.coalescePartitions.enabled": str(
+            cfg.spark.enable_adaptive_coalesce
+        ).lower(),
+        "spark.sql.adaptive.skewJoin.enabled": str(
+            cfg.spark.enable_adaptive_skew_join
+        ).lower(),
+        "spark.sql.session.timeZone": cfg.spark.timezone,
+    }
+    for key, value in safe_keys.items():
+        try:
+            spark.conf.set(key, value)
+        except Exception:
+            pass
+
+
 def stop_spark(spark: SparkSession) -> None:
     """Stop SparkSession if running outside Databricks managed runtime."""
+    if _is_databricks_runtime():
+        return
     try:
-        # Databricks notebooks manage the session lifecycle
         if spark.conf.get("spark.databricks.clusterUsageTags.clusterId", None):
             return
     except Exception:
