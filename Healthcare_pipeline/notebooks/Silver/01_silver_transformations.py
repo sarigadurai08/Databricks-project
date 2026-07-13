@@ -72,7 +72,7 @@ from config.constants import (
 from config.paths import PATHS
 from src.audit.auditor import PipelineAuditor
 from src.logging.logger import ensure_log_table, get_logger
-from src.transformations.scd import apply_scd_type1, apply_scd_type2
+from src.transformations.scd import apply_scd_type1, apply_scd_type2, filter_current
 from src.transformations.silver_transforms import clean_entity
 from src.utilities.data_quality import (
     DataQualityFramework,
@@ -195,9 +195,9 @@ try:
             logger=logger,
         )
         ctx["rows_read"] = silver_staged["patients"].count()
-        ctx["rows_inserted"] = patients_scd2.filter(F.col("IsCurrent") == True).count()  # noqa: E712
+        ctx["rows_inserted"] = filter_current(patients_scd2).count()
         status_map["patients_scd2"] = ctx["rows_inserted"]
-        display(patients_scd2.filter(F.col("IsCurrent") == True).limit(10))  # noqa: F821,E712
+        display(filter_current(patients_scd2).limit(10))  # noqa: F821
 except Exception as exc:
     logger.error("SCD Type 2 failed for patients", module="silver", exc=exc)
     logger.flush()
@@ -247,10 +247,8 @@ except Exception as exc:
 # COMMAND ----------
 
 try:
-    patients_current = (
-        spark.read.format("delta")
-        .load(cfg.paths.silver_path("patients"))
-        .filter(F.col("IsCurrent") == True)  # noqa: E712
+    patients_current = filter_current(
+        spark.read.format("delta").load(cfg.paths.silver_path("patients"))
     )
     write_delta(patients_current, cfg.paths.silver_path("patients_current"), mode="overwrite")
     display(patients_current.limit(10))  # noqa: F821

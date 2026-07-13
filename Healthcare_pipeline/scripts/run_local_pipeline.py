@@ -20,7 +20,7 @@ from src.audit.auditor import PipelineAuditor
 from src.ingestion.autoloader import AutoLoaderIngestion, stage_sample_files_to_landing
 from src.logging.logger import ensure_log_table, get_logger
 from src.transformations.gold_transforms import build_all_gold_tables
-from src.transformations.scd import apply_scd_type1, apply_scd_type2
+from src.transformations.scd import apply_scd_type1, apply_scd_type2, filter_current
 from src.transformations.silver_transforms import clean_entity
 from src.utilities.data_quality import build_patient_dq
 from src.utilities.dataframe_utils import generate_run_id
@@ -83,10 +83,8 @@ def main() -> None:
             print(f"  silver.{entity} SCD1 complete")
 
     print("=== Data Quality (patients) ===")
-    patients_cur = (
-        spark.read.format("delta")
-        .load(cfg.paths.silver_path("patients"))
-        .filter(F.col("IsCurrent") == True)  # noqa: E712
+    patients_cur = filter_current(
+        spark.read.format("delta").load(cfg.paths.silver_path("patients"))
     )
     build_patient_dq(spark, run_id, logger).validate(patients_cur)
 

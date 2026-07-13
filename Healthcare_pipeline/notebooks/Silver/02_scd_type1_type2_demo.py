@@ -6,8 +6,7 @@
 # MAGIC - **SCD1** overwrite-in-place for doctors
 # MAGIC - **SCD2** historical versioning for patients
 # MAGIC
-# MAGIC **Runtime standard:** same bootstrap / Spark / Volume / audit pattern as `new_bronze.py`.
-# MAGIC Demo tables are reset each run so assertions stay idempotent.
+# MAGIC Demo tables are hard-reset each run so assertions stay idempotent.
 
 # COMMAND ----------
 
@@ -63,13 +62,12 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 
 from config.config import get_config
-from config.paths import PATHS
 from src.audit.auditor import PipelineAuditor
 from src.logging.logger import ensure_log_table, get_logger
-from src.transformations.scd import apply_scd_type1, apply_scd_type2
+from src.transformations.scd import apply_scd_type1, apply_scd_type2, filter_current
 from src.utilities.dataframe_utils import generate_run_id
 from src.utilities.databricks_runtime import prepare_databricks_runtime
-from src.utilities.delta_helpers import table_exists, write_delta
+from src.utilities.delta_helpers import ensure_delta_parent, table_exists, write_delta
 
 # COMMAND ----------
 
@@ -82,6 +80,29 @@ ensure_log_table(spark)
 auditor = PipelineAuditor(spark, "scd_demo", run_id, cfg.environment, logger)
 
 logger.info("SCD demo started", module="scd_demo", details=cfg.to_dict())
+
+
+def _reset_demo_path(path: str) -> None:
+    """Hard-delete a demo Delta path so the next SCD call bootstraps cleanly."""
+    ensure_delta_parent(spark, path)
+    removed = False
+    try:
+        dbutils.fs.rm(path, True)  # type: ignore[name-defined]
+        removed = True
+    except Exception as exc:
+        logger.warning(f"dbutils.fs.rm failed for {path}: {exc}", module="scd_demo")
+    if not removed:
+        try:
+            from pathlib import Path as _P
+
+            import shutil
+
+            shutil.rmtree(str(path), ignore_errors=True)
+        except Exception:
+            pass
+    # Final fallback: overwrite empty marker then rely on SCD bootstrap if path still odd
+    if table_exists(spark, path):
+        logger.warning(f"Path still present after delete, forcing overwrite bootstrap for {path}", module="scd_demo")
 
 # COMMAND ----------
 
@@ -99,8 +120,7 @@ try:
             ["DoctorID", "DoctorName", "Specialization", "Department", "Hospital", "Experience"],
         )
         path_d = cfg.paths.silver_path("doctors_scd1_demo")
-        # Reset demo table each run for idempotent assertions
-        write_delta(doctors_v1.limit(0), path_d, mode="overwrite", merge_schema=True)
+        _reset_demo_path(path_d)
 
         apply_scd_type1(spark, doctors_v1, path_d, "DoctorID", logger=logger)
 
@@ -144,33 +164,43 @@ try:
             cols,
         )
         path_p = cfg.paths.silver_path("patients_scd2_demo")
+        _reset_demo_path(path_p)
 
-        # Reset demo history each run so count assertions remain stable
-        if table_exists(spark, path_p):
-            try:
-                dbutils.fs.rm(path_p, True)  # type: ignore[name-defined]
-            except Exception:
-                # Fallback: overwrite with empty then recreate via SCD2
-                write_delta(patients_v1.limit(0), path_p, mode="overwrite", merge_schema=True)
+        # Version 1 — initial current row
+        hist1 = apply_scd_type2(
+            spark, patients_v1, path_p, "PatientID", ["Address", "Phone"], logger=logger
+        )
+        current_after_v1 = filter_current(hist1).count()
+        assert current_after_v1 == 1, f"After v1 expected 1 current row, found {current_after_v1}"
 
-        apply_scd_type2(spark, patients_v1, path_p, "PatientID", ["Address", "Phone"], logger=logger)
-
+        # Version 2 — address/phone change must open a new SCD2 version
         patients_v2 = spark.createDataFrame(
             [("PATSCD1", "Sam", "Patient", "222", "sam@ex.com", "200 Oak Ave", "INS1", "Male", "1980-01-01", "2024-01-01 00:00:00", "2024-06-01 00:00:00")],
             cols,
         )
-        apply_scd_type2(spark, patients_v2, path_p, "PatientID", ["Address", "Phone"], logger=logger)
+        hist2 = apply_scd_type2(
+            spark, patients_v2, path_p, "PatientID", ["Address", "Phone"], logger=logger
+        )
 
-        history_df = spark.read.format("delta").load(path_p).orderBy("VersionNumber")
+        history_df = hist2.orderBy("VersionNumber")
         display(history_df)  # noqa: F821
-        current_cnt = history_df.filter(F.col("IsCurrent") == True).count()  # noqa: E712
+
+        current_cnt = filter_current(history_df).count()
+        total_cnt = history_df.count()
         assert current_cnt == 1, f"Expected 1 current SCD2 row, found {current_cnt}"
-        assert history_df.count() >= 2, "Expected at least 2 SCD2 history rows after address change"
+        assert total_cnt >= 2, f"Expected at least 2 SCD2 history rows after address change, found {total_cnt}"
+
+        # Current row should reflect the new address/phone
+        cur = filter_current(history_df).collect()[0]
+        assert cur["Address"] == "200 Oak Ave", f"Current Address mismatch: {cur['Address']}"
+        assert cur["Phone"] == "222", f"Current Phone mismatch: {cur['Phone']}"
+
         ctx["rows_read"] = 2
-        ctx["rows_inserted"] = 2
+        ctx["rows_inserted"] = total_cnt
         ctx["rows_updated"] = 1
-        status_map["scd2_rows"] = history_df.count()
-        logger.info("SCD demo assertions passed", module="scd_demo")
+        status_map["scd2_rows"] = total_cnt
+        status_map["scd2_current"] = current_cnt
+        logger.info("SCD demo assertions passed", module="scd_demo", details=status_map)
 except Exception as exc:
     logger.error("SCD2 demo failed", module="scd_demo", exc=exc)
     logger.flush()

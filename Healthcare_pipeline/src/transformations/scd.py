@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from typing import Optional, Sequence
 
-from pyspark.sql import DataFrame, SparkSession
+from pyspark.sql import Column, DataFrame, SparkSession
 from pyspark.sql import functions as F
 
 from config.constants import (
@@ -26,14 +26,37 @@ from src.utilities.exceptions import TransformationError
 def _dataframe_is_empty(df: DataFrame) -> bool:
     """Serverless-safe emptiness check (avoids .rdd which is restricted on some runtimes)."""
     try:
-        return df.isEmpty()
-    except Exception:
         return df.limit(1).count() == 0
+    except Exception:
+        try:
+            return df.isEmpty()
+        except Exception:
+            return True
 
 
 def _is_path_not_found(exc: BaseException) -> bool:
     msg = str(exc).upper()
     return "PATH_NOT_FOUND" in msg or "DOES NOT EXIST" in msg or "FILENOTFOUND" in msg.replace(" ", "")
+
+
+def is_current_expr(col_name: str = SCD2_IS_CURRENT) -> Column:
+    """
+    Robust IsCurrent predicate for Databricks Serverless / mixed boolean types.
+
+    Accepts boolean true, integer 1, and string "true"/"True"/"1".
+    """
+    c = F.col(col_name)
+    return (
+        (c.cast("boolean") == F.lit(True))
+        | (c.cast("string").isin("true", "True", "1", "yes", "Y"))
+    )
+
+
+def filter_current(df: DataFrame, col_name: str = SCD2_IS_CURRENT) -> DataFrame:
+    """Filter to current SCD2 rows using a Serverless-safe predicate."""
+    if col_name not in df.columns:
+        return df.limit(0)
+    return df.filter(is_current_expr(col_name))
 
 
 def _bootstrap_delta_table(
@@ -68,7 +91,6 @@ def apply_scd_type1(
     if not table_exists(spark, target_path):
         return _bootstrap_delta_table(spark, source_df, target_path, logger, "scd1")
 
-    # Optionally only update when tracked columns change
     try:
         if compare_columns:
             change_pred = " OR ".join(
@@ -123,13 +145,16 @@ def apply_scd_type2(
         EffectiveStartDate, EffectiveEndDate, IsCurrent, VersionNumber
     """
     keys = [primary_key] if isinstance(primary_key, str) else list(primary_key)
+    tracked = [c for c in tracked_columns if c in source_df.columns]
+    if not tracked:
+        raise TransformationError("SCD2 requires at least one tracked column present in source")
 
     # Prepare source with SCD2 attributes for new/current versions
     staged = (
         source_df.withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
         .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
-        .withColumn(SCD2_IS_CURRENT, F.lit(True))
-        .withColumn(SCD2_VERSION, F.lit(1))
+        .withColumn(SCD2_IS_CURRENT, F.lit(True).cast("boolean"))
+        .withColumn(SCD2_VERSION, F.lit(1).cast("int"))
     )
 
     if not table_exists(spark, target_path):
@@ -139,50 +164,57 @@ def apply_scd_type2(
 
     try:
         target = DeltaTable.forPath(spark, target_path)
-        current = spark.read.format("delta").load(target_path).filter(F.col(SCD2_IS_CURRENT) == True)  # noqa: E712
+        full_target = spark.read.format("delta").load(target_path)
+        if SCD2_IS_CURRENT not in full_target.columns:
+            # Corrupt / empty demo reset — recreate
+            return _bootstrap_delta_table(spark, staged, target_path, logger, "scd2")
+        current = filter_current(full_target)
     except Exception as exc:
         if _is_path_not_found(exc):
             return _bootstrap_delta_table(spark, staged, target_path, logger, "scd2")
         raise
 
-    # Detect changed records vs current
-    change_expr = " OR ".join(
-        [f"NOT (c.`{c}` <=> s.`{c}`)" for c in tracked_columns if c in source_df.columns]
-    )
-    if not change_expr:
-        raise TransformationError("SCD2 requires at least one tracked column")
+    # If no current rows exist, treat as full reload of current snapshot
+    if _dataframe_is_empty(current):
+        if logger:
+            logger.warning(
+                f"No current SCD2 rows at {target_path}; bootstrapping fresh snapshot",
+                module="scd2",
+            )
+        return _bootstrap_delta_table(spark, staged, target_path, logger, "scd2")
 
-    source_df.createOrReplaceTempView("_scd2_src")
-    current.createOrReplaceTempView("_scd2_cur")
+    # --- Change detection via DataFrame API (Serverless-safe, no temp-view SQL) ---
+    cur_for_join = current
+    for col in tracked:
+        cur_for_join = cur_for_join.withColumnRenamed(col, f"__cur_{col}")
 
-    changes = spark.sql(
-        f"""
-        SELECT s.*
-        FROM _scd2_src s
-        INNER JOIN _scd2_cur c
-          ON {" AND ".join([f"c.`{k}` = s.`{k}`" for k in keys])}
-        WHERE {change_expr}
-        """
-    )
+    select_cols = list(keys) + [f"__cur_{c}" for c in tracked]
+    cur_for_join = cur_for_join.select(*[c for c in select_cols if c in cur_for_join.columns])
 
-    # Prefer DataFrame left_anti (more portable than Spark SQL LEFT ANTI JOIN)
-    news = source_df.join(current.select(*keys), on=keys, how="left_anti")
+    joined = source_df.join(cur_for_join, on=keys, how="inner")
+    change_cond: Optional[Column] = None
+    for col in tracked:
+        alias = f"__cur_{col}"
+        part = ~F.col(col).eqNullSafe(F.col(alias))
+        change_cond = part if change_cond is None else (change_cond | part)
 
-    # Expire current versions that changed
+    assert change_cond is not None
+    changes = joined.filter(change_cond).select(*source_df.columns)
+    news = source_df.join(current.select(*keys).distinct(), on=keys, how="left_anti")
+
     has_changes = not _dataframe_is_empty(changes)
     has_news = not _dataframe_is_empty(news)
 
     if has_changes:
         changes_keys = changes.select(*keys).distinct()
-        changes_keys.createOrReplaceTempView("_scd2_changed_keys")
         expire_condition = " AND ".join([f"t.`{k}` = k.`{k}`" for k in keys])
 
-        # Merge to set IsCurrent=false for changed keys
+        # Expire matched current rows — use boolean false (not string) via SQL false literal
         (
             target.alias("t")
             .merge(
                 changes_keys.alias("k"),
-                f"({expire_condition}) AND t.`{SCD2_IS_CURRENT}` = true",
+                f"({expire_condition}) AND (CAST(t.`{SCD2_IS_CURRENT}` AS BOOLEAN) = true)",
             )
             .whenMatchedUpdate(
                 set={
@@ -198,28 +230,26 @@ def apply_scd_type2(
             spark.read.format("delta")
             .load(target_path)
             .groupBy(*keys)
-            .agg(F.max(SCD2_VERSION).alias("max_version"))
+            .agg(F.max(F.col(SCD2_VERSION).cast("int")).alias("max_version"))
         )
         new_versions = (
             changes.alias("s")
             .join(current_versions.alias("v"), on=keys, how="left")
-            .withColumn(SCD2_VERSION, F.coalesce(F.col("max_version"), F.lit(0)) + 1)
+            .withColumn(SCD2_VERSION, (F.coalesce(F.col("max_version"), F.lit(0)) + 1).cast("int"))
             .withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
             .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
-            .withColumn(SCD2_IS_CURRENT, F.lit(True))
+            .withColumn(SCD2_IS_CURRENT, F.lit(True).cast("boolean"))
             .select(*[c for c in staged.columns])
         )
         write_delta(new_versions, target_path, mode="append", merge_schema=True)
 
-    # Insert brand-new keys
     if has_news:
         new_rows = (
             news.withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
             .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
-            .withColumn(SCD2_IS_CURRENT, F.lit(True))
-            .withColumn(SCD2_VERSION, F.lit(1))
+            .withColumn(SCD2_IS_CURRENT, F.lit(True).cast("boolean"))
+            .withColumn(SCD2_VERSION, F.lit(1).cast("int"))
         )
-        # Align columns with target
         target_cols = spark.read.format("delta").load(target_path).columns
         for c in target_cols:
             if c not in new_rows.columns:
@@ -227,6 +257,7 @@ def apply_scd_type2(
         new_rows = new_rows.select(*target_cols)
         write_delta(new_rows, target_path, mode="append", merge_schema=True)
 
+    result = spark.read.format("delta").load(target_path)
     if logger:
         logger.info(
             f"SCD2 MERGE complete for {target_path}",
@@ -234,6 +265,7 @@ def apply_scd_type2(
             details={
                 "changed": changes.count() if has_changes else 0,
                 "new": news.count() if has_news else 0,
+                "current_rows": filter_current(result).count(),
             },
         )
-    return spark.read.format("delta").load(target_path)
+    return result

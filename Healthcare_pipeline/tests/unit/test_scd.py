@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pyspark.sql import functions as F
 
-from src.transformations.scd import apply_scd_type1, apply_scd_type2
+from src.transformations.scd import apply_scd_type1, apply_scd_type2, filter_current, is_current_expr
 
 
 def test_scd_type1_insert_and_update(spark, sample_doctors, tmp_delta_dir):
@@ -46,7 +46,7 @@ def test_scd_type2_versioning(spark, tmp_delta_dir):
         "PatientID",
         tracked_columns=["Address", "Phone", "InsuranceID"],
     )
-    cur = spark.read.format("delta").load(target).filter(F.col("IsCurrent") == True)  # noqa: E712
+    cur = filter_current(spark.read.format("delta").load(target))
     assert cur.count() == 1
     assert cur.collect()[0]["VersionNumber"] == 1
 
@@ -63,8 +63,8 @@ def test_scd_type2_versioning(spark, tmp_delta_dir):
     )
     all_rows = spark.read.format("delta").load(target)
     assert all_rows.count() == 2
-    current = all_rows.filter(F.col("IsCurrent") == True).collect()[0]  # noqa: E712
-    expired = all_rows.filter(F.col("IsCurrent") == False).collect()[0]  # noqa: E712
+    current = filter_current(all_rows).collect()[0]
+    expired = all_rows.filter(~is_current_expr()).collect()[0]
     assert current["VersionNumber"] == 2
     assert current["Address"] == "Addr2"
     assert expired["Address"] == "Addr1"
@@ -90,4 +90,4 @@ def test_scd_type2_new_key(spark, tmp_delta_dir):
         cols,
     )
     apply_scd_type2(spark, v2, target, "PatientID", ["Address"])
-    assert spark.read.format("delta").load(target).filter(F.col("IsCurrent") == True).count() == 2  # noqa: E712
+    assert filter_current(spark.read.format("delta").load(target)).count() == 2

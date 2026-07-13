@@ -70,6 +70,7 @@ from config.constants import (
 from config.paths import PATHS
 from src.audit.auditor import PipelineAuditor
 from src.logging.logger import ensure_log_table, get_logger
+from src.transformations.scd import filter_current
 from src.utilities.data_quality import DataQualityFramework, Severity
 from src.utilities.dataframe_utils import generate_run_id
 from src.utilities.databricks_runtime import prepare_databricks_runtime
@@ -105,7 +106,7 @@ try:
             f"Missing Silver tables {missing}. Run Bronze then Silver before Data Quality."
         )
 
-    patients = spark.read.format("delta").load(cfg.paths.silver_path("patients")).filter(F.col("IsCurrent") == True)  # noqa: E712
+    patients = filter_current(spark.read.format("delta").load(cfg.paths.silver_path("patients")))
     doctors = spark.read.format("delta").load(cfg.paths.silver_path("doctors"))
     appointments = spark.read.format("delta").load(cfg.paths.silver_path("appointments"))
     claims = spark.read.format("delta").load(cfg.paths.silver_path("insurance_claims"))

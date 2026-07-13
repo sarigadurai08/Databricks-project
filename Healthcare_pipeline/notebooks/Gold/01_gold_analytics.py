@@ -67,6 +67,7 @@ from config.paths import PATHS
 from src.audit.auditor import PipelineAuditor
 from src.logging.logger import ensure_log_table, get_logger
 from src.transformations.gold_transforms import build_all_gold_tables
+from src.transformations.scd import filter_current
 from src.utilities.dataframe_utils import generate_run_id
 from src.utilities.databricks_runtime import prepare_databricks_runtime
 from src.utilities.delta_helpers import (
@@ -119,11 +120,7 @@ try:
             f"Missing Silver tables {missing}. Run Bronze then Silver before Gold."
         )
 
-    patients = (
-        spark.read.format("delta")
-        .load(required["patients"])
-        .filter(F.col("IsCurrent") == True)  # noqa: E712
-    )
+    patients = filter_current(spark.read.format("delta").load(required["patients"]))
     doctors = spark.read.format("delta").load(required["doctors"])
     appointments = spark.read.format("delta").load(required["appointments"])
     claims = spark.read.format("delta").load(required["insurance_claims"])
