@@ -23,6 +23,14 @@ from src.utilities.delta_helpers import merge_delta, table_exists, write_delta
 from src.utilities.exceptions import TransformationError
 
 
+def _dataframe_is_empty(df: DataFrame) -> bool:
+    """Serverless-safe emptiness check (avoids .rdd which is restricted on some runtimes)."""
+    try:
+        return df.isEmpty()
+    except Exception:
+        return df.limit(1).count() == 0
+
+
 def apply_scd_type1(
     spark: SparkSession,
     source_df: DataFrame,
@@ -144,7 +152,10 @@ def apply_scd_type2(
     )
 
     # Expire current versions that changed
-    if not changes.rdd.isEmpty():
+    has_changes = not _dataframe_is_empty(changes)
+    has_news = not _dataframe_is_empty(news)
+
+    if has_changes:
         changes_keys = changes.select(*keys).distinct()
         changes_keys.createOrReplaceTempView("_scd2_changed_keys")
         expire_condition = " AND ".join([f"t.`{k}` = k.`{k}`" for k in keys])
@@ -184,7 +195,7 @@ def apply_scd_type2(
         write_delta(new_versions, target_path, mode="append", merge_schema=True)
 
     # Insert brand-new keys
-    if not news.rdd.isEmpty():
+    if has_news:
         new_rows = (
             news.withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
             .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
@@ -204,8 +215,8 @@ def apply_scd_type2(
             f"SCD2 MERGE complete for {target_path}",
             module="scd2",
             details={
-                "changed": changes.count() if not changes.rdd.isEmpty() else 0,
-                "new": news.count() if not news.rdd.isEmpty() else 0,
+                "changed": changes.count() if has_changes else 0,
+                "new": news.count() if has_news else 0,
             },
         )
     return spark.read.format("delta").load(target_path)

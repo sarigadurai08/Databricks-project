@@ -30,6 +30,14 @@ from src.logging.logger import HealthcareLogger
 from src.utilities.exceptions import DataQualityError
 
 
+def _dataframe_is_empty(df: DataFrame) -> bool:
+    """Serverless-safe emptiness check (avoids .rdd which is restricted on some runtimes)."""
+    try:
+        return df.isEmpty()
+    except Exception:
+        return df.limit(1).count() == 0
+
+
 class Severity(str, Enum):
     INFO = "INFO"
     WARNING = "WARNING"
@@ -129,6 +137,7 @@ class DataQualityFramework:
         cols = list(columns)
 
         def fail_cond(df: DataFrame) -> Column:
+            # Window expr is projected via withColumn in validate() — never used in WHERE.
             from pyspark.sql.window import Window
 
             w = Window.partitionBy(*cols)
@@ -266,7 +275,10 @@ class DataQualityFramework:
         critical_failures = 0
 
         for rule in self.rules:
-            failed_df = df.filter(rule.fail_condition(df))
+            # Materialize fail predicate as a column first.
+            # Window functions (e.g. unique checks) are illegal in WHERE/filter on Spark.
+            marked = df.withColumn("__dq_fail__", rule.fail_condition(df))
+            failed_df = marked.filter(F.col("__dq_fail__")).drop("__dq_fail__")
             failed_count = failed_df.count()
             pass_rate = 0.0 if total == 0 else round((total - failed_count) / total * 100.0, 4)
             status = "PASSED" if failed_count == 0 else "FAILED"
@@ -341,10 +353,14 @@ class DataQualityFramework:
         return results
 
     def _write_failed_records(self, failed_df: DataFrame, rule: DQRule) -> None:
-        if failed_df.rdd.isEmpty():
+        if _dataframe_is_empty(failed_df):
             return
+        # Avoid packing non-JSON-friendly / huge metadata columns into quarantine payload
+        payload_cols = [c for c in failed_df.columns if not c.startswith("__")]
+        if not payload_cols:
+            payload_cols = list(failed_df.columns)
         payload = failed_df.select(
-            F.to_json(F.struct(*[F.col(c) for c in failed_df.columns])).alias("Payload")
+            F.to_json(F.struct(*[F.col(c) for c in payload_cols])).alias("Payload")
         )
         enriched = (
             payload.withColumn("FailedRecordID", F.expr("uuid()"))

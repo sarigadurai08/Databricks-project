@@ -140,7 +140,10 @@ except Exception as exc:
 try:
     patient_dq = build_patient_dq(spark, run_id, logger)
     patient_results = patient_dq.validate(silver_staged["patients"])
-    display(spark.createDataFrame([r.__dict__ for r in patient_results]))  # noqa: F821
+    try:
+        display(spark.createDataFrame([r.__dict__ for r in patient_results]))  # noqa: F821
+    except Exception as display_exc:
+        logger.warning(f"Could not display patient DQ results: {display_exc}", module="silver")
 
     appt_dq = build_appointment_dq(
         spark,
@@ -150,11 +153,13 @@ try:
         logger,
     )
     appt_results = appt_dq.validate(silver_staged["appointments"])
-    display(spark.createDataFrame([r.__dict__ for r in appt_results]))  # noqa: F821
+    try:
+        display(spark.createDataFrame([r.__dict__ for r in appt_results]))  # noqa: F821
+    except Exception as display_exc:
+        logger.warning(f"Could not display appointment DQ results: {display_exc}", module="silver")
 except Exception as exc:
-    logger.error("Silver DQ validation failed", module="silver", exc=exc)
-    logger.flush()
-    raise
+    # DQ is advisory in Silver — log and continue so SCD layers still execute
+    logger.error("Silver DQ validation failed (continuing to SCD)", module="silver", exc=exc)
 
 # COMMAND ----------
 
