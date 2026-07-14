@@ -2,7 +2,7 @@
 # MAGIC %md
 # MAGIC # SCD Type 1 & Type 2 — Focused Demo
 # MAGIC
-# MAGIC Demonstrates production MERGE patterns used by the Silver layer:
+# MAGIC Working implementation (synced from `updated02_scd.py` after Databricks debug).
 # MAGIC - **SCD1** overwrite-in-place for doctors
 # MAGIC - **SCD2** historical versioning for patients
 # MAGIC
@@ -68,8 +68,6 @@ from src.transformations.scd import apply_scd_type1, apply_scd_type2, filter_cur
 from src.utilities.dataframe_utils import generate_run_id
 from src.utilities.databricks_runtime import prepare_databricks_runtime
 from src.utilities.delta_helpers import ensure_delta_parent, table_exists, write_delta
-
-# COMMAND ----------
 
 spark = globals().get("spark") or SparkSession.getActiveSession()
 cfg = get_config()
