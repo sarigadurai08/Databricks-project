@@ -12,8 +12,12 @@ from enum import Enum
 
 # ---------------------------------------------------------------------------
 # Catalog / schema naming (Unity Catalog compatible)
+#
+# CATALOG_NAME is a documentation default only. Runtime catalog is discovered
+# by src.utilities.databricks_runtime.discover_catalog (or HEALTHCARE_UC_CATALOG).
+# Schema layer names below are overridable via HEALTHCARE_UC_*_SCHEMA env vars.
 # ---------------------------------------------------------------------------
-CATALOG_NAME = "healthcare_catalog"
+CATALOG_NAME = ""  # resolved at runtime — do not hardcode a workspace catalog
 BRONZE_SCHEMA = "bronze"
 SILVER_SCHEMA = "silver"
 GOLD_SCHEMA = "gold"

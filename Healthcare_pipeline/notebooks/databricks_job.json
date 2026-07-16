@@ -1,5 +1,6 @@
 {
   "name": "healthcare_lakehouse_medallion",
+  "description": "Portable template. For Git-backed jobs keep source=GIT and repo-relative notebook_path. For workspace clones, set source=WORKSPACE and notebook_path to the absolute /Workspace/... path of each notebook. No catalog/volume hardcoding — notebooks discover runtime env.",
   "max_concurrent_runs": 1,
   "tasks": [
     {

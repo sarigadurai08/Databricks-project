@@ -23,10 +23,18 @@ from src.utilities.delta_helpers import (
     maintain_entity,
     merge_delta,
     optimize_table,
+    soft_reset_delta_path,
     table_exists,
     time_travel,
     vacuum_table,
     write_delta,
+)
+from src.utilities.table_registry import (
+    register_all_medallion_tables,
+    register_bronze_tables,
+    register_gold_tables,
+    register_ops_tables,
+    register_silver_tables,
 )
 from src.utilities.exceptions import (
     DataQualityError,
@@ -41,9 +49,16 @@ from src.utilities.exceptions import (
 from src.utilities.spark_session import get_spark, stop_spark
 from src.utilities.databricks_runtime import (
     configure_writable_volume,
+    discover_catalog,
     patch_input_file_name,
     prepare_databricks_runtime,
     resolve_notebook_spark,
+)
+from src.utilities.bootstrap import (
+    bootstrap_notebook,
+    clear_project_modules,
+    reload_project_modules,
+    resolve_notebook_path,
 )
 
 __all__ = [
@@ -67,10 +82,16 @@ __all__ = [
     "maintain_entity",
     "merge_delta",
     "optimize_table",
+    "soft_reset_delta_path",
     "table_exists",
     "time_travel",
     "vacuum_table",
     "write_delta",
+    "register_all_medallion_tables",
+    "register_bronze_tables",
+    "register_gold_tables",
+    "register_ops_tables",
+    "register_silver_tables",
     "DataQualityError",
     "DeadLetterError",
     "HealthcareLakehouseError",
@@ -82,7 +103,12 @@ __all__ = [
     "get_spark",
     "stop_spark",
     "configure_writable_volume",
+    "discover_catalog",
     "patch_input_file_name",
     "prepare_databricks_runtime",
     "resolve_notebook_spark",
+    "bootstrap_notebook",
+    "clear_project_modules",
+    "reload_project_modules",
+    "resolve_notebook_path",
 ]

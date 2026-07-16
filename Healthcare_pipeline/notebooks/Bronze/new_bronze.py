@@ -10,48 +10,65 @@
 import sys
 from pathlib import Path
 
-def _bootstrap_project_root() -> None:
-    candidates = [
-        Path.cwd(),
-        Path.cwd().parent,
-        Path("/Workspace/Repos/Healthcare_Lakehouse"),
-        Path("/Workspace/Healthcare_Lakehouse"),
-    ]
-    users_root = Path("/Workspace/Users")
-    if users_root.exists():
-        for user_dir in users_root.iterdir():
-            candidates.extend(
-                [
-                    user_dir / "Databricks-project" / "Healthcare_pipeline",
-                    user_dir / "Databricks-project",
-                    user_dir / "Healthcare_pipeline",
-                    user_dir / "Healthcare_Lakehouse",
-                ]
-            )
-    for cand in candidates:
-        if (cand / "config" / "config.py").exists():
-            root = str(cand)
-            if root not in sys.path:
-                sys.path.insert(0, root)
-            return
+def _seed_project_root() -> str:
+    import os
+    def _is_root(p: Path) -> bool:
+        return (p / "config" / "config.py").exists()
+    candidates = []
+    env = os.getenv("HEALTHCARE_LAKEHOUSE_ROOT")
+    if env:
+        candidates.append(Path(env))
+    try:
+        candidates.extend([Path.cwd(), *list(Path.cwd().parents)[:12]])
+    except Exception:
+        pass
     try:
         nb = Path(
             dbutils.notebook.entry_point.getDbutils()  # type: ignore[name-defined]
-            .notebook()
-            .getContext()
-            .notebookPath()
-            .get()
+            .notebook().getContext().notebookPath().get()
         )
-        workspace_nb = Path("/Workspace") / str(nb).lstrip("/")
-        for parent in list(nb.parents) + list(workspace_nb.parents):
-            if (parent / "config" / "config.py").exists():
-                if str(parent) not in sys.path:
-                    sys.path.insert(0, str(parent))
-                return
+        ws = nb if str(nb).startswith("/Workspace") else Path("/Workspace") / str(nb).lstrip("/")
+        candidates = [ws, *list(ws.parents)[:12]] + candidates
     except Exception:
         pass
+    for base_name in ("/Workspace/Users", "/Workspace/Repos", "/Workspace"):
+        base = Path(base_name)
+        if not base.exists():
+            continue
+        try:
+            for child in list(base.iterdir())[:80]:
+                if not child.is_dir():
+                    continue
+                candidates.append(child)
+                try:
+                    for gc in list(child.iterdir())[:40]:
+                        if gc.is_dir():
+                            candidates.append(gc)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+    seen = set()
+    for cand in candidates:
+        key = str(cand)
+        if key in seen:
+            continue
+        seen.add(key)
+        if _is_root(cand):
+            root = str(cand)
+            if root in sys.path:
+                sys.path.remove(root)
+            sys.path.insert(0, root)
+            return root
+    raise FileNotFoundError(
+        "Healthcare_pipeline root not found. Set HEALTHCARE_LAKEHOUSE_ROOT."
+    )
 
-_bootstrap_project_root()
+_PROJECT_ROOT = _seed_project_root()
+
+from src.utilities.bootstrap import bootstrap_notebook
+_PROJECT_ROOT = str(bootstrap_notebook(dbutils=globals().get("dbutils"), reload_modules=True))
+
 
 # COMMAND ----------
 

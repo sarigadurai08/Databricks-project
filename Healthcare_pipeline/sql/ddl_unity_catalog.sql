@@ -1,9 +1,13 @@
 -- =============================================================================
--- Delta Lake DDL — Unity Catalog compatible (optional)
+-- Delta Lake DDL — Unity Catalog compatible (optional reference)
+-- =============================================================================
+-- PORTABLE: replace {{CATALOG}} with the catalog discovered at runtime
+-- (see prepare_databricks_runtime / current_catalog()).
+-- Prefer notebook auto-registration over running this file.
 -- =============================================================================
 
-CREATE CATALOG IF NOT EXISTS healthcare_catalog;
-USE CATALOG healthcare_catalog;
+-- CREATE CATALOG IF NOT EXISTS {{CATALOG}};  -- requires metastore admin
+USE CATALOG {{CATALOG}};
 
 CREATE SCHEMA IF NOT EXISTS bronze;
 CREATE SCHEMA IF NOT EXISTS silver;
@@ -45,7 +49,7 @@ ALTER TABLE silver.patients
 -- Liquid Clustering (DBR 13.3+)
 -- ALTER TABLE gold.revenue_analytics CLUSTER BY (PaymentDate, Hospital, Department);
 
--- External / path-based registration helper pattern
+-- External / path-based registration uses the runtime Volume, e.g.:
 -- CREATE TABLE gold.hospital_revenue
 -- USING DELTA
--- LOCATION 'dbfs:/mnt/healthcare_lakehouse/gold/hospital_revenue';
+-- LOCATION '{{VOLUME_BASE}}/gold/hospital_revenue';

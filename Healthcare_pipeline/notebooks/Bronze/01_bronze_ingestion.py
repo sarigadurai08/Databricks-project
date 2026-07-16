@@ -23,48 +23,65 @@
 import sys
 from pathlib import Path
 
-def _bootstrap_project_root() -> None:
-    candidates = [
-        Path.cwd(),
-        Path.cwd().parent,
-        Path("/Workspace/Repos/Healthcare_Lakehouse"),
-        Path("/Workspace/Healthcare_Lakehouse"),
-    ]
-    users_root = Path("/Workspace/Users")
-    if users_root.exists():
-        for user_dir in users_root.iterdir():
-            candidates.extend(
-                [
-                    user_dir / "Databricks-project" / "Healthcare_pipeline",
-                    user_dir / "Databricks-project",
-                    user_dir / "Healthcare_pipeline",
-                    user_dir / "Healthcare_Lakehouse",
-                ]
-            )
-    for cand in candidates:
-        if (cand / "config" / "config.py").exists():
-            root = str(cand)
-            if root not in sys.path:
-                sys.path.insert(0, root)
-            return
+def _seed_project_root() -> str:
+    import os
+    def _is_root(p: Path) -> bool:
+        return (p / "config" / "config.py").exists()
+    candidates = []
+    env = os.getenv("HEALTHCARE_LAKEHOUSE_ROOT")
+    if env:
+        candidates.append(Path(env))
+    try:
+        candidates.extend([Path.cwd(), *list(Path.cwd().parents)[:12]])
+    except Exception:
+        pass
     try:
         nb = Path(
             dbutils.notebook.entry_point.getDbutils()  # type: ignore[name-defined]
-            .notebook()
-            .getContext()
-            .notebookPath()
-            .get()
+            .notebook().getContext().notebookPath().get()
         )
-        workspace_nb = Path("/Workspace") / str(nb).lstrip("/")
-        for parent in list(nb.parents) + list(workspace_nb.parents):
-            if (parent / "config" / "config.py").exists():
-                if str(parent) not in sys.path:
-                    sys.path.insert(0, str(parent))
-                return
+        ws = nb if str(nb).startswith("/Workspace") else Path("/Workspace") / str(nb).lstrip("/")
+        candidates = [ws, *list(ws.parents)[:12]] + candidates
     except Exception:
         pass
+    for base_name in ("/Workspace/Users", "/Workspace/Repos", "/Workspace"):
+        base = Path(base_name)
+        if not base.exists():
+            continue
+        try:
+            for child in list(base.iterdir())[:80]:
+                if not child.is_dir():
+                    continue
+                candidates.append(child)
+                try:
+                    for gc in list(child.iterdir())[:40]:
+                        if gc.is_dir():
+                            candidates.append(gc)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+    seen = set()
+    for cand in candidates:
+        key = str(cand)
+        if key in seen:
+            continue
+        seen.add(key)
+        if _is_root(cand):
+            root = str(cand)
+            if root in sys.path:
+                sys.path.remove(root)
+            sys.path.insert(0, root)
+            return root
+    raise FileNotFoundError(
+        "Healthcare_pipeline root not found. Set HEALTHCARE_LAKEHOUSE_ROOT."
+    )
 
-_bootstrap_project_root()
+_PROJECT_ROOT = _seed_project_root()
+
+from src.utilities.bootstrap import bootstrap_notebook
+_PROJECT_ROOT = str(bootstrap_notebook(dbutils=globals().get("dbutils"), reload_modules=True))
+
 
 # COMMAND ----------
 
@@ -87,6 +104,8 @@ from src.ingestion.autoloader import AutoLoaderIngestion, stage_sample_files_to_
 from src.logging.logger import ensure_log_table, get_logger
 from src.utilities.dataframe_utils import generate_run_id
 from src.utilities.databricks_runtime import prepare_databricks_runtime
+from src.utilities.delta_helpers import table_exists
+from src.utilities.table_registry import register_bronze_tables
 
 # COMMAND ----------
 
@@ -175,6 +194,26 @@ if "_rescued_data" in patients_bronze.columns:
     display(rescued.limit(10))  # noqa: F821
 else:
     logger.info("No _rescued_data column present in this runtime load", module="bronze")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 5. Register Bronze as physical Unity Catalog tables
+
+# COMMAND ----------
+
+if cfg.unity_catalog.register_tables:
+    try:
+        reg = register_bronze_tables(spark, cfg, logger)
+        status_map["registered_tables"] = reg
+        logger.info("Bronze tables registered", module="bronze", details=reg)
+        catalog = cfg.unity_catalog.catalog or spark.sql("SELECT current_catalog()").collect()[0][0]
+        try:
+            display(spark.sql(f"SHOW TABLES IN `{catalog}`.bronze"))  # noqa: F821
+        except Exception:
+            display(spark.createDataFrame([(k, v) for k, v in reg.items()], ["table", "status"]))  # noqa: F821
+    except Exception as exc:
+        logger.warning(f"Bronze table registration skipped: {exc}", module="bronze")
 
 # COMMAND ----------
 

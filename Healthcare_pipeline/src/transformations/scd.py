@@ -199,63 +199,79 @@ def apply_scd_type2(
         change_cond = part if change_cond is None else (change_cond | part)
 
     assert change_cond is not None
+    # MATERIALIZE before any MERGE/append. Lazy plans that join the target path
+    # would re-read the mutated Delta table after MERGE and produce wrong inserts.
     changes = joined.filter(change_cond).select(*source_df.columns)
     news = source_df.join(current.select(*keys).distinct(), on=keys, how="left_anti")
 
-    has_changes = not _dataframe_is_empty(changes)
-    has_news = not _dataframe_is_empty(news)
+    changes_mat = changes.cache()
+    news_mat = news.cache()
+    change_count = changes_mat.count()
+    news_count = news_mat.count()
+    has_changes = change_count > 0
+    has_news = news_count > 0
 
-    if has_changes:
-        changes_keys = changes.select(*keys).distinct()
-        expire_condition = " AND ".join([f"t.`{k}` = k.`{k}`" for k in keys])
+    try:
+        if has_changes:
+            changes_keys = changes_mat.select(*keys).distinct()
+            expire_condition = " AND ".join([f"t.`{k}` = k.`{k}`" for k in keys])
 
-        # Expire matched current rows — use boolean false (not string) via SQL false literal
-        (
-            target.alias("t")
-            .merge(
-                changes_keys.alias("k"),
-                f"({expire_condition}) AND (CAST(t.`{SCD2_IS_CURRENT}` AS BOOLEAN) = true)",
+            # Expire matched current rows — use boolean false (not string) via SQL false literal
+            (
+                target.alias("t")
+                .merge(
+                    changes_keys.alias("k"),
+                    f"({expire_condition}) AND (CAST(t.`{SCD2_IS_CURRENT}` AS BOOLEAN) = true)",
+                )
+                .whenMatchedUpdate(
+                    set={
+                        SCD2_IS_CURRENT: "false",
+                        SCD2_EFFECTIVE_END: "current_timestamp()",
+                    }
+                )
+                .execute()
             )
-            .whenMatchedUpdate(
-                set={
-                    SCD2_IS_CURRENT: "false",
-                    SCD2_EFFECTIVE_END: "current_timestamp()",
-                }
+
+            # Insert new versions with incremented VersionNumber
+            current_versions = (
+                spark.read.format("delta")
+                .load(target_path)
+                .groupBy(*keys)
+                .agg(F.max(F.col(SCD2_VERSION).cast("int")).alias("max_version"))
             )
-            .execute()
-        )
+            new_versions = (
+                changes_mat.alias("s")
+                .join(current_versions.alias("v"), on=keys, how="left")
+                .withColumn(SCD2_VERSION, (F.coalesce(F.col("max_version"), F.lit(0)) + 1).cast("int"))
+                .withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
+                .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
+                .withColumn(SCD2_IS_CURRENT, F.lit(True).cast("boolean"))
+                .select(*[c for c in staged.columns])
+            )
+            write_delta(new_versions, target_path, mode="append", merge_schema=True)
 
-        # Insert new versions with incremented VersionNumber
-        current_versions = (
-            spark.read.format("delta")
-            .load(target_path)
-            .groupBy(*keys)
-            .agg(F.max(F.col(SCD2_VERSION).cast("int")).alias("max_version"))
-        )
-        new_versions = (
-            changes.alias("s")
-            .join(current_versions.alias("v"), on=keys, how="left")
-            .withColumn(SCD2_VERSION, (F.coalesce(F.col("max_version"), F.lit(0)) + 1).cast("int"))
-            .withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
-            .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
-            .withColumn(SCD2_IS_CURRENT, F.lit(True).cast("boolean"))
-            .select(*[c for c in staged.columns])
-        )
-        write_delta(new_versions, target_path, mode="append", merge_schema=True)
-
-    if has_news:
-        new_rows = (
-            news.withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
-            .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
-            .withColumn(SCD2_IS_CURRENT, F.lit(True).cast("boolean"))
-            .withColumn(SCD2_VERSION, F.lit(1).cast("int"))
-        )
-        target_cols = spark.read.format("delta").load(target_path).columns
-        for c in target_cols:
-            if c not in new_rows.columns:
-                new_rows = new_rows.withColumn(c, F.lit(None))
-        new_rows = new_rows.select(*target_cols)
-        write_delta(new_rows, target_path, mode="append", merge_schema=True)
+        if has_news:
+            new_rows = (
+                news_mat.withColumn(SCD2_EFFECTIVE_START, F.current_timestamp())
+                .withColumn(SCD2_EFFECTIVE_END, F.lit(None).cast("timestamp"))
+                .withColumn(SCD2_IS_CURRENT, F.lit(True).cast("boolean"))
+                .withColumn(SCD2_VERSION, F.lit(1).cast("int"))
+            )
+            target_cols = spark.read.format("delta").load(target_path).columns
+            for c in target_cols:
+                if c not in new_rows.columns:
+                    new_rows = new_rows.withColumn(c, F.lit(None))
+            new_rows = new_rows.select(*target_cols)
+            write_delta(new_rows, target_path, mode="append", merge_schema=True)
+    finally:
+        try:
+            changes_mat.unpersist()
+        except Exception:
+            pass
+        try:
+            news_mat.unpersist()
+        except Exception:
+            pass
 
     result = spark.read.format("delta").load(target_path)
     if logger:
@@ -263,8 +279,8 @@ def apply_scd_type2(
             f"SCD2 MERGE complete for {target_path}",
             module="scd2",
             details={
-                "changed": changes.count() if has_changes else 0,
-                "new": news.count() if has_news else 0,
+                "changed": change_count,
+                "new": news_count,
                 "current_rows": filter_current(result).count(),
             },
         )

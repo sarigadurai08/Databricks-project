@@ -129,16 +129,21 @@ class DeltaMaintenanceConfig:
 
 @dataclass
 class UnityCatalogConfig:
-    """Unity Catalog naming (no-op gracefully when UC is unavailable)."""
+    """Unity Catalog naming for registered physical tables."""
 
-    enabled: bool = field(default_factory=lambda: _env_bool("HEALTHCARE_UC_ENABLED", False))
-    catalog: str = field(default_factory=lambda: os.getenv("HEALTHCARE_UC_CATALOG", CATALOG_NAME))
+    enabled: bool = field(default_factory=lambda: _env_bool("HEALTHCARE_UC_ENABLED", True))
+    catalog: str = field(
+        default_factory=lambda: os.getenv("HEALTHCARE_UC_CATALOG", "").strip()
+    )
     bronze_schema: str = BRONZE_SCHEMA
     silver_schema: str = SILVER_SCHEMA
     gold_schema: str = GOLD_SCHEMA
+    register_tables: bool = field(
+        default_factory=lambda: _env_bool("HEALTHCARE_REGISTER_TABLES", True)
+    )
 
     def table_fqn(self, schema: str, table: str) -> str:
-        if self.enabled:
+        if self.enabled and self.catalog:
             return f"{self.catalog}.{schema}.{table}"
         return f"{schema}.{table}"
 

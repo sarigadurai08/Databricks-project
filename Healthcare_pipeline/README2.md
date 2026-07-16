@@ -43,9 +43,11 @@ Source CSV/JSON
       └── Monitoring / maintenance
 ```
 
-All runtime data (Bronze / Silver / Gold / logs / audit) is written to a writable Databricks Volume:
+All runtime data (Bronze / Silver / Gold / logs / audit) is written to a writable Databricks Volume that is **discovered at runtime** (never hardcoded):
 
-`/Volumes/workspace/default/healthcare_lakehouse`
+`/Volumes/<catalog>/<schema>/healthcare_lakehouse`
+
+Catalog and schema come from `prepare_databricks_runtime` (`current_catalog` / `SHOW CATALOGS`, or `HEALTHCARE_UC_CATALOG`).
 
 (Not into the Git repo.)
 
@@ -125,6 +127,7 @@ Runs the full chain in order (or you can run notebooks manually one by one).
 
 ## Notebook run order
 
+0. *(Optional)* `00_generate_datasets` — run Faker manually to create fresh/more sample data  
 1. `Bronze/01_bronze_ingestion`  
 2. `Silver/01_silver_transformations`  
 3. `Silver/02_scd_type1_type2_demo`  
@@ -133,6 +136,21 @@ Runs the full chain in order (or you can run notebooks manually one by one).
 6. `Monitoring/01_monitoring_maintenance`  
 
 Optional: `00_run_all_pipelines` (runs 1→6 for you).
+
+---
+
+## Generating more data (Faker)
+
+Faker does **not** run automatically — the repo already ships sample CSVs in `datasets/`,
+and Bronze stages those into the Volume landing zone on first run.
+
+When you want **more or different data**, open `notebooks/00_generate_datasets.py` in Databricks and run it:
+
+- Set widgets at the top: `num_patients`, `num_appointments`, … and `seed` (change seed for different values).
+- It generates all 7 entities, saves CSV + JSON into `datasets/` (when writable) and into the
+  Volume landing zone (`/Volumes/.../landing/csv/<entity>`).
+- Then run `Bronze/01_bronze_ingestion` — it will pick up the new files automatically
+  (Bronze never overwrites your freshly generated landing files with the repo samples).
 
 ---
 

@@ -13,7 +13,7 @@ from enum import Enum
 # ---------------------------------------------------------------------------
 # Catalog / schema naming (Unity Catalog compatible)
 # ---------------------------------------------------------------------------
-CATALOG_NAME = "healthcare_catalog"
+CATALOG_NAME = ""  # resolved at runtime — do not hardcode a workspace catalog
 BRONZE_SCHEMA = "bronze"
 SILVER_SCHEMA = "silver"
 GOLD_SCHEMA = "gold"

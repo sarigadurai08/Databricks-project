@@ -70,7 +70,9 @@ class LakehousePaths:
         elif env_storage:
             self.storage_base = env_storage.rstrip("/")
         elif self.use_dbfs:
-            self.storage_base = "dbfs:/mnt/healthcare_lakehouse"
+            # Legacy flag — Databricks binds a UC Volume via prepare_databricks_runtime.
+            self.storage_base = str(self.project_root / "data").replace("\\", "/")
+            self.use_dbfs = False
         else:
             self.storage_base = str(self.project_root / "data").replace("\\", "/")
 

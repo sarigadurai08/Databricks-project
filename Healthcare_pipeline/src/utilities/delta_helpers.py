@@ -61,6 +61,55 @@ def ensure_delta_parent(spark: SparkSession, path: str) -> None:
         pass
 
 
+def soft_reset_delta_path(
+    spark: SparkSession,
+    path: str,
+    schema_df: Optional[DataFrame] = None,
+) -> str:
+    """
+    Idempotently clear a Delta path without recursive filesystem deletes.
+
+    Avoids ``dbutils.fs.rm`` / ``shutil.rmtree`` which require elevated approval
+    or fail under Serverless / restricted workspaces.
+
+    Strategy (first success wins):
+      1. DELETE FROM delta.`path` WHERE true — clears rows, keeps table
+      2. Overwrite with an empty frame matching ``schema_df`` (if provided)
+      3. No-op when the path does not yet exist (caller bootstraps on write)
+
+    Returns a short status string for logging.
+    """
+    ensure_delta_parent(spark, path)
+
+    if not table_exists(spark, path):
+        return "absent"
+
+    try:
+        spark.sql(f"DELETE FROM delta.`{path}` WHERE true")
+        return "deleted_rows"
+    except Exception:
+        pass
+
+    if schema_df is not None:
+        try:
+            write_delta(schema_df.limit(0), path, mode="overwrite", merge_schema=True)
+            return "overwritten_empty"
+        except Exception:
+            pass
+
+    # Last resort: overwrite with a single throwaway row schema then delete —
+    # still no filesystem recursive remove.
+    try:
+        if schema_df is not None:
+            write_delta(schema_df, path, mode="overwrite", merge_schema=True)
+            spark.sql(f"DELETE FROM delta.`{path}` WHERE true")
+            return "overwrite_then_delete"
+    except Exception:
+        pass
+
+    return "uncleared"
+
+
 def table_exists(spark: SparkSession, path: str) -> bool:
     """
     Return True only when a readable Delta table exists at path.

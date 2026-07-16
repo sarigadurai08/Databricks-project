@@ -1,11 +1,12 @@
 -- =============================================================================
 -- Healthcare Lakehouse — SQL Analytics Scripts
 -- Run against Gold / Silver Delta tables (Databricks SQL warehouse or Spark SQL)
+--
+-- PORTABLE: run `USE CATALOG <your_catalog>;` first (discovered at runtime by
+-- prepare_databricks_runtime). Schema names bronze/silver/gold are layer defaults.
 -- =============================================================================
 
--- Register path-based tables (adjust storage base for your environment)
--- CREATE DATABASE IF NOT EXISTS gold;
--- CREATE TABLE IF NOT EXISTS gold.doctor_performance USING DELTA LOCATION '${storage_base}/gold/doctor_performance';
+-- Register path-based tables via notebooks (preferred) or sql/register_tables.sql
 
 -- -----------------------------------------------------------------------------
 -- 1. Top 10 Doctors by attributed revenue
