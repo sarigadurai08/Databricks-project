@@ -1,12 +1,15 @@
 """
-Register path-based Delta folders as queryable physical tables.
+Register path-based Delta folders as queryable physical Unity Catalog tables.
 
-Catalog and Volume locations are discovered at runtime — never hardcoded to
-a single workspace catalog such as `workspace`.
+IMPORTANT (Databricks / Unity Catalog rule):
+  You CANNOT create an external UC table with LOCATION pointing at a Volume
+  (/Volumes/...). Volumes and tables must not overlap.
 
-Example (resolved dynamically):
-    {catalog}.bronze.patients
-    → LOCATION '/Volumes/{catalog}/{schema}/healthcare_lakehouse/bronze/patients'
+  Pipeline data remains on the Volume (path-based Delta). Registration creates
+  **managed** UC tables via CTAS / saveAsTable so they are SQL-queryable:
+
+      CREATE OR REPLACE TABLE catalog.bronze.patients AS
+      SELECT * FROM delta.`/Volumes/.../bronze/patients`
 """
 
 from __future__ import annotations
@@ -19,6 +22,7 @@ from config.config import HealthcareConfig, get_config
 from config.constants import ALL_ENTITIES
 from src.logging.logger import HealthcareLogger
 from src.utilities.databricks_runtime import discover_catalog
+from src.utilities.delta_helpers import table_exists
 
 # Gold marts produced by build_all_gold_tables
 GOLD_TABLES = (
@@ -58,7 +62,6 @@ def ensure_schema(spark: SparkSession, catalog: str, schema: str) -> None:
     try:
         spark.sql(f"CREATE SCHEMA IF NOT EXISTS `{catalog}`.`{schema}`")
     except Exception:
-        # Fallback for non-UC / hive metastore
         try:
             spark.sql(f"CREATE DATABASE IF NOT EXISTS `{schema}`")
         except Exception:
@@ -71,6 +74,23 @@ def table_fqn(catalog: str, schema: str, table: str, use_catalog: bool = True) -
     return f"`{schema}`.`{table}`"
 
 
+def _is_volume_path(location: str) -> bool:
+    loc = (location or "").replace("\\", "/")
+    return loc.startswith("/Volumes/") or loc.startswith("dbfs:/Volumes/")
+
+
+def _verify_table(spark: SparkSession, fqn: str) -> bool:
+    try:
+        spark.sql(f"SELECT 1 FROM {fqn} LIMIT 0")
+        return True
+    except Exception:
+        try:
+            spark.table(fqn.replace("`", "")).limit(0).count()
+            return True
+        except Exception:
+            return False
+
+
 def register_external_delta_table(
     spark: SparkSession,
     fqn: str,
@@ -78,50 +98,93 @@ def register_external_delta_table(
     logger: Optional[HealthcareLogger] = None,
 ) -> bool:
     """
-    Create (or replace location for) an external Delta table over an existing path.
+    Create a queryable UC table over pipeline Delta data.
 
-    Returns True on success.
+    Strategy (first success wins):
+      1. If LOCATION is NOT a Volume path — try external table (cloud URI / mount)
+      2. Managed CTAS from delta.`location` (works for Volumes on Free Edition)
+      3. DataFrame saveAsTable overwrite (managed)
     """
-    try:
-        spark.sql(
-            f"""
-            CREATE TABLE IF NOT EXISTS {fqn}
-            USING DELTA
-            LOCATION '{location}'
-            """
-        )
+    if not table_exists(spark, location):
         if logger:
-            logger.info(
-                f"Registered table {fqn}",
+            logger.warning(
+                f"Skip register {fqn}: Delta path missing",
                 module="table_registry",
                 details={"location": location},
             )
-        return True
-    except Exception as exc:
-        # Table may already exist with wrong location — try CREATE OR REPLACE for Free Edition
+        return False
+
+    errors: list[str] = []
+
+    # 1) External LOCATION — only valid for non-Volume URIs under UC
+    if not _is_volume_path(location):
         try:
             spark.sql(
                 f"""
-                CREATE OR REPLACE TABLE {fqn}
+                CREATE TABLE IF NOT EXISTS {fqn}
                 USING DELTA
                 LOCATION '{location}'
                 """
             )
+            if _verify_table(spark, fqn):
+                if logger:
+                    logger.info(
+                        f"Registered external table {fqn}",
+                        module="table_registry",
+                        details={"location": location, "mode": "external"},
+                    )
+                return True
+        except Exception as exc:
+            errors.append(f"external:{exc}")
+
+    # 2) Managed table via CTAS (correct approach for Volume-backed Delta)
+    try:
+        spark.sql(
+            f"""
+            CREATE OR REPLACE TABLE {fqn}
+            AS SELECT * FROM delta.`{location}`
+            """
+        )
+        if _verify_table(spark, fqn):
             if logger:
                 logger.info(
-                    f"Re-registered table {fqn}",
+                    f"Registered managed table {fqn}",
                     module="table_registry",
-                    details={"location": location},
+                    details={"location": location, "mode": "ctas"},
                 )
             return True
-        except Exception as exc2:
+    except Exception as exc:
+        errors.append(f"ctas:{exc}")
+
+    # 3) saveAsTable fallback
+    try:
+        plain = fqn.replace("`", "")
+        (
+            spark.read.format("delta")
+            .load(location)
+            .write.format("delta")
+            .mode("overwrite")
+            .option("overwriteSchema", "true")
+            .saveAsTable(plain)
+        )
+        if _verify_table(spark, fqn):
             if logger:
-                logger.warning(
-                    f"Failed to register {fqn}: {exc2}",
+                logger.info(
+                    f"Registered managed table {fqn}",
                     module="table_registry",
-                    details={"first_error": str(exc), "location": location},
+                    details={"location": location, "mode": "saveAsTable"},
                 )
-            return False
+            return True
+    except Exception as exc:
+        errors.append(f"saveAsTable:{exc}")
+
+    if logger:
+        logger.warning(
+            f"Failed to register {fqn}",
+            module="table_registry",
+            details={"location": location, "errors": errors[:3]},
+        )
+    return False
 
 
 def register_layer_tables(
@@ -135,12 +198,21 @@ def register_layer_tables(
     """
     Register many (table_name, location) pairs under catalog.schema.
 
-    Returns status map: fqn -> SUCCESS|FAILED
+    Returns status map: fqn -> SUCCESS|FAILED|SKIPPED
     """
     ensure_schema(spark, catalog, schema)
     status: dict[str, str] = {}
     for table, location in tables:
         fqn = table_fqn(catalog, schema, table, use_catalog=use_catalog)
+        if not table_exists(spark, location):
+            status[fqn.replace("`", "")] = "SKIPPED"
+            if logger:
+                logger.warning(
+                    f"Skip {fqn}: path not ready",
+                    module="table_registry",
+                    details={"location": location},
+                )
+            continue
         ok = register_external_delta_table(spark, fqn, location, logger=logger)
         status[fqn.replace("`", "")] = "SUCCESS" if ok else "FAILED"
     return status
@@ -223,6 +295,9 @@ def register_ops_tables(
         ensure_schema(spark, catalog, schema)
         location = path_getters[getter_name]()
         fqn = table_fqn(catalog, schema, table)
+        if not table_exists(spark, location):
+            status[fqn.replace("`", "")] = "SKIPPED"
+            continue
         ok = register_external_delta_table(spark, fqn, location, logger=logger)
         status[fqn.replace("`", "")] = "SUCCESS" if ok else "FAILED"
     return status

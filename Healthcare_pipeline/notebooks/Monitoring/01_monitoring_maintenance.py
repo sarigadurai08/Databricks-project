@@ -236,14 +236,19 @@ except Exception as exc:
 
 if cfg.delta_maintenance.liquid_clustering_enabled:
     try:
+        from src.utilities.table_registry import register_external_delta_table, resolve_catalog, ensure_schema
+
         gold_rev = cfg.paths.gold_path("revenue_analytics")
-        spark.sql(f"CREATE TABLE IF NOT EXISTS gold_revenue_analytics USING DELTA LOCATION '{gold_rev}'")
+        catalog = resolve_catalog(spark, cfg.unity_catalog.catalog or None)
+        ensure_schema(spark, catalog, cfg.unity_catalog.gold_schema)
+        fqn = f"`{catalog}`.`{cfg.unity_catalog.gold_schema}`.`revenue_analytics`"
+        register_external_delta_table(spark, fqn, gold_rev, logger=logger)
         enable_liquid_clustering(
             spark,
-            "gold_revenue_analytics",
+            f"{catalog}.{cfg.unity_catalog.gold_schema}.revenue_analytics",
             ["PaymentDate", "Hospital", "Department"],
         )
-        logger.info("Liquid clustering requested for gold_revenue_analytics", module="monitoring")
+        logger.info("Liquid clustering requested for gold.revenue_analytics", module="monitoring")
         status_map["liquid_clustering"] = "requested"
     except Exception as exc:
         logger.warning(f"Liquid clustering not applied: {exc}", module="monitoring")

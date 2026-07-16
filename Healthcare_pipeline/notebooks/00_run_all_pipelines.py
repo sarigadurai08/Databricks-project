@@ -126,7 +126,17 @@ try:
         path = resolve_notebook_path(rel_path, dbutils=_dbutils)
         with auditor.track(f"orchestrate_{name}") as ctx:
             logger.info(f"Starting notebook {path}", module="orchestration")
-            result = _dbutils.notebook.run(path, timeout_seconds=3600)  # type: ignore[union-attr]
+            try:
+                result = _dbutils.notebook.run(path, timeout_seconds=3600)  # type: ignore[union-attr]
+            except Exception as nb_exc:
+                # Surface nested notebook failure clearly in orchestration logs
+                logger.error(
+                    f"Notebook failed: {path}",
+                    module="orchestration",
+                    exc=nb_exc,
+                    details={"step": name},
+                )
+                raise
             ctx["rows_inserted"] = 1
             status_map[name] = result or "SUCCESS"
             logger.info(

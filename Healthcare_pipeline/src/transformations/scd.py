@@ -34,6 +34,48 @@ def _dataframe_is_empty(df: DataFrame) -> bool:
             return True
 
 
+def _materialize_df(
+    spark: SparkSession,
+    df: DataFrame,
+    staging_path: str,
+) -> tuple[DataFrame, int, str]:
+    """
+    Force-evaluate a DataFrame before mutating its source Delta path.
+
+    Order: localCheckpoint → cache → temp Delta overwrite.
+    Returns (materialized_df, row_count, method).
+    """
+    # 1) localCheckpoint (works well on Serverless / Spark Connect)
+    try:
+        out = df.localCheckpoint(eager=True)
+        n = out.count()
+        return out, n, "localCheckpoint"
+    except Exception:
+        pass
+
+    # 2) cache
+    try:
+        out = df.cache()
+        n = out.count()
+        return out, n, "cache"
+    except Exception:
+        pass
+
+    # 3) Durable staging on Volume / storage (always available)
+    ensure_delta_parent(spark, staging_path)
+    write_delta(df, staging_path, mode="overwrite", merge_schema=True)
+    out = spark.read.format("delta").load(staging_path)
+    n = out.count()
+    return out, n, "delta_stage"
+
+
+def _release_materialized(df: DataFrame) -> None:
+    try:
+        df.unpersist()
+    except Exception:
+        pass
+
+
 def _is_path_not_found(exc: BaseException) -> bool:
     msg = str(exc).upper()
     return "PATH_NOT_FOUND" in msg or "DOES NOT EXIST" in msg or "FILENOTFOUND" in msg.replace(" ", "")
@@ -204,10 +246,12 @@ def apply_scd_type2(
     changes = joined.filter(change_cond).select(*source_df.columns)
     news = source_df.join(current.select(*keys).distinct(), on=keys, how="left_anti")
 
-    changes_mat = changes.cache()
-    news_mat = news.cache()
-    change_count = changes_mat.count()
-    news_count = news_mat.count()
+    changes_mat, change_count, _chg_method = _materialize_df(
+        spark, changes, f"{target_path.rstrip('/')}_scd2_stg_changes"
+    )
+    news_mat, news_count, _news_method = _materialize_df(
+        spark, news, f"{target_path.rstrip('/')}_scd2_stg_news"
+    )
     has_changes = change_count > 0
     has_news = news_count > 0
 
@@ -264,14 +308,8 @@ def apply_scd_type2(
             new_rows = new_rows.select(*target_cols)
             write_delta(new_rows, target_path, mode="append", merge_schema=True)
     finally:
-        try:
-            changes_mat.unpersist()
-        except Exception:
-            pass
-        try:
-            news_mat.unpersist()
-        except Exception:
-            pass
+        _release_materialized(changes_mat)
+        _release_materialized(news_mat)
 
     result = spark.read.format("delta").load(target_path)
     if logger:

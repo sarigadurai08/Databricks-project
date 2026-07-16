@@ -148,7 +148,10 @@ try:
                 module="silver",
                 details={"in": ctx["rows_read"], "out": ctx["rows_inserted"]},
             )
-            display(cleaned.limit(5))  # noqa: F821
+            try:
+                display(cleaned.limit(5))  # noqa: F821
+            except Exception as display_exc:
+                logger.warning(f"display skipped for {entity}: {display_exc}", module="silver")
 except Exception as exc:
     logger.error("Silver cleanse failed", module="silver", exc=exc)
     logger.flush()
@@ -215,7 +218,10 @@ try:
         ctx["rows_read"] = silver_staged["patients"].count()
         ctx["rows_inserted"] = filter_current(patients_scd2).count()
         status_map["patients_scd2"] = ctx["rows_inserted"]
-        display(filter_current(patients_scd2).limit(10))  # noqa: F821
+        try:
+            display(filter_current(patients_scd2).limit(10))  # noqa: F821
+        except Exception as display_exc:
+            logger.warning(f"display skipped for patients_scd2: {display_exc}", module="silver")
 except Exception as exc:
     logger.error("SCD Type 2 failed for patients", module="silver", exc=exc)
     logger.flush()
@@ -269,7 +275,10 @@ try:
         spark.read.format("delta").load(cfg.paths.silver_path("patients"))
     )
     write_delta(patients_current, cfg.paths.silver_path("patients_current"), mode="overwrite")
-    display(patients_current.limit(10))  # noqa: F821
+    try:
+        display(patients_current.limit(10))  # noqa: F821
+    except Exception as display_exc:
+        logger.warning(f"display skipped for patients_current: {display_exc}", module="silver")
 except Exception as exc:
     logger.error("Failed writing patients_current", module="silver", exc=exc)
     logger.flush()

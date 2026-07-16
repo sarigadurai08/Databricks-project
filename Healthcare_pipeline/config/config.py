@@ -151,7 +151,8 @@ class UnityCatalogConfig:
     gold_schema: str = field(
         default_factory=lambda: os.getenv("HEALTHCARE_UC_GOLD_SCHEMA", GOLD_SCHEMA)
     )
-    # Automatically CREATE TABLE ... USING DELTA LOCATION after each layer
+    # Automatically create managed UC tables (CTAS) after each layer.
+    # Note: UC cannot use LOCATION on /Volumes/ paths — registration uses CTAS.
     register_tables: bool = field(
         default_factory=lambda: _env_bool("HEALTHCARE_REGISTER_TABLES", True)
     )
